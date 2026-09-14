@@ -3,7 +3,7 @@ export const education = {
   program: "Mechanical Engineering",
   location: "San Diego, California",
   date: "Expected transfer: Fall 2027",
-  gpa: "~3.95 / 4.00",
+  gpa: "3.95 / 4.00",
   distinction: "Dean’s List",
   coursework: [
     "Linear Algebra",

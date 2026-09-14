@@ -84,7 +84,7 @@ this repository. Keep professional files in separate `definitely-public`,
 `unsure`, and `do-not-publish` locations before selecting anything for the site.
 
 To hide a whole project, set its top-level `public` field to `false`. It will be
-removed from cards, filters, static routes, navigation, and the sitemap.
+removed from cards, the Work archive, static routes, project navigation, and the sitemap.
 
 ## Change the resume PDF
 
@@ -117,8 +117,8 @@ private entries are not intended for public display.
 
 ## Change contact information
 
-Edit only `src/config/site.ts`. The header, calls to action, resume, contact
-page, SEO defaults, and footer use this central configuration.
+Edit only `src/config/site.ts`. The resume, contact page, SEO defaults, and
+footer use this central configuration.
 
 ## Quality checks
 

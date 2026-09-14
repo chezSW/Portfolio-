@@ -1,7 +1,7 @@
 import type { Project } from "./types";
 
 export const thermalAnalysis: Project = {
-  title: "Thermal Architecture Trade Study",
+  title: "Thermal Analysis & Hardware Cooling",
   slug: "thermal-analysis",
   subtitle: "Steady-state analysis for space electronics packaging",
   summary:
@@ -9,7 +9,7 @@ export const thermalAnalysis: Project = {
   categories: ["Professional", "Thermal", "Mechanical Design"],
   featured: true,
   public: true,
-  order: 1,
+  order: 2,
   role: "Mechanical Engineering Intern",
   organization: "Power Device Corp",
   date: "June 2025 — Present",
@@ -17,87 +17,63 @@ export const thermalAnalysis: Project = {
   focus: "Thermal / Mechanical Packaging",
   system: "Space Electronics",
   status: "Professional / NDA-Compliant",
-  keyResult: "Selected the lower-temperature packaging architecture",
+  keyResult: "Used thermal results to change the mechanical design",
   tools: ["ANSYS Mechanical", "SolidWorks", "Steady-State Thermal"],
   skills: ["Heat-path analysis", "Packaging trade studies", "Design iteration"],
   visual: "thermal",
   media: [],
   metrics: [
     {
-      value: "~96 °C",
-      label: "Architecture A",
-      detail: "More direct conductive path to the chassis",
-    },
-    {
       value: "~25 °C",
-      label: "Predicted reduction",
-      detail: "Compared with the alternate placement",
+      label: "Processor-placement difference",
+      detail: "Between two compared concepts",
     },
     {
-      value: "2",
-      label: "Architectures compared",
-      detail: "Processor placement and heat-path concepts",
+      value: "~20%",
+      label: "Chassis weight reduction",
+      detail: "From a later pocketing iteration",
+    },
+    {
+      value: "~2%",
+      label: "Overall temperature reduction",
+      detail: "Associated with that pocketed chassis iteration",
     },
   ],
-  thermalComparison: {
-    first: {
-      label: "Architecture A",
-      value: "~96 °C",
-      detail: "Shorter, more direct path into the chassis",
-    },
-    second: {
-      label: "Architecture B",
-      value: "~121 °C",
-      detail: "Alternate component placement and heat path",
-    },
-    delta: "~25 °C lower",
-    heatPath: ["Processor", "Heat shunt", "Chassis", "External structure"],
-  },
   process: ["Define concepts", "Build model", "Solve", "Compare", "Inform packaging"],
   sections: [
     {
-      eyebrow: "01 / Context",
-      title: "The engineering question",
+      title: "The question",
       paragraphs: [
-        "A space-electronics package needed a processor architecture with an effective conductive path into the chassis. Placement affected more than temperature: it also influenced PCB routing direction, heat-shunt geometry, and the mechanical layout around the assembly.",
-        "I used a steady-state thermal trade study to compare two packaging concepts before the next mechanical iteration.",
+        "The thermal work usually started with a mechanical question: where should the processor go, how should heat reach the chassis, or which local geometry made that path work better?",
+        "I used steady-state studies in ANSYS Mechanical to compare those choices before the next packaging iteration.",
       ],
     },
     {
-      eyebrow: "02 / Ownership",
-      title: "My role",
+      title: "Why the processor moved",
       paragraphs: [
-        "I prepared and compared the two concepts in ANSYS Mechanical, interpreted the predicted temperature difference, and communicated how the result affected processor placement and packaging direction.",
-      ],
-      bullets: [
-        "Evaluate conductive heat-flow paths",
-        "Compare processor/component placement",
-        "Study chassis conduction and heat-shunt concepts",
-        "Translate analysis into a mechanical packaging decision",
+        "One trade study compared processor placement on opposite sides of the assembly. The concepts differed by roughly 25 °C, which was enough to influence processor placement, PCB routing direction, heat-shunt design, and the surrounding package.",
       ],
     },
     {
-      eyebrow: "03 / Constraints",
-      title: "A coupled packaging decision",
+      title: "Getting heat into the chassis",
       paragraphs: [
-        "The thermal result could not be treated in isolation. The preferred path also had to remain compatible with PCB routing, mechanical interfaces, assembly access, and the chassis concept.",
+        "I also compared local geometry around conductive paths: base geometry, chamfers, fillets, extended features, and combinations of those changes. I looked at how heat flux moved around standoffs and walls, and how heat shunts behaved with and without interface material.",
+        "The useful result was not the contour plot by itself. It was understanding which geometry gave heat a better path without creating a new packaging or manufacturing problem.",
       ],
       note:
-        "Detailed geometry, boundary conditions, loads, materials, and mesh settings are intentionally omitted until approved for public release.",
+        "Geometry, loads, materials, boundary conditions, interface resistance, and mesh details remain private until approved.",
     },
     {
-      eyebrow: "04 / Interpretation",
-      title: "Why the architecture changed",
+      title: "Taking material out without making things hotter",
       paragraphs: [
-        "The architecture with a more direct path to the chassis predicted a processor temperature near 96 °C. The alternate placement was approximately 25 °C hotter. That difference was large enough to make thermal performance a deciding input to the next layout iteration.",
-        "The comparison informed component placement, PCB routing direction, heat-shunt design, and the surrounding mechanical package.",
+        "A later chassis iteration used pocketing to remove unnecessary material. That version reduced chassis weight by approximately 20% while reducing overall card temperatures by roughly 2%.",
+        "I am not claiming structural performance from that result; this was a mechanical and thermal design iteration, not a public structural-analysis result.",
       ],
     },
     {
-      eyebrow: "05 / Outcome",
-      title: "Analysis became a design input",
+      title: "What changed",
       paragraphs: [
-        "The lower-temperature architecture became the basis for continued packaging development. The value of the study was not just a contour plot; it established a clearer heat-flow strategy for the hardware team to carry into the next design cycle.",
+        "Thermal analysis became one of the inputs to processor placement, heat-path architecture, heat-shunt details, interface material, local chassis geometry, and enclosure packaging. The simulations were most useful when they ended with a different piece of CAD.",
       ],
     },
   ],

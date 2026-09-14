@@ -8,7 +8,7 @@ export function SiteHeader() {
         <Link className="brand" href="/" aria-label={`${siteConfig.name} home`}>
           <span className="brand__text">
             <strong>{siteConfig.name}</strong>
-            <span>Mechanical engineering portfolio</span>
+            <span>Mechanical engineering</span>
           </span>
         </Link>
 

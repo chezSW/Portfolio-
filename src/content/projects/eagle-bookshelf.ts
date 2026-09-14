@@ -1,15 +1,14 @@
 import type { Project } from "./types";
 
 export const eagleBookshelf: Project = {
-  title: "Rolling Library Bookshelf",
+  title: "Eagle Scout Service Project — Rolling Library Bookshelf",
   slug: "rolling-library-bookshelf",
   subtitle: "Eagle Scout service project delivered for public use",
-  summary:
-    "Planned and led the design and construction of a custom rolling bookshelf for the 4S Ranch Library Friends of the Library program.",
+  summary: "Planned and led the construction of a rolling bookshelf for a local library program.",
   categories: ["Personal", "Mechanical Design"],
   featured: false,
   public: true,
-  order: 7,
+  order: 6,
   role: "Project Lead",
   organization: "Eagle Scout Service Project",
   date: "2023",
@@ -19,7 +18,15 @@ export const eagleBookshelf: Project = {
   tools: ["Woodworking", "Fabrication", "Project Planning"],
   skills: ["Volunteer coordination", "Materials planning", "Installation"],
   visual: "fabrication",
-  media: [],
+  media: [
+    {
+      src: "/images/bookshelf/library-bookshelf.jpg",
+      alt: "Finished wooden rolling bookshelf installed at the library",
+      caption: "The finished bookshelf in use at the 4S Ranch Library.",
+      public: true,
+      aspect: "portrait",
+    },
+  ],
   process: ["Plan", "Source", "Coordinate", "Build", "Install"],
   sections: [
     {
@@ -34,6 +41,16 @@ export const eagleBookshelf: Project = {
       title: "Planning through installation",
       paragraphs: [
         "I planned and led the project, coordinating design, materials, woodworking, volunteer effort, fabrication, and installation. The result was a completed piece of hardware placed into real public use.",
+      ],
+      layout: "split",
+      media: [
+        {
+          src: "/images/bookshelf/library-bookshelf-plaque.jpg",
+          alt: "Detail of the plaque mounted on the completed library bookshelf",
+          caption: "A small detail on a very physical kind of project.",
+          public: true,
+          aspect: "portrait",
+        },
       ],
     },
     {

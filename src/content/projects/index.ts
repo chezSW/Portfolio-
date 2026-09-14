@@ -1,20 +1,20 @@
 import { autonomousKart } from "./autonomous-kart";
+import { ansysAutomation } from "./ansys-automation";
 import { eagleBookshelf } from "./eagle-bookshelf";
 import { firstRobotics } from "./first-robotics";
 import { lockingMecanum } from "./locking-mecanum";
 import { manufacturingFixtures } from "./manufacturing-fixtures";
-import { spaceElectronics } from "./space-electronics";
-import { thermalAnalysis } from "./thermal-analysis";
+import { powerDevice } from "./power-device";
 import type { Project, ProjectCategory } from "./types";
 
 export const projects: Project[] = [
-  thermalAnalysis,
-  spaceElectronics,
+  powerDevice,
   manufacturingFixtures,
-  autonomousKart,
   firstRobotics,
-  lockingMecanum,
+  autonomousKart,
+  ansysAutomation,
   eagleBookshelf,
+  lockingMecanum,
 ]
   .filter((project) => project.public)
   .sort((a, b) => a.order - b.order);

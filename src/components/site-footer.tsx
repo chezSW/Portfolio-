@@ -4,25 +4,24 @@ import { siteConfig } from "@/config/site";
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <div className="shell site-footer__top">
+      <div className="shell site-footer__inner">
         <div>
-          <Link className="footer-name" href="/">
-            {siteConfig.name}
-          </Link>
-          <p>Mechanical design → thermal engineering → manufactured hardware.</p>
+          <Link className="footer-name" href="/">{siteConfig.name}</Link>
+          <p>{siteConfig.location}</p>
         </div>
         <nav aria-label="Footer navigation">
           {siteConfig.navigation.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
+            <Link key={item.href} href={item.href}>{item.label}</Link>
           ))}
         </nav>
+        <div className="footer-contact">
+          {siteConfig.email ? <a href={`mailto:${siteConfig.email}`}>Email</a> : null}
+          {siteConfig.linkedIn ? <a href={siteConfig.linkedIn}>LinkedIn</a> : null}
+        </div>
       </div>
-      <div className="shell site-footer__bottom">
-        <span>© {new Date().getFullYear()} {siteConfig.name}</span>
-        <span>Built to show the engineering.</span>
-      </div>
+      <p className="shell site-footer__copyright">
+        © {new Date().getFullYear()} {siteConfig.name}
+      </p>
     </footer>
   );
 }

@@ -3,6 +3,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
+import "./resume-theme.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -22,13 +23,13 @@ export const metadata: Metadata = {
     siteName: `${siteConfig.name} Portfolio`,
     title: `${siteConfig.name} | ${siteConfig.title}`,
     description: siteConfig.description,
-    images: [{ url: "/og-simple.png", width: 1536, height: 1024, alt: "Chase Norvell mechanical engineering portfolio" }],
+    images: [{ url: "/og-robotic.png", width: 1536, height: 1024, alt: "Chase Norvell mechanical engineering portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${siteConfig.title}`,
     description: siteConfig.description,
-    images: ["/og-simple.png"],
+    images: ["/og-robotic.png"],
   },
 };
 
@@ -54,7 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   };
 
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>
         <a className="skip-link" href="#main-content">Skip to content</a>
         <SiteHeader />

@@ -14,7 +14,8 @@ export type ProjectVisual =
   | "vehicle"
   | "robotics"
   | "mechanism"
-  | "fabrication";
+  | "fabrication"
+  | "automation";
 
 export type ProjectSection = {
   eyebrow?: string;
@@ -22,6 +23,9 @@ export type ProjectSection = {
   paragraphs?: string[];
   bullets?: string[];
   note?: string;
+  media?: ProjectMedia[];
+  video?: ProjectVideo;
+  layout?: "text" | "split" | "visual-first" | "gallery";
 };
 
 export type ProjectMetric = {
@@ -34,6 +38,15 @@ export type ProjectMedia = {
   src: string;
   alt: string;
   caption?: string;
+  public: boolean;
+  aspect?: "wide" | "portrait" | "square" | "natural";
+};
+
+export type ProjectVideo = {
+  src: string;
+  poster: string;
+  caption: string;
+  label: string;
   public: boolean;
 };
 

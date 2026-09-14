@@ -1,22 +1,28 @@
 "use client";
 
 import { useState } from "react";
-import type { Project, ProjectCategory } from "@/content/projects";
-import { projectCategories } from "@/content/projects";
+import type { Project } from "@/content/projects";
 import { ProjectCard } from "./project-card";
 
-type Filter = "All" | ProjectCategory;
+type Filter = "All" | "Professional" | "Student Teams" | "Personal";
+
+const filters: Filter[] = ["All", "Professional", "Student Teams", "Personal"];
+
+function belongsTo(project: Project, filter: Filter) {
+  if (filter === "All") return true;
+  if (filter === "Professional") return project.categories.includes("Professional");
+  if (filter === "Personal") return project.categories.includes("Personal");
+  return ["autonomous-kart-packaging", "first-robotics"].includes(project.slug);
+}
 
 export function FilteredProjectGrid({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState<Filter>("All");
-  const visibleProjects = filter === "All"
-    ? projects
-    : projects.filter((project) => project.categories.includes(filter));
+  const visibleProjects = projects.filter((project) => belongsTo(project, filter));
 
   return (
     <>
       <div className="project-filters" aria-label="Filter projects">
-        {projectCategories.map((category) => (
+        {filters.map((category) => (
           <button
             className={category === filter ? "is-active" : ""}
             key={category}
@@ -28,11 +34,15 @@ export function FilteredProjectGrid({ projects }: { projects: Project[] }) {
           </button>
         ))}
       </div>
-      <p className="project-count" aria-live="polite">
-        {visibleProjects.length.toString().padStart(2, "0")} projects shown
-      </p>
-      <div className="project-grid project-grid--all">
-        {visibleProjects.map((project) => <ProjectCard key={project.slug} project={project} />)}
+      <div className="filtered-project-list" aria-live="polite">
+        {visibleProjects.map((project, index) => (
+          <ProjectCard
+            key={project.slug}
+            project={project}
+            variant={index % 4 === 0 ? "wide" : index % 4 === 1 ? "portrait" : index % 4 === 3 ? "compact" : "standard"}
+            showSummary={index % 3 === 0}
+          />
+        ))}
       </div>
     </>
   );

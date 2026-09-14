@@ -1,26 +1,34 @@
 import type { Project } from "./types";
 
 export const autonomousKart: Project = {
-  title: "Autonomous Kart Electronics Package",
+  title: "Mesa FSD — Autonomous Kart Electronics Package",
   slug: "autonomous-kart-packaging",
-  subtitle: "Serviceable, environmentally protected vehicle integration",
+  subtitle: "Mechanical integration work in progress",
   summary:
-    "Leading electronics enclosure and mounting design while coordinating mechanical, electrical, and autonomy requirements inside an autonomous kart.",
+    "Student-team packaging work for the electrical and autonomy hardware on an autonomous kart. Detailed subsystem evidence is still being documented.",
   categories: ["Autonomous Systems", "Mechanical Design", "Robotics"],
-  featured: true,
+  featured: false,
   public: true,
-  order: 4,
+  order: 5,
   role: "Electronics Packaging Lead",
   organization: "Mesa Full Self Driving Club",
   date: "March 2026 — Present",
   focus: "Electronics Packaging / Vehicle Integration",
   system: "Autonomous Kart",
   status: "Student Engineering Team / In Development",
-  keyResult: "Team placed Top 5 nationally in a 12-university field",
+  keyResult: "Packaging work in development",
   tools: ["CAD", "Enclosure Design", "Mechanical Integration"],
-  skills: ["Sealing", "Wire routing", "Serviceability"],
+  skills: ["Interface mapping", "Wire routing", "Service access"],
   visual: "vehicle",
-  media: [],
+  media: [
+    {
+      src: "/images/kart/autonomous-kart.jpg",
+      alt: "Student autonomous kart chassis with electronics and wiring installed",
+      caption: "The current kart platform. Packaging work is developing around the vehicle and its subsystem interfaces.",
+      public: true,
+      aspect: "wide",
+    },
+  ],
   metrics: [
     { value: "Top 5", label: "Team result", detail: "Autonomous Karting Series" },
     { value: "12", label: "Universities", detail: "National field at Purdue University" },
@@ -29,24 +37,25 @@ export const autonomousKart: Project = {
   sections: [
     {
       eyebrow: "01 / System",
-      title: "Packaging autonomy hardware into a vehicle",
+      title: "Current project context",
       paragraphs: [
-        "The kart needs a compact electronics package that fits the vehicle, protects critical hardware, supports clean wire routing, and remains accessible when the team is testing or troubleshooting.",
+        "The kart needs an electronics package that fits the vehicle, protects critical hardware, supports clean wire routing, and remains accessible during testing. The current public material establishes the vehicle context, not a completed enclosure.",
       ],
     },
     {
       eyebrow: "02 / Role",
-      title: "Owning the mechanical-electrical interface",
+      title: "My role",
       paragraphs: [
-        "As electronics packaging lead, I develop CAD mounts and enclosure concepts while coordinating mechanical, electrical, and software requirements. The objective is a serviceable, environmentally protected package that works with the rest of the vehicle.",
+        "As electronics packaging lead, I develop mount and enclosure concepts while coordinating mechanical, electrical, and autonomy requirements. I am still documenting the first complete subsystem story, so this page does not claim a finished or validated package.",
       ],
-      bullets: ["Mounting and enclosure CAD", "Sealing features", "Wire routing", "Watertight design", "Service and assembly access"],
+      bullets: ["Mounting and enclosure concepts", "Wire-routing strategy", "Interface coordination", "Service and assembly access"],
+      layout: "split",
     },
     {
       eyebrow: "03 / Integration",
       title: "Requirements arrive from three disciplines",
       paragraphs: [
-        "Mechanical geometry, electrical interfaces, connector access, sensing needs, and software debugging all shape the package. Regular cross-functional review helps prevent a locally good mechanical design from creating an integration problem elsewhere.",
+        "Mechanical geometry, electrical interfaces, connector access, sensing needs, and debugging access all shape the package. Regular review helps catch integration problems before one subsystem is designed too far in isolation.",
       ],
     },
     {
