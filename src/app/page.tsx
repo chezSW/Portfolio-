@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { DraggableToolRail } from "@/components/draggable-tool-rail";
 import { siteConfig } from "@/config/site";
 import { education } from "@/content/education";
 import { projects } from "@/content/projects";
@@ -90,9 +91,7 @@ export default function Home() {
 
       <section className="reference-tools" aria-label="Tools and technologies">
         <p>Tools &amp; Technologies</p>
-        <div className="reference-tools__track">
-          {[...toolGroups, ...toolGroups].map((tool, index) => <span key={`${tool}-${index}`}>{tool}</span>)}
-        </div>
+        <DraggableToolRail items={toolGroups} />
       </section>
 
       <section className="reference-section shell" id="projects">

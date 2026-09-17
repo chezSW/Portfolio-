@@ -197,11 +197,26 @@ a:hover { color: var(--accent-strong); }
 
 .reference-tools > p { text-align: center; }
 
+.reference-tools__viewport {
+  overflow: hidden;
+  padding-block: 4px;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  outline: none;
+}
+
+.reference-tools__viewport.is-dragging { cursor: grabbing; }
+
+.reference-tools__viewport:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
 .reference-tools__track {
   display: flex;
   width: max-content;
   gap: 12px;
-  animation: reference-marquee 34s linear infinite;
+  will-change: transform;
 }
 
 .reference-tools__track span {
@@ -213,10 +228,6 @@ a:hover { color: var(--accent-strong); }
   color: #deded8;
   font-size: 0.92rem;
   font-weight: 650;
-}
-
-@keyframes reference-marquee {
-  to { transform: translateX(-50%); }
 }
 
 .reference-section {
@@ -662,7 +673,6 @@ a:hover { color: var(--accent-strong); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reference-tools__track { animation: none; }
   .reference-project-card__visual img,
   .reference-button,
   .desktop-nav a { transition: none; }
