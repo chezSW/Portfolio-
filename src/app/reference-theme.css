@@ -215,8 +215,14 @@ a:hover { color: var(--accent-strong); }
 .reference-tools__track {
   display: flex;
   width: max-content;
-  gap: 12px;
   will-change: transform;
+}
+
+.reference-tools__group {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 12px;
+  padding-right: 12px;
 }
 
 .reference-tools__track span {

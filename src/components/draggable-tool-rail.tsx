@@ -12,6 +12,7 @@ const KEYBOARD_STEP = 96;
 export function DraggableToolRail({ items }: DraggableToolRailProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const groupRef = useRef<HTMLDivElement>(null);
   const offsetRef = useRef(0);
   const loopWidthRef = useRef(0);
   const lastFrameRef = useRef(0);
@@ -43,7 +44,8 @@ export function DraggableToolRail({ items }: DraggableToolRailProps) {
 
   useEffect(() => {
     const track = trackRef.current;
-    if (!track) return;
+    const group = groupRef.current;
+    if (!track || !group) return;
 
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const updateMotionPreference = () => {
@@ -53,11 +55,11 @@ export function DraggableToolRail({ items }: DraggableToolRailProps) {
     motionQuery.addEventListener("change", updateMotionPreference);
 
     const measure = () => {
-      loopWidthRef.current = track.scrollWidth / 2;
+      loopWidthRef.current = group.getBoundingClientRect().width;
       renderOffset(offsetRef.current);
     };
     const resizeObserver = new ResizeObserver(measure);
-    resizeObserver.observe(track);
+    resizeObserver.observe(group);
     measure();
 
     let frame = 0;
@@ -143,13 +145,16 @@ export function DraggableToolRail({ items }: DraggableToolRailProps) {
       onKeyDown={handleKeyDown}
     >
       <div ref={trackRef} className="reference-tools__track">
-        {[0, 1].flatMap((copy) =>
-          items.map((item) => (
-            <span key={`${copy}-${item}`} aria-hidden={copy === 1 ? "true" : undefined}>
-              {item}
-            </span>
-          )),
-        )}
+        {[0, 1, 2, 3].map((copy) => (
+          <div
+            key={copy}
+            ref={copy === 0 ? groupRef : undefined}
+            className="reference-tools__group"
+            aria-hidden={copy > 0 ? "true" : undefined}
+          >
+            {items.map((item) => <span key={`${copy}-${item}`}>{item}</span>)}
+          </div>
+        ))}
       </div>
     </div>
   );
