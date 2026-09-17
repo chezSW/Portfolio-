@@ -91,6 +91,7 @@ export function PowerDeviceCaseStudy({ nextProject }: { project: Project; nextPr
   return (
     <article className="focused-case shell">
       <header className="focused-case__hero">
+        <nav className="reference-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/projects">Projects Archive</Link><span>/</span><strong>Power Device Corporation</strong></nav>
         <Link className="simple-back" href="/projects">← Projects</Link>
         <p className="simple-label">Professional · Power Device Corporation</p>
         <h1>Internship at Power Device Corporation</h1>
@@ -100,6 +101,7 @@ export function PowerDeviceCaseStudy({ nextProject }: { project: Project; nextPr
           <div><dt>Dates</dt><dd>June 2025 — August 2026</dd></div>
           <div><dt>Focus</dt><dd>Packaging · Thermal · Drawings</dd></div>
         </dl>
+        <div className="reference-case-skills"><p>Skills</p>{["SolidWorks", "ANSYS Mechanical", "GD&T", "Fusion 360 CAM", "Python", "CNC Machining"].map((tool) => <span key={tool}>{tool}</span>)}</div>
         <p className="focused-case__summary">Over more than a year, I worked across the engineering path from CAD and analysis to drawings, machining, assembly, and production support.</p>
         <aside>
           <strong>Scope note</strong>

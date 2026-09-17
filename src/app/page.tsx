@@ -1,142 +1,160 @@
 import Image from "next/image";
 import Link from "next/link";
+import { siteConfig } from "@/config/site";
+import { education } from "@/content/education";
+import { projects } from "@/content/projects";
 
-const featuredWork = [
-  {
-    title: "Internship at Power Device Corporation",
-    label: "Mechanical Engineering Intern · Jun 2025 — Aug 2026",
-    summary: "More than a year working on aerospace electronics across mechanical design, thermal analysis, automation, drawings, manufacturing, and 20+ production-fixture configurations.",
-    href: "/projects/power-device-corporation",
-    image: "/images/professional/power-device/full-card-render.png",
-    alt: "Rendered HPSC electronics card showing its PCB, structure, connectors, and thermal hardware",
-    contain: true,
-    lead: true,
-  },
-  {
-    title: "FIRST Robotics",
-    label: "Student robotics · 2014 — 2024",
-    summary: "A ten-year progression from FLL and mechanical fabrication to complete mechanisms, team leadership, Roboctopi, and FRC integration.",
-    href: "/projects/first-robotics",
-    image: "/images/first/archive/roboctopi-robot.jpg",
-    alt: "Roboctopi FTC competition robot",
-  },
-  {
-    title: "Mesa FSD",
-    label: "Electronics Packaging Lead · 2026 — Present",
-    summary: "Enclosures, mounts, sealing, wire routing, serviceability, and subsystem integration for an autonomous kart.",
-    href: "/projects/autonomous-kart-packaging",
-    image: "/images/kart/autonomous-kart.jpg",
-    alt: "Mesa FSD autonomous kart chassis with its electronics installed",
-  },
-  {
-    title: "Locking Mecanum Wheel",
-    label: "Independent mechanical design · 2023",
-    summary: "A servo-actuated concept using CAD and printed components to selectively constrain mecanum rollers for conventional traction.",
-    href: "/projects/locking-mecanum-wheel",
-    image: "/images/locking-mecanum/wheel-locked.jpg",
-    alt: "CAD view of the locking mecanum wheel mechanism",
-    contain: true,
-  },
+const featuredSlugs = [
+  "power-device-corporation",
+  "first-robotics",
+  "autonomous-kart-packaging",
+  "locking-mecanum-wheel",
 ];
+
+const featuredWork = featuredSlugs
+  .map((slug) => projects.find((project) => project.slug === slug))
+  .filter((project) => project !== undefined);
 
 const experience = [
   {
-    company: "Power Device Corporation",
-    role: "Mechanical Engineering Intern",
     date: "Jun 2025 — Aug 2026",
-    summary: "Mechanical packaging, thermal studies, drawings, production fixtures, and machining support for high-reliability electronics.",
+    role: "Mechanical Engineering Intern",
+    organization: "Power Device Corporation",
+    detail: "Designed and analyzed mechanical packaging, heat-transfer hardware, drawings, and more than 20 production-fixture configurations for aerospace electronics.",
+    href: "/projects/power-device-corporation",
   },
   {
-    company: "Mesa Full Self Driving",
-    role: "Electronics Packaging Lead",
     date: "Mar 2026 — Present",
-    summary: "Student-team packaging work for the electrical and autonomy hardware on an autonomous kart.",
+    role: "Electronics Packaging Lead",
+    organization: "Mesa FSD",
+    detail: "Leading enclosure, mounting, sealing, serviceability, and wire-routing work for the electrical and autonomy hardware on an autonomous kart.",
+    href: "/projects/autonomous-kart-packaging",
   },
   {
-    company: "FIRST",
-    role: "Student, Mechanical Designer & Team Lead",
     date: "2014 — 2024",
-    summary: "Mechanical design, fabrication, system integration, outreach, and team leadership across FLL, FTC, and FRC.",
+    role: "Mechanical Designer & Team Lead",
+    organization: "FIRST Robotics",
+    detail: "Progressed from FLL and hands-on fabrication to complete mechanisms, CAD ownership, cross-functional leadership, and FRC integration.",
+    href: "/projects/first-robotics",
   },
 ];
 
-const capabilities = [
-  ["Design", "SolidWorks, Fusion 360, electronics packaging, drawings, GD&T"],
-  ["Analysis", "ANSYS Mechanical, steady-state thermal studies, model simplification"],
-  ["Build", "Fusion 360 CAM, CNC milling, FDM and SLA printing, fixture work"],
-  ["Automation", "Python inside ANSYS Mechanical for repetitive result review"],
+const toolGroups = [
+  "SolidWorks",
+  "ANSYS Mechanical",
+  "Fusion 360",
+  "GD&T",
+  "CNC Machining",
+  "FDM + SLA",
+  "Python",
+  "Robotics",
 ];
+
+function FeaturedProject({ project, lead = false }: { project: (typeof projects)[number]; lead?: boolean }) {
+  const image = project.media.find((item) => item.public);
+  return (
+    <article className={`reference-project-card${lead ? " reference-project-card--lead" : ""}`}>
+      <Link className="reference-project-card__visual" href={`/projects/${project.slug}`} aria-label={`Read ${project.title}`}>
+        {image ? <Image src={image.src} alt={image.alt} fill sizes={lead ? "(max-width: 760px) 100vw, 1100px" : "(max-width: 760px) 100vw, 550px"} /> : null}
+      </Link>
+      <div className="reference-project-card__body">
+        <h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3>
+        <p>{project.summary}</p>
+        <div className="reference-project-card__skills" aria-label="Skills">
+          {project.tools.slice(0, 5).map((tool) => <span key={tool}>{tool}</span>)}
+        </div>
+        <Link className="reference-button reference-button--secondary" href={`/projects/${project.slug}`}>Read more <span aria-hidden="true">→</span></Link>
+      </div>
+    </article>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="portfolio-home shell">
-      <section className="portfolio-hero">
-        <div className="portfolio-hero__copy">
-          <p className="resume-kicker">Mechanical Engineering Portfolio</p>
-          <h1>Chase Norvell</h1>
-          <p className="portfolio-hero__statement">
-            Mechanical engineering student working across electronics packaging, thermal analysis, drawings, and hardware.
-          </p>
-          <p className="portfolio-hero__intro">
-            I like working at the point where CAD turns into something people have to build, assemble, and use. My recent work has included space-electronics packaging, production fixtures, CNC machining, and robotics mechanisms.
-          </p>
-          <div className="portfolio-hero__links">
-            <Link href="/projects">View projects</Link>
-            <Link href="/resume">Resume</Link>
+    <div className="reference-home">
+      <section className="reference-hero shell" id="home">
+        <div className="reference-hero__copy">
+          <h1>Mechanical design,<br />made <span>real.</span></h1>
+          <p>I’m Chase Norvell—a mechanical engineering student in San Diego. I work across electronics packaging, thermal analysis, manufacturing, and robotics, with a focus on designs that have to be built, assembled, and used.</p>
+          <p className="reference-location"><span aria-hidden="true">⌖</span> San Diego, California, USA</p>
+          <div className="reference-actions">
+            <Link className="reference-button" href="/resume"><span aria-hidden="true">↓</span> View resume</Link>
+            {siteConfig.linkedIn ? <a className="reference-icon-button" href={siteConfig.linkedIn} aria-label="LinkedIn">in</a> : null}
+            {siteConfig.email ? <a className="reference-icon-button" href={`mailto:${siteConfig.email}`} aria-label="Email">@</a> : null}
           </div>
         </div>
-        <figure className="portfolio-hero__image">
-          <Image
-            src="/images/professional/power-device/full-card-render.png"
-            alt="Rendered HPSC electronics card with the mechanical package and PCB visible"
-            fill
-            loading="eager"
-            sizes="(max-width: 760px) 100vw, 48vw"
-          />
-          <figcaption>HPSC card-level packaging — professional work shown with permission</figcaption>
+        <figure className="reference-hero__portrait">
+          <Image src="/images/about/chase-norvell.jpg" alt="Chase Norvell" fill priority sizes="(max-width: 760px) 100vw, 42vw" />
         </figure>
       </section>
 
-      <section className="home-section home-work" aria-labelledby="selected-work-title">
-        <header className="home-section__heading">
-          <div><p className="resume-kicker">Selected work</p><h2 id="selected-work-title">Four projects worth opening</h2></div>
-          <Link href="/projects">All projects →</Link>
+      <section className="reference-tools" aria-label="Tools and technologies">
+        <p>Tools &amp; Technologies</p>
+        <div className="reference-tools__track">
+          {[...toolGroups, ...toolGroups].map((tool, index) => <span key={`${tool}-${index}`}>{tool}</span>)}
+        </div>
+      </section>
+
+      <section className="reference-section shell" id="projects">
+        <header className="reference-section__heading">
+          <p>Projects</p>
+          <h2>Featured Work</h2>
+          <span>Mechanical systems, aerospace hardware, autonomous vehicles, and robots—designed with the full build process in mind.</span>
         </header>
-        <div className="home-work-grid">
-          {featuredWork.map((project) => (
-            <article className={`home-work-card${project.lead ? " home-work-card--lead" : ""}`} key={project.href}>
-              <Link className={`home-work-card__image${project.contain ? " home-work-card__image--contain" : ""}`} href={project.href}>
-                <Image src={project.image} alt={project.alt} fill sizes="(max-width: 760px) 100vw, 33vw" />
-              </Link>
-              <p>{project.label}</p>
-              <h3><Link href={project.href}>{project.title}</Link></h3>
-              <span>{project.summary}</span>
-            </article>
-          ))}
+        <div className="reference-project-grid">
+          {featuredWork.map((project, index) => <FeaturedProject key={project.slug} project={project} lead={index === 0} />)}
         </div>
+        <Link className="reference-archive-link" href="/projects">Browse the full archive <span aria-hidden="true">→</span></Link>
       </section>
 
-      <section className="home-section home-experience" aria-labelledby="home-experience-title">
-        <div className="home-section__heading"><div><p className="resume-kicker">Experience</p><h2 id="home-experience-title">Where I have worked</h2></div></div>
-        <div className="home-experience__list">
+      <section className="reference-section shell" id="experience">
+        <header className="reference-section__heading">
+          <p>Work &amp; Experience</p>
+          <h2>Engineering Experience</h2>
+        </header>
+        <div className="reference-experience">
           {experience.map((item) => (
-            <article key={item.company}>
-              <div><h3>{item.company}</h3><p>{item.role}</p></div>
+            <article key={item.organization}>
               <time>{item.date}</time>
-              <p>{item.summary}</p>
+              <div>
+                <h3>{item.role}</h3>
+                <strong>{item.organization}</strong>
+                <p>{item.detail}</p>
+                <Link href={item.href}>Read more <span aria-hidden="true">→</span></Link>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="home-section home-capabilities" aria-labelledby="capabilities-title">
-        <div className="home-section__heading"><div><p className="resume-kicker">Capabilities</p><h2 id="capabilities-title">How I approach hardware</h2></div></div>
-        <dl>{capabilities.map(([title, detail]) => <div key={title}><dt>{title}</dt><dd>{detail}</dd></div>)}</dl>
+      <section className="reference-section shell" id="education">
+        <header className="reference-section__heading">
+          <p>Academic Background</p>
+          <h2>Education &amp; Honors</h2>
+        </header>
+        <div className="reference-education">
+          <div className="reference-recognition">
+            <p>Recognition</p>
+            <div><strong>{education.distinction}</strong><span>Academic recognition</span></div>
+            <div><strong>{education.gpa}</strong><span>Current GPA</span></div>
+          </div>
+          <article>
+            <span>Mechanical Engineering · {education.date}</span>
+            <h3>{education.school}</h3>
+            <p>{education.location}</p>
+            <div className="reference-coursework">{education.coursework.map((course) => <span key={course}>{course}</span>)}</div>
+          </article>
+        </div>
       </section>
 
-      <section className="home-personal">
-        <p>Outside school and work, I have spent a lot of time around robots, PCs, and projects that usually end with parts spread across a table. I enjoy the point where a clean model meets a messy physical constraint.</p>
-        <div><Link href="/about">More about me →</Link><Link href="/contact">Get in touch →</Link></div>
+      <section className="reference-contact shell" id="contact">
+        <p>Connect</p>
+        <h2>Get in Touch</h2>
+        <span>I’m interested in mechanical design, thermal engineering, electronics packaging, manufacturing, aerospace, and robotics opportunities.</span>
+        <div className="reference-actions">
+          {siteConfig.email ? <a className="reference-button" href={`mailto:${siteConfig.email}`}>Email me</a> : null}
+          {siteConfig.linkedIn ? <a className="reference-button reference-button--secondary" href={siteConfig.linkedIn}>LinkedIn <span aria-hidden="true">↗</span></a> : null}
+        </div>
       </section>
     </div>
   );

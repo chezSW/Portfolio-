@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 import "./resume-theme.css";
+import "./reference-theme.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

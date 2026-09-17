@@ -175,10 +175,12 @@ export function FirstRoboticsCaseStudy({ nextProject }: { project: Project; next
   return (
     <article className="first-case shell">
       <header className="first-case__hero">
+        <nav className="reference-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/projects">Projects Archive</Link><span>/</span><strong>FIRST Robotics</strong></nav>
         <Link className="simple-back" href="/projects">← Projects</Link>
         <p className="first-story__eyebrow">Mechanical design · Prototyping · Leadership</p>
         <h1>FIRST Robotics</h1>
         <p>From early fabrication to complete mechanisms, subsystem ownership, leadership of a roughly 15-person team, and FRC integration.</p>
+        <div className="reference-case-skills"><p>Skills</p>{["Mechanical Design", "Fusion 360", "Fabrication", "Prototyping", "Systems Integration", "Team Leadership"].map((tool) => <span key={tool}>{tool}</span>)}</div>
         <RoboticsImage src="/images/first/archive/roboctopi-robot.jpg" alt="Roboctopi FTC robot" caption="FTC 14496 Roboctopi · one chapter in a ten-year student path spanning FLL, FTC, and FRC." eager />
       </header>
       <FirstRoboticsStory />

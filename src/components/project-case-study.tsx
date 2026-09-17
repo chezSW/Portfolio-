@@ -45,12 +45,14 @@ export function ProjectCaseStudy({ project, nextProject }: { project: Project; n
   return (
     <article className="simple-project-page shell">
       <header className="simple-project-hero">
+        <nav className="reference-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/projects">Projects Archive</Link><span>/</span><strong>{project.title}</strong></nav>
         <Link className="simple-back" href="/projects">← Projects</Link>
         <p className="simple-label">{project.categories[0]} · {project.date}</p>
         <h1>{project.title}</h1>
         <p className="simple-project-hero__subtitle">{project.subtitle}</p>
         <p className="simple-project-hero__summary">{project.summary}</p>
         <dl><div><dt>Role</dt><dd>{project.role}</dd></div><div><dt>Organization</dt><dd>{project.organization}</dd></div><div><dt>Focus</dt><dd>{project.focus}</dd></div></dl>
+        <div className="reference-case-skills"><p>Skills</p>{project.tools.slice(0, 7).map((tool) => <span key={tool}>{tool}</span>)}</div>
       </header>
 
       {leadMedia ? (

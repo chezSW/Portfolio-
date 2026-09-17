@@ -6,15 +6,12 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="site-header__inner shell">
         <Link className="brand" href="/" aria-label={`${siteConfig.name} home`}>
-          <span className="brand__text">
-            <strong>{siteConfig.name}</strong>
-            <span>Mechanical engineering</span>
-          </span>
+          <strong>{siteConfig.name}</strong>
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {siteConfig.navigation.map((item) => (
-            <Link key={item.href} href={item.href}>
+          {siteConfig.navigation.map((item, index) => (
+            <Link key={item.href} href={item.href} className={index === siteConfig.navigation.length - 1 ? "nav-cta" : undefined}>
               {item.label}
             </Link>
           ))}
