@@ -7,7 +7,7 @@ export const manufacturingFixtures: Project = {
   summary: "Two examples of fixture work carried from a production-floor problem through CAD, fit checks, CAM, machining, and hardware review.",
   categories: ["Professional", "Manufacturing", "Mechanical Design"],
   featured: true,
-  public: true,
+  public: false,
   order: 2,
   role: "Mechanical Engineering Intern",
   organization: "Power Device Corporation",

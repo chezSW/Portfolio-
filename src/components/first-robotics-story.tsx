@@ -9,7 +9,6 @@ const timeline = [
   ["2022–2023", "Team 10092 lead", "A 15-person team and three major robot iterations"],
   ["2023–2024", "FTC 14496", "V1 intake work, CAD collaboration, and outreach"],
   ["2023–2024", "FRC 1622", "Removable bumper hardware and STEM advocacy"],
-  ["2024–Present", "FIRST mentor", "CAD, design reviews, fabrication, and troubleshooting"],
 ];
 
 const skills = [
@@ -17,7 +16,7 @@ const skills = [
   ["CAD", "Fusion 360, Onshape, full robot assemblies, component design, and design reviews"],
   ["Manufacturing", "FDM printing, CNC machining, waterjet and laser-cut parts, hand fabrication, and rapid prototypes"],
   ["Engineering process", "Design matrices, proof-of-concept builds, calculations, failure analysis, testing, and system integration"],
-  ["Leadership", "Team lead coordination, scheduling, mentoring, technical communication, and design review presentations"],
+  ["Leadership", "Team lead coordination, scheduling, peer training, technical communication, and design review presentations"],
 ];
 
 function RoboticsImage({ src, alt, caption, contain = false, eager = false }: { src: string; alt: string; caption: string; contain?: boolean; eager?: boolean }) {
@@ -36,13 +35,13 @@ function FirstRoboticsStory() {
         <div>
           <p className="first-story__eyebrow">Project overview</p>
           <h2>My first long-term engineering laboratory</h2>
-          <p>FIRST Robotics is where I learned how much I enjoy building things. I started in FIRST LEGO League, moved into FTC and FRC, and gradually took on CAD, mechanism design, machining, design reviews, team leadership, and mentorship.</p>
+          <p>FIRST Robotics is where I learned how much I enjoy building things. I started in FIRST LEGO League, moved into FTC and FRC, and gradually took on CAD, mechanism design, machining, design reviews, subsystem ownership, and team leadership.</p>
           <p>The process that stayed with me is simple: build something, test it, understand why it failed, change it, and try again.</p>
         </div>
         <dl className="first-story__facts">
-          <div><dt>Involvement</dt><dd>2014–Present</dd></div>
+          <div><dt>Student experience</dt><dd>2014–2024</dd></div>
           <div><dt>Programs</dt><dd>FLL · FTC · FRC</dd></div>
-          <div><dt>Progression</dt><dd>Member → Designer → Team Lead → Mentor</dd></div>
+          <div><dt>Progression</dt><dd>FLL member → Mechanical member → Designer → Team Lead</dd></div>
           <div><dt>Core work</dt><dd>CAD · Prototyping · Fabrication · Integration</dd></div>
         </dl>
       </section>
@@ -145,18 +144,8 @@ function FirstRoboticsStory() {
           <div><p className="first-story__eyebrow">Team outreach · 2022–2023</p><strong>36</strong><span>events</span></div>
           <div><p className="first-story__eyebrow">Team total</p><strong>390+</strong><span>volunteer hours</span></div>
           <div><p className="first-story__eyebrow">Estimated reach</p><strong>2,523+</strong><span>people impacted</span></div>
-          <p>I helped support CAD and mechanical training, FLL mentoring, STEM events, engineering speakers, and advocacy. With Roboctopi, I also helped outreach efforts that launched seven FLL teams and expanded FIRST access to more than 400 students. These figures describe team efforts; my contribution was mentorship, events, advocacy, and technical support.</p>
+          <p>I helped support CAD and mechanical training, FLL team support, STEM events, engineering speakers, and advocacy. With Roboctopi, I also contributed to outreach efforts that launched seven FLL teams and expanded FIRST access to more than 400 students. These figures describe team efforts; my contribution was events, advocacy, and technical support.</p>
         </div>
-      </section>
-
-      <section className="first-story__chapter first-story__mentorship">
-        <div>
-          <p className="first-story__eyebrow">07 · Mentorship · 2024–Present</p>
-          <h2>Coming back as a mentor</h2>
-          <p>After aging out as a student, I continued mentoring Golden Griffins FLL and FTC teams 10092 Green.Griffins, 26235 RoboGenesis, and 14338 CAOS Robotics.</p>
-          <p>I focus on Onshape, Fusion 360, mechanical design, design reviews, prototyping, manufacturing, and helping students turn an idea into something they can build and test.</p>
-        </div>
-        <blockquote>Good engineering rarely happens on the first try. Most of the time, it comes from building something, breaking it, understanding why, and making the next version better.</blockquote>
       </section>
     </div>
   );
@@ -187,10 +176,10 @@ export function FirstRoboticsCaseStudy({ nextProject }: { project: Project; next
     <article className="first-case shell">
       <header className="first-case__hero">
         <Link className="simple-back" href="/projects">← Projects</Link>
-        <p className="first-story__eyebrow">Mechanical design · Leadership · Mentorship</p>
+        <p className="first-story__eyebrow">Mechanical design · Prototyping · Leadership</p>
         <h1>FIRST Robotics</h1>
-        <p>From early fabrication to complete mechanisms, team leadership, FRC integration, and mentoring the next group of designers.</p>
-        <RoboticsImage src="/images/first/archive/roboctopi-robot.jpg" alt="Roboctopi FTC robot" caption="FTC 14496 Roboctopi · one chapter in a FIRST path spanning FLL, FTC, FRC, and mentorship." eager />
+        <p>From early fabrication to complete mechanisms, subsystem ownership, leadership of a roughly 15-person team, and FRC integration.</p>
+        <RoboticsImage src="/images/first/archive/roboctopi-robot.jpg" alt="Roboctopi FTC robot" caption="FTC 14496 Roboctopi · one chapter in a ten-year student path spanning FLL, FTC, and FRC." eager />
       </header>
       <FirstRoboticsStory />
       <nav className="simple-project-nav"><Link href="/projects">← All projects</Link>{nextProject ? <Link href={`/projects/${nextProject.slug}`}>Next: {nextProject.title} →</Link> : null}</nav>

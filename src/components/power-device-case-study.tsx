@@ -19,35 +19,110 @@ function Visual({ src, alt, caption, contain = false, priority = false }: Visual
   );
 }
 
+function PowerDeviceInternshipOverview() {
+  return (
+    <div className="pdc-story">
+      <section className="pdc-story__overview">
+        <div>
+          <p className="case-number">Internship scope</p>
+          <h2>From CAD and analysis to hardware on the floor</h2>
+          <p>I spent more than a year working on high-reliability aerospace electronics, with exposure to the full path from mechanical design and analysis through drawings, manufacturing, assembly, troubleshooting, and iteration.</p>
+        </div>
+        <dl>
+          <div><dt>Role</dt><dd>Mechanical Engineering Intern</dd></div>
+          <div><dt>Dates</dt><dd>June 2025 — August 2026</dd></div>
+          <div><dt>Environment</dt><dd>Aerospace electronics hardware</dd></div>
+        </dl>
+      </section>
+
+      <section className="pdc-story__results" aria-label="Internship results">
+        <div><strong>20+</strong><span>production-fixture configurations</span></div>
+        <div><strong>~5 min → &lt;1 min</strong><span>estimated setup-time change for one fixture</span></div>
+        <div><strong>Design → build</strong><span>analysis, drawings, manufacturing, and hardware</span></div>
+      </section>
+      <p className="pdc-story__note">The setup-time comparison comes from project notes and shop-floor use, not a controlled time study.</p>
+
+      <section className="pdc-story__work">
+        <header><p className="case-number">What I worked on</p><h2>Four connected areas of responsibility</h2></header>
+        <div className="pdc-story__work-grid">
+          <article><span>01</span><h3>Mechanical design &amp; packaging</h3><p>SolidWorks PCB assemblies, chassis and card-level layouts, heat-transfer hardware, interference checks, tolerance stack-ups, GD&amp;T drawings, and manufacturing support.</p></article>
+          <article><span>02</span><h3>Thermal analysis</h3><p>PCB-level ANSYS Mechanical studies used to review component temperatures, thermal margin, conductive heat paths, and cooling concepts while geometry could still change.</p></article>
+          <article><span>03</span><h3>Engineering automation</h3><p>A Python tool inside ANSYS that extracted peak temperatures and node locations to CSV and created review labels. I used AI-assisted debugging while developing it, then verified the workflow against the model results.</p></article>
+          <article><span>04</span><h3>Manufacturing &amp; fixture design</h3><p>More than 20 fixture configurations using SolidWorks, Fusion 360 CAM, FDM printing, and CNC machining—from quick fit checks to production tooling used by operators.</p></article>
+        </div>
+      </section>
+
+      <section className="pdc-story__evidence" aria-label="Internship evidence">
+        <Visual src="/images/professional/power-device/full-card-hardware.jpg" alt="Assembled HPSC electronics hardware" caption="Electronics packaging — interfaces carried from CAD into assembled hardware." contain />
+        <Visual src="/images/professional/power-device/ansys-automation.png" alt="ANSYS Mechanical interface showing automated temperature review" caption="Automation — repetitive temperature review converted into a repeatable Python workflow." contain />
+        <Visual src="/images/professional/power-device/gallery-01-clipping-hardware.jpg" alt="Machined production clipping fixture" caption="Manufacturing — the fixture that reduced reliance on visual alignment and shortened setup." />
+      </section>
+
+      <section className="pdc-story__lesson">
+        <p className="case-number">What this experience taught me</p>
+        <blockquote>Designing something in CAD is only part of the job. The useful engineering happens when the design survives analysis, drawings, manufacturing, assembly, troubleshooting, and iteration on real hardware.</blockquote>
+      </section>
+    </div>
+  );
+}
+
+export function PowerDeviceDisclosure({ project }: { project: Project }) {
+  return (
+    <details className="pdc-disclosure">
+      <summary>
+        <div className="pdc-disclosure__image"><Image src="/images/professional/power-device/full-card-render.png" alt="Integrated HPSC electronics card assembly" fill loading="eager" sizes="(max-width: 760px) 100vw, 58vw" /></div>
+        <div className="pdc-disclosure__copy">
+          <p>Professional experience</p>
+          <time>{project.date}</time>
+          <h2>{project.title}</h2>
+          <span>{project.summary}</span>
+          <strong><i aria-hidden="true">+</i> View internship</strong>
+        </div>
+      </summary>
+      <div className="pdc-disclosure__body">
+        <PowerDeviceInternshipOverview />
+        <Link className="pdc-disclosure__permalink" href={`/projects/${project.slug}`}>Open the full internship case study →</Link>
+      </div>
+    </details>
+  );
+}
+
 export function PowerDeviceCaseStudy({ nextProject }: { project: Project; nextProject?: Project }) {
   return (
     <article className="focused-case shell">
       <header className="focused-case__hero">
         <Link className="simple-back" href="/projects">← Projects</Link>
         <p className="simple-label">Professional · Power Device Corporation</p>
-        <h1>HPSC electronics packaging</h1>
-        <p className="focused-case__subtitle">PCB interfaces, thermal studies, drawings, and card-level hardware</p>
+        <h1>Internship at Power Device Corporation</h1>
+        <p className="focused-case__subtitle">Mechanical design, thermal analysis, manufacturing, and production hardware for high-reliability aerospace electronics</p>
         <dl>
           <div><dt>Role</dt><dd>Mechanical Engineering Intern</dd></div>
           <div><dt>Dates</dt><dd>June 2025 — August 2026</dd></div>
           <div><dt>Focus</dt><dd>Packaging · Thermal · Drawings</dd></div>
         </dl>
-        <p className="focused-case__summary">
-          HPSC was my first card-level packaging project. The work sat between the PCB, thermal path, card frame, and chassis, so a change in one area usually moved a constraint somewhere else.
-        </p>
+        <p className="focused-case__summary">Over more than a year, I worked across the engineering path from CAD and analysis to drawings, machining, assembly, and production support.</p>
         <aside>
           <strong>Scope note</strong>
-          <p>The card was a shared engineering effort. I worked on mechanical PCB definition, packaging studies, selected heat-shunt geometry, thermal models, fabrication drawings, and hardware checks with review and support from other engineers. This page does not claim individual ownership of the full card.</p>
+          <p>The aerospace assemblies were shared engineering efforts. This page distinguishes the work I performed from team-owned hardware and omits proprietary details.</p>
         </aside>
       </header>
 
-      <Visual
-        src="/images/professional/power-device/full-card-render.png"
-        alt="Rendered HPSC card assembly with the PCB, card structure, connectors, and thermal hardware visible"
-        caption="System context — the PCB, card structure, connectors, and heat-shunt hardware had to be developed as one package."
-        contain
-        priority
-      />
+      <PowerDeviceInternshipOverview />
+
+      <section className="focused-case__section">
+        <div className="focused-case__copy">
+          <p className="case-number">Selected engineering deep dive</p>
+          <h2>HPSC electronics packaging</h2>
+          <p>The clearest public technical story is the card-level packaging work connecting the PCB, thermal path, card frame, connectors, and chassis. A change in one area usually moved a constraint somewhere else.</p>
+        </div>
+        <Visual
+          src="/images/professional/power-device/full-card-render.png"
+          alt="Rendered HPSC card assembly with the PCB, card structure, connectors, and thermal hardware visible"
+          caption="System context — the PCB, card structure, connectors, and heat-shunt hardware had to be developed as one package."
+          contain
+          priority
+        />
+      </section>
 
       <section className="focused-case__section focused-case__section--split">
         <div className="focused-case__copy">
@@ -117,7 +192,19 @@ export function PowerDeviceCaseStudy({ nextProject }: { project: Project; nextPr
           <h2>Making result review more repeatable</h2>
           <p>As the full-card models grew, checking the maximum modeled temperature and node location for every body became repetitive. I wrote a Python script inside ANSYS Mechanical to collect those values, export them to CSV, and create labels for review.</p>
           <p>The script did not make the engineering decision or calculate junction temperature and margin. It made one collection step more consistent. The implementation and its limitations are documented separately.</p>
-          <Link className="case-link" href="/projects/ansys-temperature-automation">Read the automation note →</Link>
+        </div>
+      </section>
+
+      <section className="focused-case__section">
+        <div className="focused-case__copy">
+          <p className="case-number">07 / Manufacturing support</p>
+          <h2>Designing fixtures around the operation</h2>
+          <p>Across the internship I worked on more than 20 production-fixture configurations, including original designs as well as CAM, machining, and support work on existing tooling.</p>
+          <p>One clipping fixture replaced visual centering with mechanical location. After printed fit checks and CNC machining, project notes estimated that setup moved from roughly five minutes to under one minute per component. I treat that as a shop-floor comparison rather than a controlled time study.</p>
+        </div>
+        <div className="focused-case__media-pair">
+          <Visual src="/images/professional/power-device/clipping-fixture.png" alt="CAD model of a production clipping fixture" caption="Clipping fixture CAD — mechanical location replaced operator-dependent visual alignment." contain />
+          <Visual src="/images/professional/power-device/gallery-01-clipping-hardware.jpg" alt="Finished machined production clipping fixture" caption="Finished hardware — printed checks informed the machined production tool." />
         </div>
       </section>
 

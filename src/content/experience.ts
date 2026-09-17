@@ -38,16 +38,16 @@ export const experience: Experience[] = [
     relatedProjects: ["autonomous-kart-packaging"],
   },
   {
-    role: "Student, Mechanical Designer, Team Lead, and Mentor",
+    role: "Student, Mechanical Designer, and Team Lead",
     organization: "FIRST Tech Challenge",
     location: "San Diego, California",
-    date: "August 2014 — Present",
+    date: "August 2014 — 2024",
     summary:
-      "A progression from FLL and FTC fabrication into mechanical design, team leadership, FRC integration, and mentorship.",
+      "A progression from FLL and FTC fabrication into mechanical design, subsystem ownership, team leadership, and FRC integration.",
     contributions: [
       "Contributed to drivetrains, odometry systems, linear mechanisms, intakes, end effectors, and custom aluminum hardware.",
       "Worked through design reviews, subsystem integration, and competition deadlines with the team.",
-      "Continued after aging out as a mentor focused on CAD, prototyping, design reviews, and troubleshooting.",
+      "Led design reviews and helped coordinate a roughly 15-person team across technical and outreach work.",
     ],
     relatedProjects: ["first-robotics"],
   },

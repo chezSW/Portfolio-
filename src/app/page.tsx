@@ -3,29 +3,39 @@ import Link from "next/link";
 
 const featuredWork = [
   {
-    title: "HPSC electronics packaging",
-    label: "Professional · Packaging / Thermal",
-    summary: "PCB interfaces, thermal trade studies, drawings, and card-level hardware developed as part of a shared engineering effort.",
+    title: "Internship at Power Device Corporation",
+    label: "Mechanical Engineering Intern · Jun 2025 — Aug 2026",
+    summary: "More than a year working on aerospace electronics across mechanical design, thermal analysis, automation, drawings, manufacturing, and 20+ production-fixture configurations.",
     href: "/projects/power-device-corporation",
     image: "/images/professional/power-device/full-card-render.png",
     alt: "Rendered HPSC electronics card showing its PCB, structure, connectors, and thermal hardware",
     contain: true,
-  },
-  {
-    title: "Production fixtures",
-    label: "Professional · Design / Manufacturing",
-    summary: "Operator problems turned into printed fit checks, machined tooling, and more repeatable production setups.",
-    href: "/projects/manufacturing-fixtures",
-    image: "/images/professional/power-device/gallery-01-clipping-hardware.jpg",
-    alt: "Machined clipping fixture holding microelectronics components",
+    lead: true,
   },
   {
     title: "FIRST Robotics",
-    label: "2014–Present · Design / Leadership / Mentorship",
-    summary: "A decade-long progression from fabrication and first mechanisms to team leadership, FRC integration, and mentoring younger designers.",
+    label: "Student robotics · 2014 — 2024",
+    summary: "A ten-year progression from FLL and mechanical fabrication to complete mechanisms, team leadership, Roboctopi, and FRC integration.",
     href: "/projects/first-robotics",
     image: "/images/first/archive/roboctopi-robot.jpg",
     alt: "Roboctopi FTC competition robot",
+  },
+  {
+    title: "Mesa FSD",
+    label: "Electronics Packaging Lead · 2026 — Present",
+    summary: "Enclosures, mounts, sealing, wire routing, serviceability, and subsystem integration for an autonomous kart.",
+    href: "/projects/autonomous-kart-packaging",
+    image: "/images/kart/autonomous-kart.jpg",
+    alt: "Mesa FSD autonomous kart chassis with its electronics installed",
+  },
+  {
+    title: "Locking Mecanum Wheel",
+    label: "Independent mechanical design · 2023",
+    summary: "A servo-actuated concept using CAD and printed components to selectively constrain mecanum rollers for conventional traction.",
+    href: "/projects/locking-mecanum-wheel",
+    image: "/images/locking-mecanum/wheel-locked.jpg",
+    alt: "CAD view of the locking mecanum wheel mechanism",
+    contain: true,
   },
 ];
 
@@ -44,9 +54,9 @@ const experience = [
   },
   {
     company: "FIRST",
-    role: "Student, Designer, Team Lead & Mentor",
-    date: "2014 — Present",
-    summary: "Mechanical design, fabrication, team leadership, outreach, and mentorship across FLL, FTC, and FRC.",
+    role: "Student, Mechanical Designer & Team Lead",
+    date: "2014 — 2024",
+    summary: "Mechanical design, fabrication, system integration, outreach, and team leadership across FLL, FTC, and FRC.",
   },
 ];
 
@@ -89,12 +99,12 @@ export default function Home() {
 
       <section className="home-section home-work" aria-labelledby="selected-work-title">
         <header className="home-section__heading">
-          <div><p className="resume-kicker">Selected work</p><h2 id="selected-work-title">Three projects worth opening</h2></div>
+          <div><p className="resume-kicker">Selected work</p><h2 id="selected-work-title">Four projects worth opening</h2></div>
           <Link href="/projects">All projects →</Link>
         </header>
         <div className="home-work-grid">
           {featuredWork.map((project) => (
-            <article className="home-work-card" key={project.href}>
+            <article className={`home-work-card${project.lead ? " home-work-card--lead" : ""}`} key={project.href}>
               <Link className={`home-work-card__image${project.contain ? " home-work-card__image--contain" : ""}`} href={project.href}>
                 <Image src={project.image} alt={project.alt} fill sizes="(max-width: 760px) 100vw, 33vw" />
               </Link>

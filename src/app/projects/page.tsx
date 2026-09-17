@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { FirstRoboticsDisclosure } from "@/components/first-robotics-story";
+import { PowerDeviceDisclosure } from "@/components/power-device-case-study";
 import { projects } from "@/content/projects";
 
 export const metadata: Metadata = {
@@ -55,7 +56,7 @@ export default function ProjectsPage() {
       <section aria-labelledby="professional-title">
         <div className="project-index__section-heading"><p>01</p><h2 id="professional-title">Professional experience</h2></div>
         <div className="project-index__category-grid project-index__category-grid--spotlight">
-          <ProjectCard project={powerDevice} label="Mechanical engineering internship" featured />
+          <PowerDeviceDisclosure project={powerDevice} />
         </div>
       </section>
 
@@ -67,15 +68,15 @@ export default function ProjectsPage() {
       </section>
 
       <section aria-labelledby="design-title">
-        <div className="project-index__section-heading"><p>03</p><h2 id="design-title">Vehicle systems &amp; independent design</h2></div>
+        <div className="project-index__section-heading"><p>03</p><h2 id="design-title">Current &amp; independent engineering</h2></div>
         <div className="project-index__category-grid project-index__category-grid--pair">
           <ProjectCard project={mesaFsd} label="Mesa FSD · Student engineering" />
           <ProjectCard project={lockingMecanum} label="Independent mechanism concept" />
         </div>
       </section>
 
-      <section aria-labelledby="service-title">
-        <div className="project-index__section-heading"><p>04</p><h2 id="service-title">Service &amp; leadership</h2></div>
+      <section aria-labelledby="service-title" className="project-index__additional">
+        <div className="project-index__section-heading"><p>04</p><h2 id="service-title">Additional projects</h2></div>
         <div className="project-index__category-grid project-index__category-grid--single">
           <ProjectCard project={eagleScout} label="Eagle Scout service project" />
         </div>

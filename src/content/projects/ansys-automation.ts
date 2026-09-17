@@ -8,7 +8,7 @@ export const ansysAutomation: Project = {
     "A Python script that records the maximum modeled nodal temperature and node ID for each body, exports the results, and creates labels for review.",
   categories: ["Professional", "Thermal"],
   featured: false,
-  public: true,
+  public: false,
   order: 4,
   role: "Mechanical Engineering Intern",
   organization: "Power Device Corp",

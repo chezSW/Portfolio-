@@ -1,11 +1,11 @@
 import type { Project } from "./types";
 
 export const powerDevice: Project = {
-  title: "Power Device Corporation Internship",
+  title: "Internship at Power Device Corporation",
   slug: "power-device-corporation",
   subtitle: "PCB interfaces, thermal studies, drawings, and card-level hardware",
   summary:
-    "A shared card-level development effort connecting PCB interfaces, packaging, thermal studies, drawings, and engineering hardware.",
+    "Mechanical design, thermal analysis, manufacturing, and production hardware for high-reliability aerospace electronics.",
   categories: ["Professional", "Mechanical Design", "Manufacturing", "Thermal"],
   featured: true,
   public: true,
@@ -17,7 +17,7 @@ export const powerDevice: Project = {
   focus: "Mechanical Design / Packaging / Thermal / Manufacturing",
   system: "Space Electronics Hardware",
   status: "Selected professional work and approved project imagery",
-  keyResult: "Interfaces → analysis → drawings → hardware",
+  keyResult: "20+ fixture configurations; one setup reduced from roughly 5 minutes to under 1 minute",
   tools: ["SolidWorks", "ANSYS Mechanical", "Fusion 360 CAM", "Python"],
   skills: ["Electronics packaging", "Fixture design", "Thermal design", "GD&T"],
   visual: "packaging",
@@ -29,7 +29,10 @@ export const powerDevice: Project = {
       public: true,
     },
   ],
-  metrics: [{ value: "~12", label: "PCB geometry iterations", detail: "Mechanical definition evolved with electrical and packaging feedback" }],
+  metrics: [
+    { value: "20+", label: "Fixture configurations", detail: "Original designs plus machining and production-support work" },
+    { value: "~5 min → <1 min", label: "Setup-time estimate", detail: "Shop-floor comparison for one clipping fixture" },
+  ],
   process: [
     "Production problem",
     "Requirements",

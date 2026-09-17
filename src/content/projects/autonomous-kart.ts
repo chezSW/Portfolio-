@@ -1,11 +1,11 @@
 import type { Project } from "./types";
 
 export const autonomousKart: Project = {
-  title: "Mesa FSD — Autonomous Kart Electronics Package",
+  title: "Mesa FSD",
   slug: "autonomous-kart-packaging",
-  subtitle: "Mechanical integration work in progress",
+  subtitle: "Electronics packaging lead for an autonomous kart",
   summary:
-    "Student-team packaging work for the electrical and autonomy hardware on an autonomous kart. Detailed subsystem evidence is still being documented.",
+    "Electronics enclosure, mounting, sealing, wire routing, serviceability, and mechanical/electrical integration for an autonomous kart.",
   categories: ["Autonomous Systems", "Mechanical Design", "Robotics"],
   featured: false,
   public: true,
@@ -16,7 +16,7 @@ export const autonomousKart: Project = {
   focus: "Electronics Packaging / Vehicle Integration",
   system: "Autonomous Kart",
   status: "Student Engineering Team / In Development",
-  keyResult: "Packaging work in development",
+  keyResult: "Team result: Top 5 nationally among 12 universities at Purdue",
   tools: ["CAD", "Enclosure Design", "Mechanical Integration"],
   skills: ["Interface mapping", "Wire routing", "Service access"],
   visual: "vehicle",
@@ -46,9 +46,9 @@ export const autonomousKart: Project = {
       eyebrow: "02 / Role",
       title: "My role",
       paragraphs: [
-        "As electronics packaging lead, I develop mount and enclosure concepts while coordinating mechanical, electrical, and autonomy requirements. I am still documenting the first complete subsystem story, so this page does not claim a finished or validated package.",
+        "As Electronics Packaging Lead, I develop enclosure and mount concepts while coordinating mechanical, electrical, and autonomy requirements. The package has to protect hardware without blocking connectors, wire routes, inspection, troubleshooting, or service access.",
       ],
-      bullets: ["Mounting and enclosure concepts", "Wire-routing strategy", "Interface coordination", "Service and assembly access"],
+      bullets: ["Enclosure and mounting design", "Sealing strategy", "Wire routing", "Mechanical/electrical interface coordination", "Service and assembly access"],
       layout: "split",
     },
     {

@@ -5,7 +5,7 @@ export const lockingMecanum: Project = {
   slug: "locking-mecanum-wheel",
   subtitle: "Servo-actuated roller constraint for selectable traction",
   summary:
-    "A reproducible mechanism intended to preserve mecanum mobility when unlocked and provide more conventional forward traction when engaged.",
+    "An independent servo-actuated mechanism exploring how a mecanum wheel could preserve omnidirectional motion when unlocked and gain conventional traction when engaged.",
   categories: ["Personal", "Mechanical Design", "Robotics"],
   featured: true,
   public: true,
