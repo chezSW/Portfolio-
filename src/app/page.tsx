@@ -9,7 +9,6 @@ const featuredSlugs = [
   "power-device-corporation",
   "first-robotics",
   "autonomous-kart-packaging",
-  "locking-mecanum-wheel",
 ];
 
 const featuredWork = featuredSlugs
