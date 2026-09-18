@@ -18,24 +18,68 @@ const featuredWork = featuredSlugs
 
 const experience = [
   {
+    id: "power-device",
     date: "Jun 2025 — Aug 2026",
     role: "Mechanical Engineering Intern",
     organization: "Power Device Corporation",
-    detail: "Designed and analyzed mechanical packaging, heat-transfer hardware, drawings, and more than 20 production-fixture configurations for aerospace electronics.",
+    logo: "/images/experience/power-device-corporation.png",
+    logoAlt: "Power Device Corporation logo",
+    contributions: [
+      "Designed and analyzed mechanical packaging, heat-transfer hardware, and GD&T drawings for high-reliability aerospace electronics.",
+      "Supported more than 20 production-fixture configurations; one fixture reduced setup time from roughly five minutes to under one minute.",
+    ],
     href: "/projects/power-device-corporation",
   },
   {
+    id: "mesa-fsd",
     date: "Mar 2026 — Present",
     role: "Electronics Packaging Lead",
     organization: "Mesa FSD",
-    detail: "Leading enclosure, mounting, sealing, serviceability, and wire-routing work for the electrical and autonomy hardware on an autonomous kart.",
+    logo: "/images/experience/mesa-fsd.png",
+    logoAlt: "Mesa FSD logo",
+    contributions: [
+      "Leading enclosure, mounting, sealing, serviceability, and wire-routing work for an autonomous kart’s electrical and autonomy hardware.",
+      "Coordinating mechanical, electrical, and autonomy interfaces as part of a team that placed Top 5 nationally among 12 universities at Purdue.",
+    ],
     href: "/projects/autonomous-kart-packaging",
   },
   {
-    date: "2014 — 2024",
-    role: "Mechanical Designer & Team Lead",
-    organization: "FIRST Robotics",
-    detail: "Progressed from FLL and hands-on fabrication to complete mechanisms, CAD ownership, cross-functional leadership, and FRC integration.",
+    id: "team-spyder",
+    date: "2023 — 2024",
+    role: "Mechanical Contributor",
+    organization: "FRC 1622 · Team Spyder",
+    logo: "/images/experience/team-spyder.png",
+    logoAlt: "FRC Team 1622 Team Spyder logo",
+    contributions: [
+      "Developed removable bumper mounting hardware for an FRC competition robot.",
+      "Contributed mechanical support and STEM advocacy while learning a larger-scale robot integration environment.",
+    ],
+    href: "/projects/first-robotics",
+  },
+  {
+    id: "roboctopi",
+    date: "2023 — 2024",
+    role: "Mechanical Designer",
+    organization: "FTC 14496 · Roboctopi",
+    logo: "/images/experience/roboctopi.png",
+    logoAlt: "FTC Team 14496 Roboctopi logo",
+    contributions: [
+      "Developed the first claw-intake concept and worked through CAD-first subsystem integration in a demanding competition environment.",
+      "Supported prototyping, mechanical iteration, outreach, and technical work across the team’s Centerstage season.",
+    ],
+    href: "/projects/first-robotics",
+  },
+  {
+    id: "green-griffins",
+    date: "2022 — 2023",
+    role: "Team Lead & Mechanical Designer",
+    organization: "FTC 10092 · Green.Griffins",
+    logo: "/images/experience/green-griffins.png",
+    logoAlt: "FTC Team 10092 Green Griffins logo",
+    contributions: [
+      "Led a roughly 15-person team through design reviews, subsystem integration, competition deadlines, and outreach work.",
+      "Designed and iterated drivetrain, odometry, and intake concepts while balancing packaging, access, weight, and reliability.",
+    ],
     href: "/projects/first-robotics",
   },
 ];
@@ -111,19 +155,29 @@ export default function Home() {
           <p>Work &amp; Experience</p>
           <h2>Engineering Experience</h2>
         </header>
-        <div className="reference-experience">
+        <nav className="reference-experience-logos" aria-label="Jump to an experience">
           {experience.map((item) => (
-            <article key={item.organization}>
-              <time>{item.date}</time>
-              <div>
-                <h3>{item.role}</h3>
-                <strong>{item.organization}</strong>
-                <p>{item.detail}</p>
-                <Link href={item.href}>Read more <span aria-hidden="true">→</span></Link>
-              </div>
-            </article>
+            <a key={item.id} href={`#experience-${item.id}`} aria-label={`Jump to ${item.organization}`}>
+              <Image src={item.logo} alt={item.logoAlt} fill sizes="180px" />
+            </a>
           ))}
-        </div>
+        </nav>
+        <ol className="reference-experience">
+          {experience.map((item) => (
+            <li key={item.id} id={`experience-${item.id}`}>
+              <time>{item.date}</time>
+              <span className="reference-experience__axis" aria-hidden="true" />
+              <article>
+                <header>
+                  <span className="reference-experience__logo"><Image src={item.logo} alt="" fill sizes="56px" /></span>
+                  <span><h3>{item.role}</h3><strong>{item.organization}</strong></span>
+                </header>
+                <ul>{item.contributions.map((contribution) => <li key={contribution}>{contribution}</li>)}</ul>
+                <Link className="reference-button reference-button--secondary" href={item.href}>Read more <span aria-hidden="true">→</span></Link>
+              </article>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section className="reference-section shell" id="education">

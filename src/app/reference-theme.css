@@ -348,21 +348,157 @@ a:hover { color: var(--accent-strong); }
   text-decoration: none;
 }
 
-.reference-experience { max-width: 980px; margin-left: auto; }
-.reference-experience article {
+.reference-experience-logos {
   display: grid;
-  grid-template-columns: minmax(160px, 0.32fr) minmax(0, 0.68fr);
-  gap: clamp(30px, 6vw, 80px);
-  padding-block: 36px;
-  border-top: 1px solid var(--line);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 64px;
 }
-.reference-experience article:last-child { border-bottom: 1px solid var(--line); }
-.reference-experience time { color: var(--muted); font-size: 0.86rem; }
-.reference-experience h3 { margin: 0; font-size: clamp(1.4rem, 2.6vw, 2rem); letter-spacing: -0.025em; line-height: 1.18; }
-.reference-experience strong { display: block; margin-top: 4px; color: var(--accent-strong); font-size: 0.92rem; }
-.reference-experience p { max-width: 650px; margin: 14px 0 0; color: var(--muted); }
-.reference-experience a { display: inline-block; margin-top: 16px; color: var(--ink); font-size: 0.86rem; text-decoration: none; }
-.reference-experience a:hover { color: var(--accent-strong); }
+
+.reference-experience-logos a {
+  position: relative;
+  min-height: 112px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(21, 25, 27, 0.72);
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.reference-experience-logos a:hover,
+.reference-experience-logos a:focus-visible {
+  border-color: rgba(217, 154, 70, 0.62);
+  background: var(--accent-dim);
+  transform: translateY(-2px);
+}
+
+.reference-experience-logos img {
+  object-fit: contain;
+  padding: 24px;
+}
+
+.reference-experience {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reference-experience > li {
+  display: grid;
+  grid-template-columns: minmax(155px, 0.2fr) 38px minmax(0, 0.8fr);
+  gap: clamp(14px, 2.6vw, 34px);
+  scroll-margin-top: 110px;
+}
+
+.reference-experience > li + li { margin-top: 24px; }
+
+.reference-experience time {
+  padding-top: 28px;
+  color: var(--accent-strong);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.035em;
+  text-align: right;
+}
+
+.reference-experience__axis {
+  position: relative;
+  display: block;
+  min-height: 100%;
+}
+
+.reference-experience__axis::before {
+  position: absolute;
+  top: -24px;
+  bottom: -24px;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(var(--accent), rgba(217, 154, 70, 0.22));
+  content: "";
+}
+
+.reference-experience > li:first-child .reference-experience__axis::before { top: 40px; }
+.reference-experience > li:last-child .reference-experience__axis::before { bottom: calc(100% - 40px); }
+
+.reference-experience__axis::after {
+  position: absolute;
+  top: 29px;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 5px var(--paper);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.reference-experience > li:first-child .reference-experience__axis::after { background: var(--accent); }
+
+.reference-experience article {
+  padding: 28px 30px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(21, 25, 27, 0.72);
+}
+
+.reference-experience > li:first-child article { border-color: rgba(217, 154, 70, 0.46); }
+
+.reference-experience article header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.reference-experience__logo {
+  position: relative;
+  display: block;
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: #090a0b;
+}
+
+.reference-experience__logo img { object-fit: contain; padding: 7px; }
+.reference-experience h3 { margin: 0; font-size: clamp(1.22rem, 2.1vw, 1.65rem); letter-spacing: -0.025em; line-height: 1.18; }
+.reference-experience strong { display: block; margin-top: 3px; color: var(--muted); font-size: 0.9rem; }
+
+.reference-experience article > ul {
+  display: grid;
+  gap: 9px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reference-experience article > ul li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.reference-experience article > ul li::before {
+  position: absolute;
+  top: 0.73em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  content: "";
+}
+
+.reference-experience article .reference-button {
+  min-height: 40px;
+  margin-top: 22px;
+  padding-inline: 17px;
+  font-size: 0.82rem;
+}
 
 .reference-education {
   display: grid;
@@ -639,6 +775,8 @@ a:hover { color: var(--accent-strong); }
   .pdc-story__evidence { grid-template-columns: 1fr; }
   .focused-case__section > .case-visual,
   .focused-case__section > .focused-case__media-pair { order: -1; }
+  .reference-experience-logos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .reference-experience > li { grid-template-columns: minmax(118px, 0.2fr) 34px minmax(0, 0.8fr); gap: 14px; }
 }
 
 @media (max-width: 760px) {
@@ -655,7 +793,19 @@ a:hover { color: var(--accent-strong); }
   .reference-contact h2,
   .reference-archive__intro h1 { font-size: clamp(2.65rem, 13vw, 4rem); }
   .reference-project-grid { grid-template-columns: 1fr; }
-  .reference-experience article { grid-template-columns: 1fr; gap: 12px; }
+  .reference-experience-logos { gap: 8px; margin-bottom: 46px; }
+  .reference-experience-logos a { min-height: 78px; border-radius: 13px; }
+  .reference-experience-logos img { padding: 16px; }
+  .reference-experience > li { grid-template-columns: 24px minmax(0, 1fr); gap: 0 12px; }
+  .reference-experience time { grid-column: 2; grid-row: 1; padding: 0 0 9px; text-align: left; }
+  .reference-experience__axis { grid-column: 1; grid-row: 1 / 3; }
+  .reference-experience article { grid-column: 2; grid-row: 2; padding: 22px 20px; }
+  .reference-experience__axis::before { top: -24px; bottom: -24px; }
+  .reference-experience > li:first-child .reference-experience__axis::before { top: 52px; }
+  .reference-experience > li:last-child .reference-experience__axis::before { bottom: calc(100% - 52px); }
+  .reference-experience__axis::after { top: 41px; width: 20px; height: 20px; }
+  .reference-experience article header { align-items: flex-start; }
+  .reference-experience__logo { flex-basis: 48px; width: 48px; height: 48px; }
   .reference-education { gap: 34px; }
   .site-footer__inner { flex-direction: column; align-items: flex-start; }
   .simple-project-page,
