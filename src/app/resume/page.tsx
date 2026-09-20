@@ -15,7 +15,7 @@ export default function ResumePage() {
       <PageIntro
         eyebrow="Resume"
         title="The short version of the work."
-        description="A clean public resume export is being prepared. Until then, the portfolio carries the most current project and education details."
+        description="Download my current mechanical engineering resume, or explore the project archive for the complete hardware stories."
       />
       <section className="resume-page shell">
         {siteConfig.resumePath ? (
@@ -29,8 +29,8 @@ export default function ResumePage() {
           </div>
         )}
         <p>
-          In the meantime, the <Link href="/projects">work archive</Link> has the
-          hardware stories, or <Link href="/contact">contact me</Link> for a current copy.
+          The <Link href="/projects">work archive</Link> has the complete hardware
+          stories, or <Link href="/contact">contact me</Link> to talk about the work.
         </p>
       </section>
     </>

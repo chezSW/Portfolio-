@@ -6,7 +6,7 @@ export const siteConfig = {
   location: "San Diego, California",
   email: "cnorvell001@student.sdccd.edu" as string | null,
   linkedIn: "https://www.linkedin.com/in/chasenorvell" as string | null,
-  resumePath: null as string | null,
+  resumePath: "/resume/chase-norvell-resume.pdf" as string | null,
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://chase-norvell-portfolio.pastel-jam-1641.chatgpt.site",
   navigation: [
     { label: "Home", href: "/#home" },

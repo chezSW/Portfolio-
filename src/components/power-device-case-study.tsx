@@ -23,16 +23,23 @@ function Visual({ src, alt, caption, contain = false, priority = false, classNam
   );
 }
 
-function MachiningVideo() {
+type ProjectVideoProps = {
+  src: string;
+  poster: string;
+  caption: string;
+  className?: string;
+};
+
+function ProjectVideo({ src, poster, caption, className = "" }: ProjectVideoProps) {
   return (
-    <figure className="pdc-simple__video">
+    <figure className={`pdc-simple__video${className ? ` ${className}` : ""}`}>
       <div>
-        <video controls preload="metadata" poster="/images/professional/power-device/clipping-fixture-video-poster.jpg">
-          <source src="/videos/power-device/clipping-fixture-machining.mp4" type="video/mp4" />
+        <video controls preload="metadata" poster={poster}>
+          <source src={src} type="video/mp4" />
           Your browser does not support the video element.
         </video>
       </div>
-      <figcaption>Machining the final production fixture.</figcaption>
+      <figcaption>{caption}</figcaption>
     </figure>
   );
 }
@@ -63,14 +70,18 @@ export function PowerDeviceCaseStudy({ nextProject }: { project: Project; nextPr
           <h2>Production Support</h2>
           <p>This is one of the fixtures I worked on, and it’s a good example of the full process that went into a lot of the production-support work. The original process relied on an operator visually aligning a smaller part to the component by hand before clipping. It worked, but the setup took time and the final alignment depended heavily on the person doing it. I redesigned the setup so the fixture mechanically located both parts, meaning the alignment was built into the tooling instead of being done by eye.</p>
           <p>The fixture went through the full design and manufacturing process. I started with the existing component drawings and built a CAD model of the part, then worked through how it needed to be constrained and located. From there, I made an initial 3D-printed prototype to check fit and positioning, revised the design based on those physical fit checks, created the CAM in Fusion 360, and machined the final production version on the CNC.</p>
-          <p>Once the fixture was put into use, <strong>setup time dropped from roughly 5 minutes to under 1 minute per component</strong>, while also making the process more repeatable and less dependent on operator alignment. Over the course of the internship, I developed and delivered 20+ fixtures for different production needs, and this one is a good example of the general cycle behind that work: understand what is happening on the floor, talk with the people doing the work, design around the problem, prototype it, test it, revise it, and then make the production version.</p>
+          <p>Once the fixture was put into use, setup time dropped from roughly 5 minutes to under 1 minute per component, while also making the process more repeatable and less dependent on operator alignment. Over the course of the internship, I developed and delivered 20+ fixtures for different production needs, and this one is a good example of the general cycle behind that work: understand what is happening on the floor, talk with the people doing the work, design around the problem, prototype it, test it, revise it, and then make the production version.</p>
         </div>
         <div className="pdc-simple__gallery pdc-simple__gallery--production">
-          <Visual src="/images/professional/power-device/clipping-fixture-drawing.png" alt="Engineering drawing used to design the clipping fixture" caption="Existing component drawing used to establish the production interface." contain />
-          <Visual src="/images/professional/power-device/clipping-fixture.png" alt="CAD model of the clipping fixture" caption="Clipping-block CAD and locating concept." contain />
-          <Visual src="/images/professional/power-device/clipping-fixture-actual.jpg" alt="Finished machined clipping fixture" caption="Finished production fixture after prototype fit checks and revision." />
-          <Visual src="/images/professional/power-device/clipping-fixture-cam.png" alt="Fusion 360 CAM setup for the clipping fixture" caption="Fusion 360 CAM used to machine the final fixture." contain />
-          <MachiningVideo />
+          <Visual src="/images/professional/power-device/pdc-story/production-drawing.png" alt="Engineering drawing used to design the clipping fixture" caption="Existing component drawing used to establish the production interface." contain />
+          <Visual src="/images/professional/power-device/pdc-story/production-cad.png" alt="CAD model of the clipping fixture" caption="Clipping-block CAD and locating concept." contain />
+          <Visual src="/images/professional/power-device/pdc-story/production-hardware.png" alt="Finished machined clipping fixture holding production components" caption="Finished production fixture after prototype fit checks and revision." />
+          <Visual src="/images/professional/power-device/pdc-story/production-cam.png" alt="Fusion 360 CAM setup for the clipping fixture" caption="Fusion 360 CAM used to machine the final fixture." contain />
+          <ProjectVideo
+            src="/videos/power-device/clipping-fixture-machining-full.mp4"
+            poster="/images/professional/power-device/clipping-fixture-video-poster.jpg"
+            caption="Machining the final production fixture."
+          />
         </div>
       </section>
 
@@ -84,15 +95,15 @@ export function PowerDeviceCaseStudy({ nextProject }: { project: Project; nextPr
           <p>As those first boards started moving into assembly, my work shifted more toward supporting the physical hardware. I designed and 3D printed an ESD-safe PCB carrier that could safely hold both bare and populated HPSC boards while they were transported between facilities for assembly and reflow. That made the whole project feel pretty full circle because I had been involved from the early PCB layout and thermal studies, through design reviews and manufacturing drawings, and eventually into the machined heat shunts and first assembled engineering cards.</p>
         </div>
         <div className="pdc-simple__gallery pdc-simple__gallery--rd">
-          <Visual src="/images/professional/power-device/pcb-mechanical-definition.png" alt="HPSC main PCB mechanical definition" caption="HPSC main PCB mechanical definition and packaging envelope." contain />
-          <Visual src="/images/professional/power-device/fabrication-drawing.png" alt="Heat-shunt machining drawing" caption="Released heat-shunt machining drawing with manufacturing requirements." contain />
-          <Visual src="/images/professional/power-device/gallery-05-heat-shunt-cad.png" alt="HPSC heat-shunt CAD model" caption="Heat-shunt CAD developed around the PCB and component interfaces." contain />
-          <Visual src="/images/professional/power-device/heat-shunt-hardware.jpg" alt="Physical machined HPSC heat shunt" caption="Machined HPSC heat-shunt hardware for the first engineering boards." />
-          <Visual src="/images/professional/power-device/heat-path-lowest-temperature.jpg" alt="ANSYS thermal simulation comparing heat-shunt geometry" caption="ANSYS study used to compare component placement and heat-shunt geometry." contain />
-          <Visual src="/images/professional/power-device/carrier-v2.jpg" alt="ESD-safe printed HPSC PCB carrier" caption="ESD-safe carrier for transporting bare and populated HPSC boards." />
+          <Visual src="/images/professional/power-device/pdc-story/hpsc-pcb-layout.png" alt="HPSC main PCB mechanical definition" caption="HPSC main PCB mechanical definition and packaging envelope." contain />
+          <Visual src="/images/professional/power-device/pdc-story/hpsc-heat-shunt-drawing.png" alt="Heat-shunt machining drawing" caption="Released heat-shunt machining drawing with manufacturing requirements." contain />
+          <Visual src="/images/professional/power-device/pdc-story/hpsc-heat-shunt-cad.png" alt="HPSC heat-shunt CAD model" caption="Heat-shunt CAD developed around the PCB and component interfaces." contain />
+          <Visual src="/images/professional/power-device/pdc-story/hpsc-heat-shunt-cad-hardware.png" alt="Machined HPSC heat shunt beside its CAD model" caption="Machined HPSC heat-shunt hardware beside the released CAD." contain />
+          <Visual src="/images/professional/power-device/pdc-story/hpsc-heat-shunt-thermal.png" alt="ANSYS thermal simulation comparing heat-shunt geometry" caption="ANSYS study used to compare component placement and heat-shunt geometry." contain />
+          <Visual src="/images/professional/power-device/pdc-story/hpsc-pcb-carrier.png" alt="ESD-safe printed HPSC PCB carrier" caption="ESD-safe carrier for transporting bare and populated HPSC boards." />
           <div className="pdc-simple__payoff">
-            <Visual src="/images/professional/power-device/full-card-fit-hardware.jpg" alt="First HPSC engineering card during fit checking" caption="First HPSC engineering card during physical fit checks." />
-            <Visual src="/images/professional/power-device/full-card-hardware.jpg" alt="Assembled first HPSC engineering card" caption="The first assembled HPSC engineering card." contain />
+            <Visual src="/images/professional/power-device/pdc-story/hpsc-first-card-handheld.png" alt="First HPSC engineering card during fit checking" caption="First HPSC engineering card during physical fit checks." />
+            <Visual src="/images/professional/power-device/pdc-story/hpsc-first-card-test.png" alt="Assembled HPSC engineering card on the test bench" caption="The first assembled HPSC engineering card during bench testing." />
           </div>
         </div>
       </section>
@@ -103,16 +114,23 @@ export function PowerDeviceCaseStudy({ nextProject }: { project: Project; nextPr
           <p>For the full-card thermal studies, I needed temperature data for every component on the board so junction temperatures, case temperatures, and margin to limits could be reviewed across the whole design. Doing that by hand was extremely slow. Probing each component one at a time in ANSYS could take over an hour for a single card, and I needed to do it across three cards. It also was not the most reliable method, since manually probing made it easy to miss the actual hottest point on a component.</p>
           <p>To fix that, I wrote a Python script inside ANSYS Mechanical that automatically scanned every modeled body, pulled the maximum nodal temperature for each component, identified the node location, and exported the results into a CSV file. That gave me a much faster and more repeatable starting point for calculating junction temperatures and reviewing thermal margin, while also making it easier to communicate results to the rest of the mechanical team.</p>
         </div>
-        <div className="pdc-simple__gallery">
-          <Visual src="/images/professional/power-device/ansys-dummy-board-showcase.jpg" alt="ANSYS dummy-board showcase with extracted component temperatures" caption="Dummy-board showcase used to demonstrate automated temperature extraction." contain />
-          <Visual src="/images/professional/power-device/ansys-automation.png" alt="ANSYS Mechanical automated component temperature review" caption="Automated component-temperature review inside ANSYS Mechanical." contain />
-          <Visual src="/images/professional/power-device/power-supply-card-thermal-study.png" alt="Power supply card thermal study" caption="Power-supply-card thermal study used in the full-card review workflow." contain className="pdc-simple__gallery-wide" />
+        <div className="pdc-simple__gallery pdc-simple__gallery--automation">
+          <ProjectVideo
+            src="/videos/power-device/ansys-script-showcase.mp4"
+            poster="/images/professional/power-device/ansys-automation-video-poster-hq.jpg"
+            caption="Live ANSYS showcase of the automated component-temperature extraction workflow."
+            className="pdc-simple__gallery-wide"
+          />
+          <div className="pdc-simple__review-pair">
+            <Visual src="/images/professional/power-device/pdc-story/psc-engineering-review.png" alt="Annotated Power Supply Card assembly prepared for an engineering review" caption="Power Supply Card assembly used in a real engineering review." contain />
+            <Visual src="/images/professional/power-device/pdc-story/psc-full-assembly-review.png" alt="Power Supply Card full-assembly thermal study prepared for an engineering review" caption="Power Supply Card full-assembly thermal study reviewed with the engineering team." contain />
+          </div>
         </div>
       </section>
 
       <section className="pdc-simple__section" id="thermal-automation-code">
         <div className="pdc-simple__code-layout">
-          <Visual src="/images/professional/power-device/thermal-script-uml.png" alt="Software diagram for the ANSYS thermal data extraction script" caption="Software flow for body-to-node temperature extraction and CSV export." contain />
+          <Visual src="/images/professional/power-device/pdc-story/thermal-script-uml.png" alt="Software diagram for the ANSYS thermal data extraction script" caption="Software flow for body-to-node temperature extraction and CSV export." contain className="pdc-simple__uml" />
           <div className="pdc-simple__copy">
             <h2>Thermal Data Extraction Automation - Code</h2>
             <p>The script begins by accessing the active ANSYS Mechanical analysis, mesh data, and the most recent solved temperature result. It also locates the Temperature result object in the solution tree so the same data can later be used for visualization.</p>
