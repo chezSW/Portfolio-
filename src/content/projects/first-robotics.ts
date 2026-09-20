@@ -3,8 +3,8 @@ import type { Project } from "./types";
 export const firstRobotics: Project = {
   title: "FIRST Robotics",
   slug: "first-robotics",
-  subtitle: "A student progression from early fabrication to mechanical design and team leadership",
-  summary: "Ten years across FLL, FTC, and FRC—progressing from a mechanical member into CAD, mechanism design, subsystem ownership, and leadership of a roughly 15-person team.",
+  subtitle: "Learning engineering by building, testing, and redesigning complete robot systems",
+  summary: "Ten years across FLL, FTC, and FRC—progressing from fabrication into CAD, mechanism ownership, rapid prototyping, system integration, and technical leadership.",
   categories: ["Robotics", "Mechanical Design", "Manufacturing"],
   featured: true,
   public: true,
@@ -21,9 +21,9 @@ export const firstRobotics: Project = {
   visual: "robotics",
   media: [
     {
-      src: "/images/first/archive/roboctopi-robot.jpg",
-      alt: "Roboctopi FTC competition robot",
-      caption: "FTC 14496 Roboctopi — one chapter in a student path spanning FLL, FTC, and FRC.",
+      src: "/images/first/story/powerplay-mantis-hero.jpg",
+      alt: "Green Griffins PowerPlay robot with its intake fully extended",
+      caption: "Mantis — the result of a season built around prototypes, testing, and iteration.",
       public: true,
       aspect: "wide",
     },

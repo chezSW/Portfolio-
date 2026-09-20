@@ -2,150 +2,169 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/content/projects";
 
-const timeline = [
-  ["2014–2016", "FLL", "Programming, teamwork, and technical presentations"],
-  ["2017–2019", "FTC mechanical", "Fabrication, assembly, machining, and robot maintenance"],
-  ["2020–2022", "FTC design", "CAD, a first complete mechanism, and the Tonk redesign"],
-  ["2022–2023", "Team 10092 lead", "A 15-person team and three major robot iterations"],
-  ["2023–2024", "FTC 14496", "V1 intake work, CAD collaboration, and outreach"],
-  ["2023–2024", "FRC 1622", "Removable bumper hardware and STEM advocacy"],
-];
+type VisualProps = {
+  src: string;
+  alt: string;
+  caption: string;
+  contain?: boolean;
+  priority?: boolean;
+  className?: string;
+};
 
-const skills = [
-  ["Mechanical design", "Mechanisms, drivetrains, packaging, gear ratios, torque, linkages, linear slides, and end effectors"],
-  ["CAD", "Fusion 360, Onshape, full robot assemblies, component design, and design reviews"],
-  ["Manufacturing", "FDM printing, CNC machining, waterjet and laser-cut parts, hand fabrication, and rapid prototypes"],
-  ["Engineering process", "Design matrices, proof-of-concept builds, calculations, failure analysis, testing, and system integration"],
-  ["Leadership", "Team lead coordination, scheduling, peer training, technical communication, and design review presentations"],
-];
-
-function RoboticsImage({ src, alt, caption, contain = false, eager = false }: { src: string; alt: string; caption: string; contain?: boolean; eager?: boolean }) {
+function Visual({ src, alt, caption, contain = false, priority = false, className = "" }: VisualProps) {
   return (
-    <figure className={`first-story__image${contain ? " first-story__image--contain" : ""}`}>
-      <div><Image src={src} alt={alt} fill loading={eager ? "eager" : "lazy"} sizes="(max-width: 760px) 100vw, 920px" /></div>
+    <figure className={`case-visual${contain ? " case-visual--contain" : ""}${className ? ` ${className}` : ""}`}>
+      <div>
+        <Image src={src} alt={alt} fill loading={priority ? "eager" : "lazy"} sizes="(max-width: 760px) 100vw, 980px" />
+      </div>
       <figcaption>{caption}</figcaption>
     </figure>
   );
 }
 
+function ProjectVideo({ src, poster, caption }: { src: string; poster: string; caption: string }) {
+  return (
+    <figure className="first-story__video">
+      <div>
+        <video controls preload="metadata" playsInline poster={poster}>
+          <source src={src} type="video/mp4" />
+          Your browser does not support the video element.
+        </video>
+      </div>
+      <figcaption>{caption}</figcaption>
+    </figure>
+  );
+}
+
+const process = ["Challenge", "Brainstorm", "Design matrix", "Prototype", "CAD", "Review", "Build", "Test", "Iterate"];
+
 function FirstRoboticsStory() {
   return (
     <div className="first-story">
-      <section className="first-story__overview">
-        <div>
-          <p className="first-story__eyebrow">Project overview</p>
-          <h2>My first long-term engineering laboratory</h2>
-          <p>FIRST Robotics is where I learned how much I enjoy building things. I started in FIRST LEGO League, moved into FTC and FRC, and gradually took on CAD, mechanism design, machining, design reviews, subsystem ownership, and team leadership.</p>
-          <p>The process that stayed with me is simple: build something, test it, understand why it failed, change it, and try again.</p>
+      <section className="first-story__section first-story__learning" id="learning-by-building">
+        <div className="first-story__copy">
+          <p className="first-story__eyebrow">01 · Learning by Building</p>
+          <h2>Learning how the whole robot fits together</h2>
+          <p>I began with assembly, fabrication, machining, maintenance, and troubleshooting, then gradually moved into CAD and complete mechanisms. Those early robots taught me that no mechanism is isolated: structure, wiring, weight, packaging, software, and every other subsystem are all competing for the same machine.</p>
         </div>
-        <dl className="first-story__facts">
-          <div><dt>Student experience</dt><dd>2014–2024</dd></div>
-          <div><dt>Programs</dt><dd>FLL · FTC · FRC</dd></div>
-          <div><dt>Progression</dt><dd>FLL member → Mechanical member → Designer → Team Lead</dd></div>
-          <div><dt>Core work</dt><dd>CAD · Prototyping · Fabrication · Integration</dd></div>
-        </dl>
+        <Visual
+          src="/images/first/archive/python-2017.jpg"
+          alt="Python, an early Green Griffins FTC robot"
+          caption="Python · one of the early robots where I learned assembly, fabrication, and system-level troubleshooting."
+        />
       </section>
 
-      <section className="first-story__timeline" aria-labelledby="first-timeline-title">
-        <header><p className="first-story__eyebrow">Progression</p><h2 id="first-timeline-title">A decade in one view</h2></header>
-        <ol>{timeline.map(([years, role, detail]) => <li key={`${years}-${role}`}><time>{years}</time><strong>{role}</strong><span>{detail}</span></li>)}</ol>
+      <section className="first-story__section first-story__build" id="design-build-break-repeat">
+        <div className="first-story__copy">
+          <p className="first-story__eyebrow">02 · Design, Build, Break, Repeat</p>
+          <h2>Competition testing started driving the design</h2>
+          <p>On Tonk, the first scoring system worked in isolation but struggled in the full robot: it lacked reach, moved slowly, consumed too much space, and interfered with the drivetrain. I replaced it with a compact rotating turret built around a geared drive, shaft-supported structure, waterjet bracket, and printed hub. The redesign roughly tripled scoring throughput—from about 4–6 pieces to 16–18 over comparable periods of play.</p>
+          <p>The next season, as Team Lead for roughly 15 students, I helped turn that habit into a repeatable team process. I was still pushing technical direction and mechanical integration, but I was also making sure ideas were challenged, reviewed, and improved by the rest of the team.</p>
+        </div>
+
+        <div className="first-story__tonk-grid">
+          <Visual src="/images/first/archive/tonk-robot.jpg" alt="Tonk FTC robot after the scoring-system redesign" caption="Tonk · the first scoring architecture worked, but competition exposed its system-level limits." />
+          <Visual src="/images/first/archive/tonk-turret-detail.jpg" alt="Close view of Tonk's compact turret scoring mechanism" caption="The turret redesign reduced drivetrain interference and roughly tripled scoring throughput." />
+        </div>
+
+        <article className="first-story__centerpiece">
+          <div className="first-story__centerpiece-heading">
+            <p className="first-story__eyebrow">PowerPlay · V1 “Giraffe”</p>
+            <h3>Robot in 30 Hours</h3>
+            <p>When the game was released, we translated it into requirements immediately. I personally designed the drivetrain, linear slides, and rubber-band intake; the team fabricated and integrated the rest. Roughly 30 hours later, the robot could perform most of the major game tasks with an initial scoring cycle of about 14 seconds.</p>
+          </div>
+          <Visual
+            src="/images/first/story/powerplay-giraffe-30-hour-robot.jpg"
+            alt="The PowerPlay Robot in 30 Hours prototype with tall linear slides and rubber-band intake"
+            caption="Giraffe · a functional drivetrain, slide, and intake architecture built in roughly 30 hours."
+          />
+          <div className="first-story__facts" aria-label="Robot in 30 Hours facts">
+            <div><strong>30 hr</strong><span>Game release to functional robot</span></div>
+            <div><strong>3 systems</strong><span>Drivetrain, slides, and intake I designed</span></div>
+            <div><strong>~14 s</strong><span>Initial team scoring cycle</span></div>
+          </div>
+        </article>
+
+        <div className="first-story__copy first-story__data-copy">
+          <h3>The robot was data, not the final answer.</h3>
+          <p>Giraffe gave us real answers about speed, reach, packaging, handoffs, and reliability. We carried those lessons into Oreo and then Mantis, using quick prototypes, design matrices, CAD, engineering reviews, competition testing, and iteration instead of treating the first working concept as finished.</p>
+        </div>
+
+        <div className="first-story__process" aria-label="PowerPlay design process">
+          {process.map((step, index) => <span key={step}><b>{String(index + 1).padStart(2, "0")}</b>{step}</span>)}
+        </div>
+
+        <div className="first-story__process-gallery">
+          <Visual src="/images/first/story/powerplay-tradeoff-board.jpg" alt="Whiteboard comparing drivetrain concepts and constraints" caption="Tradeoffs first · requirements and packaging shaped the architecture." />
+          <Visual src="/images/first/story/powerplay-drivebase-cad.jpg" alt="PowerPlay robot drivetrain CAD on a monitor" caption="CAD · subsystems were checked together before committing to hardware." contain />
+          <Visual src="/images/first/story/powerplay-slide-intake-prototype.jpg" alt="Physical linear-slide and intake prototype" caption="Prototype · fast physical builds revealed geometry and handoff problems." />
+        </div>
+
+        <div className="first-story__cycle-story" aria-label="Team scoring-cycle progression">
+          <div><span>V1 · Giraffe</span><strong>14 sec</strong><p>Fast build, slow intake</p></div>
+          <i aria-hidden="true">→</i>
+          <div><span>V2 · Oreo</span><strong>8 sec</strong><p>Refined architecture</p></div>
+          <i aria-hidden="true">→</i>
+          <div><span>V2.5 · Mantis</span><strong>2 sec</strong><p>Integrated handoff and automation</p></div>
+        </div>
+        <p className="first-story__attribution">These are team-level cycle times from robots I helped lead and integrate—not three robots I designed alone.</p>
+
+        <ProjectVideo
+          src="/videos/first/powerplay-mantis-cycle.mp4"
+          poster="/images/first/story/powerplay-mantis-video-poster.jpg"
+          caption="Testing Mantis · the later team iteration turned lessons from the 30-hour robot into a much faster scoring system."
+        />
       </section>
 
-      <section className="first-story__chapter">
-        <header className="first-story__chapter-heading"><p className="first-story__eyebrow">01 · Foundations · 2014–2019</p><h2>Learning how robots actually go together</h2></header>
-        <div className="first-story__split">
-          <div className="first-story__copy">
-            <p>FLL introduced me to block programming, teamwork, presentations, and solving a problem as a group. When I moved into FTC, I was mainly a mechanical team member learning basic fabrication, assembly, machining, maintenance, and troubleshooting.</p>
-            <p>I was not the primary designer of these early robots. They were where I learned to see a robot as a set of mechanical systems that had to share structure, wiring, power, and a limited envelope.</p>
-          </div>
-          <div className="first-story__early-grid">
-            <RoboticsImage src="/images/first/archive/python-2017.jpg" alt="Python, the 2017 to 2018 FTC robot" caption="Python · 2017–2018" />
-            <RoboticsImage src="/images/first/archive/nightwing-2018.jpg" alt="Nightwing, the 2018 to 2019 FTC robot climbing on the field" caption="Nightwing · 2018–2019" />
-            <RoboticsImage src="/images/first/archive/yoshi-2019.jpg" alt="Yoshi, the 2019 to 2020 FTC robot on the competition field" caption="Yoshi · 2019–2020" />
-          </div>
+      <section className="first-story__section" id="larger-system">
+        <div className="first-story__copy">
+          <p className="first-story__eyebrow">03 · Designing as Part of a Larger System</p>
+          <h2>Making my subsystem work with everybody else’s</h2>
+          <p>Roboctopi and Team Spyder put me inside larger, more specialized teams. The challenge was no longer only whether my mechanism worked; it was whether it fit the team’s structure, wiring, manufacturing process, maintenance access, software assumptions, and competition workflow.</p>
         </div>
+
+        <div className="first-story__system-grid">
+          <article>
+            <Visual src="/images/first/story/roboctopi-system-integration.jpg" alt="Roboctopi FTC robot during wiring and subsystem integration" caption="Roboctopi · subsystem integration made interfaces impossible to ignore." />
+            <div>
+              <p className="first-story__eyebrow">FTC 14496 · Roboctopi</p>
+              <h3>Designing the first interface</h3>
+              <p>I developed the V1 intake and delivery concept, claw/end effector, initial linear-slide string routing, and a wiring guide in Fusion 360. Around that work, I learned from a team using CNC machining, laser cutting, FDM printing, silicone molding, and tightly controlled fabrication.</p>
+            </div>
+          </article>
+          <article>
+            <Visual src="/images/first/story/team-spyder-robot.jpg" alt="Team Spyder FRC robot at the scoring structure" caption="Team Spyder · a larger FRC system with strict structural and service constraints." />
+            <div>
+              <p className="first-story__eyebrow">FRC 1622 · Team Spyder</p>
+              <h3>Designing for repeated use</h3>
+              <p>My removable bumper hardware was a smaller mechanism with a very real interface problem: it had to attach structurally, remain accessible, survive repeated installation, fit the frame, and satisfy competition constraints without slowing down pit work.</p>
+            </div>
+          </article>
+        </div>
+
+        <div className="first-story__integration-gallery">
+          <Visual src="/images/first/archive/roboctopi-v1-intake.jpg" alt="Fusion 360 view of the Roboctopi V1 claw intake" caption="V1 claw and delivery concept · useful first geometry that the team could evaluate and evolve." contain />
+          <Visual src="/images/first/story/roboctopi-intake-prototype.jpg" alt="Wooden Roboctopi intake prototype with compliant wheels" caption="Prototype hardware · geometry, compliance, and manufacturability tested together." />
+          <Visual src="/images/first/story/team-spyder-field.jpg" alt="Team Spyder FRC robot operating on the competition field" caption="Competition use · every interface has to remain serviceable under time pressure." />
+        </div>
+
+        <ProjectVideo
+          src="/videos/first/roboctopi-backdrop-cycle.mp4"
+          poster="/images/first/story/roboctopi-video-poster.jpg"
+          caption="Roboctopi integration test · intake, lift, end effector, wiring, control, and field geometry acting as one system."
+        />
       </section>
 
-      <section className="first-story__chapter first-story__chapter--feature">
-        <header className="first-story__chapter-heading"><p className="first-story__eyebrow">02 · Becoming a designer · 2020–2022</p><h2>From building parts to redesigning a system</h2></header>
-        <div className="first-story__split first-story__split--feature">
-          <div className="first-story__copy">
-            <p>Around 2020, I moved much more heavily into CAD and created my first complete mechanism: a shooter system. By the 2021–2022 season, I was responsible for nearly all of Tonk’s mechanical systems aside from one endgame mechanism.</p>
-            <h3>Redesigning the primary scoring mechanism</h3>
-            <p>The original linear-slide and arm system worked, but competition exposed limited reach, bulky packaging, drivetrain interference, and recurring motor-mount problems. I stopped patching it and redesigned the scoring system around a rotating turret.</p>
-            <div className="first-story__callout"><span>My contribution</span><p>A 60:1 motor, 90-degree gearbox, shaft-supported turret, 10-tooth to 48-tooth sprocket reduction, custom waterjet bracket, and 3D-printed motor hub.</p></div>
-            <p>The redesign roughly tripled scoring throughput during comparable periods of play. More important, it taught me that a mechanism can function and still be the wrong system for the robot.</p>
-          </div>
-          <div className="first-story__image-stack">
-            <RoboticsImage src="/images/first/archive/tonk-robot.jpg" alt="Tonk, the 2021 to 2022 Green Griffins FTC robot" caption="Tonk · the season when I moved into full mechanical-system design." />
-            <RoboticsImage src="/images/first/archive/tonk-turret-detail.jpg" alt="Close view of Tonk's turret and scoring mechanism" caption="Turret detail · the compact redesign reduced drivetrain interference." />
-          </div>
+      <section className="first-story__section first-story__takeaway" id="what-first-taught-me">
+        <div className="first-story__copy">
+          <p className="first-story__eyebrow">04 · What FIRST Actually Taught Me</p>
+          <h2>A process I still use</h2>
         </div>
-      </section>
-
-      <section className="first-story__chapter">
-        <header className="first-story__chapter-heading"><p className="first-story__eyebrow">03 · Team lead · 2022–2023</p><h2>Leading the Green.Griffins through three robot iterations</h2></header>
-        <div className="first-story__lead-grid">
-          <div className="first-story__copy">
-            <p>As Team Lead for FTC 10092, I coordinated a roughly 15-person group across mechanical, programming, outreach, business, and media. I still worked heavily on mechanical integration, but my job expanded to meeting priorities, deadlines, design reviews, and helping newer students with CAD and fabrication.</p>
-            <p>We also changed our process. Instead of immediately committing to CAD, we used quick cardboard, foam, shop-material, and printed prototypes to earn the right to build a concept.</p>
-          </div>
-          <ol className="first-story__process" aria-label="Green Griffins engineering process">
-            {['Challenge', 'Brainstorm', 'Design matrix', 'Prototype', 'CAD', 'Design review', 'Build', 'Test', 'Iterate'].map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, '0')}</span>{step}</li>)}
-          </ol>
+        <div className="first-story__progression" aria-label="Engineering progression">
+          {["Fabrication", "CAD", "Mechanism ownership", "Rapid prototyping", "Testing", "System integration", "Technical leadership"].map((step, index) => <span key={step}><b>{String(index + 1).padStart(2, "0")}</b>{step}</span>)}
         </div>
-        <div className="first-story__metrics" aria-label="Team robot iteration results">
-          <div><span>V1</span><strong>~14 s</strong><p>30-hour robot scoring cycle</p></div>
-          <div><span>V2</span><strong>~8 s</strong><p>Refined architecture</p></div>
-          <div><span>V2.5 · Mantis</span><strong>~2 s</strong><p>Team-developed scoring cycle</p></div>
-        </div>
-        <p className="first-story__attribution">Team development that I helped lead and integrate—not three robots I designed alone.</p>
-        <div className="first-story__media-grid">
-          <RoboticsImage src="/images/first/archive/green-drivetrain-cad.jpg" alt="CAD model of the Green Griffins Mantis drivetrain" caption="Mantis drivebase CAD · packaging, wire access, battery access, and three odometry wheels." contain />
-          <RoboticsImage src="/images/first/archive/green-claw-iterations.jpg" alt="Eight physical and CAD claw iterations from the Green Griffins season" caption="Eight intake and claw versions · each one exposed a different grip, weight, or packaging problem." contain />
-          <RoboticsImage src="/images/first/archive/green-griffins-team.jpg" alt="FTC Team 10092 Green Griffins team photo" caption="FTC 10092 Green.Griffins · the cross-functional team I helped lead." />
-        </div>
-      </section>
-
-      <section className="first-story__chapter first-story__chapter--roboctopi">
-        <header className="first-story__chapter-heading"><p className="first-story__eyebrow">04 · A more advanced design environment · 2023–2024</p><h2>Learning from Roboctopi</h2></header>
-        <RoboticsImage src="/images/first/archive/roboctopi-cad.jpg" alt="Detailed Fusion 360 CAD rendering of the Roboctopi Centerstage robot" caption="Roboctopi’s Centerstage robot · a CAD-first system developed in a demanding technical environment." contain />
-        <div className="first-story__split first-story__split--roboctopi">
-          <div className="first-story__copy">
-            <p>I intentionally joined FTC 14496 to work around more experienced designers. My documented role was Mechanical — Design Team / Outreach.</p>
-            <div className="first-story__callout"><span>My contribution</span><p>I developed the initial intake concepts and V1 claw, created a wiring guide, worked in Fusion 360, collaborated on mechanical design, and then handed the intake forward for continued development.</p></div>
-            <p>That handoff mattered. Engineering is not always about owning a subsystem forever; sometimes the best contribution is establishing a useful first concept and transferring it cleanly.</p>
-          </div>
-          <RoboticsImage src="/images/first/archive/roboctopi-v1-intake.jpg" alt="Roboctopi V1 claw intake CAD model" caption="V1 claw intake · the first version I developed before handing the system to another designer." contain />
-        </div>
-        <div className="first-story__environment">
-          <h3>The team environment</h3>
-          <p>The robot was designed almost entirely in Fusion 360 before fabrication. The wider team used motion and stress analysis, gear and torque calculations, CNC milling, laser cutting, FDM printing, silicone molding, urethane injection molding, and tight-tolerance aluminum and Delrin parts.</p>
-          <p>Those methods describe the environment I contributed within, not a claim that I personally performed every analysis or designed every component.</p>
-        </div>
-      </section>
-
-      <section className="first-story__chapter">
-        <header className="first-story__chapter-heading"><p className="first-story__eyebrow">05 · Moving into FRC · 2023–2024</p><h2>Mechanical bumper integration for Team Spyder</h2></header>
-        <div className="first-story__split">
-          <div className="first-story__copy">
-            <p>While competing with Roboctopi, I also worked with FRC Team 1622 Team Spyder. My mechanical contribution focused on removable bumper mounting hardware for the competition robot.</p>
-            <p>The design had to combine structural mounting, quick removal, competition rules, repeated installation, frame integration, and pit access. My STEM advocacy work also led to a Certificate of Recognition from San Diego County Supervisor Joel Anderson for contributions to STEAM Robotics Observance Day.</p>
-            <p className="first-story__attribution">Team results included regional finalist appearances, the FIRST Impact Award, other judged awards, and FIRST Championship participation.</p>
-          </div>
-          <RoboticsImage src="/images/first/archive/team-spyder-rhythm.jpg" alt="FRC Team 1622 Team Spyder robot Rhythm on the field" caption="Rhythm · FRC Team 1622 Team Spyder, where I contributed removable bumper hardware and STEM advocacy." />
-        </div>
-      </section>
-
-      <section className="first-story__chapter">
-        <header className="first-story__chapter-heading"><p className="first-story__eyebrow">06 · Skills and leadership</p><h2>What FIRST actually taught me</h2></header>
-        <dl className="first-story__skills">{skills.map(([name, detail]) => <div key={name}><dt>{name}</dt><dd>{detail}</dd></div>)}</dl>
-        <div className="first-story__outreach">
-          <div><p className="first-story__eyebrow">Team outreach · 2022–2023</p><strong>36</strong><span>events</span></div>
-          <div><p className="first-story__eyebrow">Team total</p><strong>390+</strong><span>volunteer hours</span></div>
-          <div><p className="first-story__eyebrow">Estimated reach</p><strong>2,523+</strong><span>people impacted</span></div>
-          <p>I helped support CAD and mechanical training, FLL team support, STEM events, engineering speakers, and advocacy. With Roboctopi, I also contributed to outreach efforts that launched seven FLL teams and expanded FIRST access to more than 400 students. These figures describe team efforts; my contribution was events, advocacy, and technical support.</p>
-        </div>
+        <blockquote>“Build something, test it, figure out what actually went wrong, change it, and try again.”</blockquote>
+        <p>That habit followed me from competition robots into every engineering project that came after FIRST.</p>
       </section>
     </div>
   );
@@ -155,7 +174,7 @@ export function FirstRoboticsDisclosure({ project }: { project: Project }) {
   return (
     <details className="first-disclosure">
       <summary>
-        <div className="first-disclosure__image"><Image src="/images/first/archive/roboctopi-robot.jpg" alt="Roboctopi FTC robot" fill loading="lazy" sizes="(max-width: 760px) 100vw, 46vw" /></div>
+        <div className="first-disclosure__image"><Image src="/images/first/story/powerplay-mantis-hero.jpg" alt="Green Griffins PowerPlay robot" fill loading="lazy" sizes="(max-width: 760px) 100vw, 46vw" /></div>
         <div className="first-disclosure__copy">
           <time>{project.date}</time>
           <h2>{project.title}</h2>
@@ -173,18 +192,31 @@ export function FirstRoboticsDisclosure({ project }: { project: Project }) {
 
 export function FirstRoboticsCaseStudy({ nextProject }: { project: Project; nextProject?: Project }) {
   return (
-    <article className="first-case shell">
-      <header className="first-case__hero">
-        <nav className="reference-breadcrumb" aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/projects">Projects Archive</Link><span>/</span><strong>FIRST Robotics</strong></nav>
-        <Link className="simple-back" href="/projects">← Projects</Link>
-        <p className="first-story__eyebrow">Mechanical design · Prototyping · Leadership</p>
-        <h1>FIRST Robotics</h1>
-        <p>From early fabrication to complete mechanisms, subsystem ownership, leadership of a roughly 15-person team, and FRC integration.</p>
-        <div className="reference-case-skills"><p>Skills</p>{["Mechanical Design", "Fusion 360", "Fabrication", "Prototyping", "Systems Integration", "Team Leadership"].map((tool) => <span key={tool}>{tool}</span>)}</div>
-        <RoboticsImage src="/images/first/archive/roboctopi-robot.jpg" alt="Roboctopi FTC robot" caption="FTC 14496 Roboctopi · one chapter in a ten-year student path spanning FLL, FTC, and FRC." eager />
+    <article className="first-case first-story-page shell">
+      <header className="first-story-page__hero">
+        <Link className="simple-back" href="/projects"><span aria-hidden="true">←</span> All projects</Link>
+        <div className="first-story-page__hero-grid">
+          <div className="first-story-page__hero-copy">
+            <p className="first-story__eyebrow">2014–2024 · FLL, FTC &amp; FRC</p>
+            <h1>FIRST Robotics</h1>
+            <p>FIRST was my first long-running engineering laboratory: ten years of building robots, learning why they failed, and taking on more of the design every season.</p>
+            <p>I progressed from fabrication and troubleshooting into CAD, mechanism ownership, rapid prototyping, system integration, and technical leadership—always learning that the best design is the one that works with the rest of the robot.</p>
+          </div>
+          <Visual
+            src="/images/first/story/powerplay-mantis-hero.jpg"
+            alt="Green Griffins PowerPlay robot with its horizontal intake fully extended"
+            caption="Mantis · the clearest expression of a design process built through repeated testing and iteration."
+            priority
+          />
+        </div>
       </header>
+
       <FirstRoboticsStory />
-      <nav className="simple-project-nav"><Link href="/projects">← All projects</Link>{nextProject ? <Link href={`/projects/${nextProject.slug}`}>Next: {nextProject.title} →</Link> : null}</nav>
+
+      <nav className="simple-project-nav" aria-label="Project navigation">
+        <Link href="/projects">All projects</Link>
+        {nextProject ? <Link href={`/projects/${nextProject.slug}`}>Next project <span aria-hidden="true">→</span></Link> : null}
+      </nav>
     </article>
   );
 }
