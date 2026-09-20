@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { ExpandableImage } from "@/components/expandable-image";
 import type { Project } from "@/content/projects";
 import type { ProjectMedia, ProjectVideo } from "@/content/projects/types";
 
@@ -13,7 +13,7 @@ function ProjectEvidence({ media, video }: { media: ProjectMedia[]; video?: Proj
       {images.map((item) => (
         <figure key={item.src}>
           <div className={`simple-project-image simple-project-image--${item.aspect ?? "wide"}`}>
-            <Image src={item.src} alt={item.alt} fill sizes="(max-width: 760px) 100vw, 760px" />
+            <ExpandableImage src={item.src} alt={item.alt} sizes="(max-width: 760px) 100vw, 760px" />
           </div>
           {item.caption ? <figcaption>{item.caption}</figcaption> : null}
         </figure>
@@ -56,7 +56,7 @@ export function ProjectCaseStudy({ project, nextProject }: { project: Project; n
       </header>
 
       {leadMedia ? (
-        <figure className="simple-project-lead"><div><Image src={leadMedia.src} alt={leadMedia.alt} fill loading="eager" sizes="(max-width: 760px) 100vw, 1080px" /></div>{leadMedia.caption ? <figcaption>{leadMedia.caption}</figcaption> : null}</figure>
+        <figure className="simple-project-lead"><div><ExpandableImage src={leadMedia.src} alt={leadMedia.alt} priority sizes="(max-width: 760px) 100vw, 1080px" /></div>{leadMedia.caption ? <figcaption>{leadMedia.caption}</figcaption> : null}</figure>
       ) : (
         <div className="simple-private-lead"><span>{project.system}</span><small>{professional ? "Professional imagery held private pending approval" : "Project image pending"}</small></div>
       )}
