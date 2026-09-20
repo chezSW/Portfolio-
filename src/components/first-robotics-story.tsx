@@ -165,7 +165,10 @@ function FirstRoboticsStory() {
             <p>On Team Spyder, I focused on removable bumper mounting hardware instead of describing the entire FRC robot as my work. The problem was compact but real: the mount had to connect to a much larger structure, survive repeated installation, remain accessible, fit the frame, meet competition constraints, and avoid slowing down service in the pit.</p>
             <p>The result was a focused exercise in constraints, interface design, fabrication, integration, and serviceability—and a chance to apply the same mechanism-design habits at FRC scale.</p>
           </div>
-          <Visual src="/images/first/story/team-spyder-robot.jpg" alt="Team Spyder FRC robot at the scoring structure" caption="Rhythm · a larger FRC platform where the bumper interface had to stay structural and serviceable." />
+          <div className="first-story__story-media">
+            <Visual src="/images/first/story/team-spyder-intake-prototype.jpg" alt="Team Spyder FRC intake prototype built from plywood, aluminum extrusion, and compliant wheels" caption="Early FRC intake prototype · testing wheel layout, spacing, and the path into the robot." />
+            <Visual src="/images/first/story/team-spyder-practice-robot.jpg" alt="Two FRC robots during practice, with Team Spyder's robot on the right" caption="Practice · Team Spyder’s robot is on the right, with its intake and bumper interface visible." />
+          </div>
         </div>
       </section>
 

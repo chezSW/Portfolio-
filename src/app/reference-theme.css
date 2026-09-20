@@ -1052,6 +1052,12 @@ a:hover { color: var(--accent-strong); }
 .first-story__story-row > .case-visual > div { aspect-ratio: 4 / 3; }
 .first-story__story-row--reverse > .first-story__copy { grid-column: 1; }
 .first-story__story-row--reverse > .case-visual { grid-column: 2; grid-row: 1; }
+.first-story__story-media {
+  display: grid;
+  gap: 24px;
+}
+.first-story__story-media .case-visual { margin: 0; }
+.first-story__story-media .case-visual > div { aspect-ratio: 16 / 9; }
 .first-story__micro {
   display: block;
   margin: 0 0 7px;
@@ -1334,7 +1340,8 @@ a:hover { color: var(--accent-strong); }
   .first-story__story-row--reverse > .first-story__copy,
   .first-story__story-row--reverse > .case-visual { grid-column: 1; grid-row: auto; }
   .pdc-story-row__media,
-  .first-story__story-row > .case-visual { order: -1; }
+  .first-story__story-row > .case-visual,
+  .first-story__story-row > .first-story__story-media { order: -1; }
   .first-story__decade { grid-template-columns: repeat(7, minmax(100px, 1fr)); overflow-x: auto; padding-bottom: 12px; }
   .first-story__decade i { display: none; }
   .pdc-simple__hero .case-visual { order: -1; }
