@@ -25,26 +25,32 @@ export default function AboutPage() {
     <>
       <PageIntro
         eyebrow="About"
-        title="I like designing things that eventually have to exist outside SolidWorks."
+        title="I like building things that have to work outside the CAD model."
         description="I am a mechanical engineering student in San Diego. I got into engineering through FIRST Robotics and have since worked on competition robots, CNC fixtures, electronics packaging, and thermal simulations for high-reliability hardware."
       />
       <div className="about-page shell">
         <section className="about-opening">
           <div className="about-copy">
             <p>
-              I especially enjoy projects where mechanical design overlaps with
-              manufacturing, electronics, and thermal problems. A good design has
-              to fit, stay cool, go together without a fight, and make sense to the
-              person building it.
+              FIRST Robotics taught me that the fastest way to learn is usually to
+              build something, test it, figure out what actually went wrong, and try
+              again. That habit stuck. Now I move between mechanical design,
+              manufacturing, thermal analysis, electronics packaging, and whatever
+              else the hardware needs that day.
             </p>
             <p>
-              FIRST Robotics got me started. Since then, I have worked on production
-              fixtures, electronics packaging, autonomous vehicle hardware,
-              and the analysis that connects a design decision to a temperature.
+              The part I enjoy most is where systems overlap: when a bracket changes
+              a wire route, a thermal path changes a chassis, or a clean CAD assembly
+              meets the very real question of how somebody is supposed to put it
+              together. A good design has to fit, stay cool, go together without a
+              fight, and make sense to the person building it.
             </p>
             <p>
-              When I am not doing that, there is a decent chance I am modifying my
-              desktop PC in a way the manufacturer probably did not intend.
+              I care about the details, but I also like keeping engineering curious,
+              practical, and a little fun. If something goes kabloom, the next
+              question is what we learned from it. When I am not doing that, there is
+              a decent chance I am modifying my desktop PC in a way the manufacturer
+              probably did not intend.
             </p>
           </div>
           <figure className="about-portrait">
