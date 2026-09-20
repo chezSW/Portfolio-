@@ -123,13 +123,25 @@ function FirstRoboticsStory() {
         <p className="first-story__attribution">These are documented team-level cycle times from robots I helped lead and integrate—not three robots I designed alone.</p>
 
         <div className="first-story__story-row first-story__story-row--powerplay">
-          <Visual src="/images/first/story/powerplay-giraffe-30-hour-robot.jpg" alt="The PowerPlay Giraffe robot with tall linear slides and rubber-band intake" caption="Giraffe · a drivetrain, slide, and intake architecture built in roughly 30 hours after game release." />
+          <Visual src="/images/first/story/powerplay-giraffe-30-hour-robot.png" alt="The PowerPlay Giraffe robot competing with its tall linear slides and rubber-band intake" caption="Giraffe · the actual Robot in 30 Hours build, with its drivetrain, slides, and intake integrated." />
           <div className="first-story__copy">
             <p className="first-story__micro">My work</p>
             <p>I personally designed Giraffe’s drivetrain, linear slides, and rubber-band intake. The team fabricated and integrated the rest, creating a functional robot that could perform most major game tasks roughly 30 hours after release.</p>
             <p className="first-story__micro">Engineering leadership</p>
             <p>I led the development process through a design matrix, prototypes, CAD, calculations, design reviews, fabrication, tests, and iteration. The final robot used a mecanum drivetrain, packaged three-wheel odometry, used CAD center-of-gravity estimates, and evolved to spring-loaded odometry after testing. The scoring path depended on a horizontal linear-slide handoff, several printed claw geometries, four-point contact, and servo torque and speed evaluation. Mechanical decisions also changed around programming requirements instead of treating software as a separate system.</p>
           </div>
+        </div>
+        <div className="first-story__video-links" aria-label="Giraffe Robot in 30 Hours videos">
+          <a href="https://www.youtube.com/watch?v=8u2IuG8DoAs&t=1s" target="_blank" rel="noreferrer">
+            <span>Robot in 30 Hours</span>
+            <strong>2022 build recap</strong>
+            <small>Watch on YouTube <span aria-hidden="true">↗</span></small>
+          </a>
+          <a href="https://www.youtube.com/watch?v=580BkIanc_8" target="_blank" rel="noreferrer">
+            <span>Robot in 30 Hours</span>
+            <strong>PowerPlay robot walkthrough</strong>
+            <small>Watch on YouTube <span aria-hidden="true">↗</span></small>
+          </a>
         </div>
 
         <div className="first-story__process" aria-label="PowerPlay design process">
@@ -141,6 +153,13 @@ function FirstRoboticsStory() {
           <Visual src="/images/first/story/powerplay-slide-intake-prototype.jpg" alt="Physical linear-slide and intake prototype" caption="Prototype · fast physical builds revealed geometry and handoff problems." />
         </div>
         <ProjectVideo src="/videos/first/powerplay-mantis-cycle.mp4" poster="/images/first/story/powerplay-mantis-video-poster.jpg" caption="Mantis testing · lessons from the earlier robots became a much faster team scoring system." />
+        <div className="first-story__video-links first-story__video-links--single" aria-label="PowerPlay competition video">
+          <a href="https://www.youtube.com/watch?v=L0NEEnnkDi4" target="_blank" rel="noreferrer">
+            <span>Competition recap</span>
+            <strong>San Diego Qualifiers</strong>
+            <small>Watch on YouTube <span aria-hidden="true">↗</span></small>
+          </a>
+        </div>
       </section>
 
       <section className="first-story__section" id="roboctopi">
