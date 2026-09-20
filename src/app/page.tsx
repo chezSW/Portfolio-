@@ -167,7 +167,11 @@ export default function Home() {
           <h1>Hi, I’m <span>Chase</span></h1>
           <p>I’m a mechanical engineering student.<br />Get ready to blow some stuff up (and learn from it!!)</p>
           <div className="reference-actions">
-            <Link className="reference-button" href="/resume"><span aria-hidden="true">↓</span> View resume</Link>
+            {siteConfig.resumePath ? (
+              <a className="reference-button" href={siteConfig.resumePath} download>
+                <span aria-hidden="true">↓</span> View resume
+              </a>
+            ) : null}
             {siteConfig.linkedIn ? <a className="reference-icon-button" href={siteConfig.linkedIn} aria-label="LinkedIn">in</a> : null}
             <a className="reference-icon-button" href={`mailto:${homeEmail}`} aria-label="Email">@</a>
           </div>
