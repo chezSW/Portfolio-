@@ -17,8 +17,8 @@ export const autonomousKart: Project = {
   system: "Autonomous Kart",
   status: "Student Engineering Team / In Development",
   keyResult: "Team result: Top 5 nationally among 12 universities at Purdue",
-  tools: ["CAD", "Enclosure Design", "Mechanical Integration"],
-  skills: ["Interface mapping", "Wire routing", "Service access"],
+  tools: ["Fusion 360", "FDM Printing", "Enclosure Design", "Mechanical Integration"],
+  skills: ["Interface mapping", "Electronics mounting", "Wire routing", "Service access"],
   visual: "vehicle",
   media: [
     {
@@ -52,14 +52,53 @@ export const autonomousKart: Project = {
       layout: "split",
     },
     {
-      eyebrow: "03 / Integration",
+      eyebrow: "03 / Electronics",
+      title: "Making the electronics fit the kart",
+      paragraphs: [
+        "The electronics bay could not be treated like a box that was added at the end. The boards, fuses, connectors, high-current cables, pass-throughs, and service access all had to fit the available chassis space without turning every test into a teardown.",
+        "I designed and delivered six custom mounts, built the printed support hardware, cut and sealed the enclosure pass-throughs, and integrated the power and signal routing onto the kart. These photos show the hardware during fit checks and installation—not a studio mockup, but the real packaging problem as it came together.",
+      ],
+      media: [
+        {
+          src: "/images/kart/electronics/distribution-stack-side.jpg",
+          alt: "Side view of the autonomous kart electronics distribution stack in a green printed mount",
+          caption: "Printed supports hold the board stack while keeping connectors and fuses accessible.",
+          public: true,
+          aspect: "portrait",
+        },
+        {
+          src: "/images/kart/electronics/custom-distribution-boards.jpg",
+          alt: "Stack of electronics distribution boards with yellow connectors and red fuses",
+          caption: "A dense set of electrical interfaces that had to remain organized and serviceable.",
+          public: true,
+          aspect: "portrait",
+        },
+        {
+          src: "/images/kart/electronics/installed-electronics-bay.jpg",
+          alt: "Electronics distribution boards and custom mounts installed in the autonomous kart bay",
+          caption: "Installed for cable routing, connector access, and fit checks inside the bay.",
+          public: true,
+          aspect: "portrait",
+        },
+        {
+          src: "/images/kart/electronics/kart-electronics-overview.jpg",
+          alt: "Top view of the autonomous kart chassis with its electronics enclosure and wiring",
+          caption: "The full packaging context: chassis, enclosure, wiring, power hardware, and the room left to service it all.",
+          public: true,
+          aspect: "wide",
+        },
+      ],
+      layout: "gallery",
+    },
+    {
+      eyebrow: "04 / Integration",
       title: "Requirements arrive from three disciplines",
       paragraphs: [
         "Mechanical geometry, electrical interfaces, connector access, sensing needs, and debugging access all shape the package. Regular review helps catch integration problems before one subsystem is designed too far in isolation.",
       ],
     },
     {
-      eyebrow: "04 / Team outcome",
+      eyebrow: "05 / Team outcome",
       title: "National competition context",
       paragraphs: [
         "Mesa Full Self Driving placed Top 5 nationally at Purdue University’s Autonomous Karting Series in a field of 12 universities. This is a team result; the packaging work is one subsystem within the larger autonomous vehicle effort.",

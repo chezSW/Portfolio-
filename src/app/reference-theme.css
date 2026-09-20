@@ -197,6 +197,42 @@ a:hover { color: var(--accent-strong); }
 
 .reference-tools > p { text-align: center; }
 
+.reference-about {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
+  gap: clamp(54px, 8vw, 110px);
+  align-items: center;
+}
+
+.reference-about__copy { max-width: 720px; }
+.reference-about__eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.reference-about h2 {
+  margin: 0 0 30px;
+  font-size: clamp(2.65rem, 5.2vw, 4.85rem);
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+.reference-about__copy > p:not(.reference-about__eyebrow) { margin: 0; color: var(--muted); font-size: 1.04rem; }
+.reference-about__copy > p + p { margin-top: 20px; }
+.reference-about__link { display: inline-flex; gap: 10px; margin-top: 28px; color: var(--accent-strong); font-weight: 700; text-decoration: none; }
+.reference-about__portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--panel);
+}
+.reference-about__portrait img { object-fit: cover; }
+
 .reference-tools__viewport {
   overflow: hidden;
   padding-block: 4px;
@@ -349,6 +385,27 @@ a:hover { color: var(--accent-strong); }
   font-weight: 700;
   text-decoration: none;
 }
+
+.reference-gallery__heading { max-width: 1040px; }
+.reference-gallery__heading h2 { max-width: 1020px; }
+.reference-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px 22px;
+}
+.reference-gallery__item { min-width: 0; margin: 0; }
+.reference-gallery__item > div {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #090a0b;
+}
+.reference-gallery__item img { object-fit: cover; }
+.reference-gallery__item--wide { grid-column: 1 / -1; }
+.reference-gallery__item--wide > div { aspect-ratio: 16 / 8.6; }
+.reference-gallery__item figcaption { margin-top: 10px; color: var(--muted); font-size: 0.8rem; }
 
 .reference-experience-logos {
   display: grid;
@@ -1081,6 +1138,8 @@ a:hover { color: var(--accent-strong); }
 .experience-resume__image { overflow: hidden; border: 1px solid var(--line); border-radius: 22px; clip-path: none; }
 .contact-panel__status,
 .resume-pending { border: 1px solid var(--line); border-radius: 16px; background: var(--panel); }
+.resume-download { border-radius: 999px; background: var(--accent); color: #181108; font-weight: 700; }
+.resume-download:hover { background: var(--accent-strong); color: #181108; }
 .status-dot { background: var(--accent); box-shadow: 0 0 14px rgba(217, 154, 70, 0.5); }
 
 @media (max-width: 860px) {
@@ -1090,6 +1149,7 @@ a:hover { color: var(--accent-strong); }
   .reference-hero__portrait { width: min(100%, 560px); justify-self: end; }
   .reference-project-grid,
   .reference-education,
+  .reference-about,
   .pdc-story__overview,
   .focused-case__section,
   .focused-case__closing,
@@ -1128,6 +1188,11 @@ a:hover { color: var(--accent-strong); }
   .reference-contact h2,
   .reference-archive__intro h1 { font-size: clamp(2.65rem, 13vw, 4rem); }
   .reference-project-grid { grid-template-columns: 1fr; }
+  .reference-about__portrait { width: min(100%, 560px); order: -1; }
+  .reference-gallery__grid { grid-template-columns: 1fr; }
+  .reference-gallery__item--wide { grid-column: 1; }
+  .reference-gallery__item > div,
+  .reference-gallery__item--wide > div { aspect-ratio: 4 / 5; }
   .reference-experience-logos { gap: 8px; margin-bottom: 46px; }
   .reference-experience-logos a { min-height: 78px; border-radius: 13px; }
   .reference-experience-logos img { padding: 16px; }

@@ -10,9 +10,9 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://chase-norvell-portfolio.pastel-jam-1641.chatgpt.site",
   navigation: [
     { label: "Home", href: "/#home" },
+    { label: "About", href: "/#about" },
     { label: "Projects", href: "/#projects" },
-    { label: "Experience", href: "/#experience" },
-    { label: "Education", href: "/#education" },
+    { label: "Gallery", href: "/#gallery" },
     { label: "Connect", href: "/#contact" },
   ],
 } as const;

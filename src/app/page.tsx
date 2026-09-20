@@ -140,6 +140,33 @@ const homepageCoursework = [
   "Circuits",
 ];
 
+const galleryImages = [
+  {
+    src: "/images/kart/electronics/distribution-stack-side.jpg",
+    alt: "Side view of the autonomous kart electronics distribution stack in a green printed mount",
+    caption: "The board stack in its printed support frame—compact, accessible, and finally becoming real hardware.",
+    className: "reference-gallery__item--portrait",
+  },
+  {
+    src: "/images/kart/electronics/custom-distribution-boards.jpg",
+    alt: "Stack of electronics distribution boards with yellow connectors and red fuses",
+    caption: "A lot of connectors, a lot of current, and a lot less chaos once everything had a place.",
+    className: "reference-gallery__item--portrait",
+  },
+  {
+    src: "/images/kart/electronics/installed-electronics-bay.jpg",
+    alt: "Electronics distribution boards and custom mounts installed in the autonomous kart bay",
+    caption: "The electronics bay during integration: fit checks, cable routing, and service access all at once.",
+    className: "reference-gallery__item--portrait",
+  },
+  {
+    src: "/images/kart/electronics/kart-electronics-overview.jpg",
+    alt: "Top view of the autonomous kart chassis with its electronics enclosure and wiring",
+    caption: "The kart underneath it all—mechanical, electrical, and autonomy systems sharing the same few square feet.",
+    className: "reference-gallery__item--wide",
+  },
+];
+
 function FeaturedProject({ project, lead = false }: { project: (typeof featuredWork)[number]; lead?: boolean }) {
   return (
     <article className={`reference-project-card${lead ? " reference-project-card--lead" : ""}`}>
@@ -182,6 +209,28 @@ export default function Home() {
         <DraggableToolRail items={toolGroups} />
       </section>
 
+      <section className="reference-section reference-about shell" id="about">
+        <div className="reference-about__copy">
+          <p className="reference-about__eyebrow">About Me</p>
+          <h2>I like building things that have to work outside the CAD model.</h2>
+          <p>
+            I got into engineering through FIRST Robotics, where the fastest way to learn was usually to build something,
+            test it, figure out what actually went wrong, and try again. That habit stuck. Now I work across mechanical
+            design, manufacturing, thermal analysis, electronics packaging, and whatever else the hardware needs that day.
+          </p>
+          <p>
+            The part I enjoy most is where systems overlap: when a bracket changes a wire route, a thermal path changes a
+            chassis, or a clean CAD assembly meets the very real question of how somebody is supposed to put it together.
+            I care about the details, but I also like keeping engineering curious, practical, and a little fun. If something
+            goes kabloom, the next question is what we learned from it.
+          </p>
+          <Link className="reference-about__link" href="/about">A little more about me <span aria-hidden="true">→</span></Link>
+        </div>
+        <figure className="reference-about__portrait">
+          <Image src="/images/about/chase-norvell.jpg" alt="Chase Norvell" fill sizes="(max-width: 760px) 100vw, 38vw" />
+        </figure>
+      </section>
+
       <section className="reference-section shell" id="experience">
         <header className="reference-section__heading">
           <p>Work &amp; Experience</p>
@@ -222,6 +271,22 @@ export default function Home() {
           {featuredWork.map((project, index) => <FeaturedProject key={project.slug} project={project} lead={index === 0} />)}
         </div>
         <Link className="reference-archive-link" href="/projects">Browse the full archive <span aria-hidden="true">→</span></Link>
+      </section>
+
+      <section className="reference-section reference-gallery shell" id="gallery">
+        <header className="reference-section__heading reference-gallery__heading">
+          <p>Gallery</p>
+          <h2>they say pictures speak a thousand words, lets see if thats true!</h2>
+          <span>A few frames from the part of engineering that happens after the screen: fitting, wiring, building, and making the whole system cooperate.</span>
+        </header>
+        <div className="reference-gallery__grid">
+          {galleryImages.map((item) => (
+            <figure className={`reference-gallery__item ${item.className}`} key={item.src}>
+              <div><Image src={item.src} alt={item.alt} fill sizes={item.className.includes("wide") ? "(max-width: 760px) 100vw, 1200px" : "(max-width: 760px) 100vw, 390px"} /></div>
+              <figcaption>{item.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       <section className="reference-section shell" id="education">

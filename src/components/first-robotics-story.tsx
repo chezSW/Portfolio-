@@ -158,13 +158,11 @@ function FirstRoboticsStory() {
       <section className="first-story__section first-story__takeaway" id="what-first-taught-me">
         <div className="first-story__copy">
           <p className="first-story__eyebrow">04 · What FIRST Actually Taught Me</p>
-          <h2>A process I still use</h2>
+          <h2>What I Took Away</h2>
+          <p>Over ten years, FIRST took me from basic fabrication into CAD, mechanism ownership, rapid prototyping, testing, system integration, and eventually technical leadership. More importantly, it taught me that none of those skills matter in isolation. A mechanism still has to fit the structure, leave room for wiring, work with the software, survive competition, and be serviceable by the rest of the team.</p>
+          <p>The engineering habit that followed me into everything after FIRST is simple: build something, test it, figure out what actually went wrong, change it, and try again. That feedback loop shaped how I approached later robotics work, my internship at Power Device Corporation, and the electronics packaging I now do for Mesa FSD.</p>
+          <p>FIRST was where I learned that the first working answer is usually just useful data. The real design comes from paying attention to what the hardware is telling you and being willing to make the next version better.</p>
         </div>
-        <div className="first-story__progression" aria-label="Engineering progression">
-          {["Fabrication", "CAD", "Mechanism ownership", "Rapid prototyping", "Testing", "System integration", "Technical leadership"].map((step, index) => <span key={step}><b>{String(index + 1).padStart(2, "0")}</b>{step}</span>)}
-        </div>
-        <blockquote>“Build something, test it, figure out what actually went wrong, change it, and try again.”</blockquote>
-        <p>That habit followed me from competition robots into every engineering project that came after FIRST.</p>
       </section>
     </div>
   );
