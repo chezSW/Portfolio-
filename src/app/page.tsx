@@ -3,17 +3,8 @@ import Link from "next/link";
 import { DraggableToolRail } from "@/components/draggable-tool-rail";
 import { siteConfig } from "@/config/site";
 import { education } from "@/content/education";
-import { projects } from "@/content/projects";
 
-const featuredSlugs = [
-  "power-device-corporation",
-  "first-robotics",
-  "autonomous-kart-packaging",
-];
-
-const featuredWork = featuredSlugs
-  .map((slug) => projects.find((project) => project.slug === slug))
-  .filter((project) => project !== undefined);
+const homeEmail = "chase.norvell1@gmail.com";
 
 const experience = [
   {
@@ -24,12 +15,9 @@ const experience = [
     logo: "/images/experience/power-device-corporation.png",
     logoAlt: "Power Device Corporation logo",
     contributions: [
-      "Started close to the production floor and delivered more than 20 fixture configurations using SolidWorks, FDM printing, Fusion 360 CAM, CNC machining, and direct technician feedback.",
-      "Replaced visual alignment in one clipping process with mechanical location; after two printed iterations and a machined production version, setup dropped from roughly five minutes to under one minute per component.",
-      "Developed HPSC mechanical PCB definitions through roughly 12 revisions, coordinating board geometry, mounting, connectors, keep-outs, thermal hardware, and card-level packaging interfaces.",
-      "Used steady-state ANSYS trade studies to compare processor placement, DDR4 placement, heat-shunt geometry, conductive paths, heat spreading, and assembly-level component temperatures while the design could still change.",
-      "Created build-to drawings and supported machined heat-shunt hardware, physical fit checks, a protective 3D-printed PCB carrier, and a three-card chassis iteration that reduced mass by about 20% while the model showed roughly 2% lower card temperatures.",
-      "Wrote a Python utility inside ANSYS Mechanical that mapped bodies to mesh nodes, extracted peak temperatures and node locations to CSV, and created review probes so engineering time could shift from data collection to interpretation.",
+      "Worked in a small aerospace-electronics team on radiation-hardened and space-qualified hardware, from early R&D models and next-generation computing concepts through production-ready assemblies.",
+      "Moved between mechanical design, electronics packaging, SolidWorks, GD&T/manufacturing drawings, ANSYS thermal analysis, tolerance/interface decisions, and Python automation to solve real packaging and thermal problems.",
+      "Worked closely with the production floor, designing fixtures, 3D printing parts, using CAM and CNC machining, checking fit on hardware, and working directly with technicians to streamline production efficiency.",
     ],
     href: "/projects/power-device-corporation",
   },
@@ -37,28 +25,27 @@ const experience = [
     id: "mesa-fsd",
     date: "Mar 2026 — Present",
     role: "Electronics Packaging Lead",
-    organization: "Mesa FSD",
+    organization: "San Diego Mesa Community College Full Self Driving Club",
     logo: "/images/experience/mesa-fsd.png",
-    logoAlt: "Mesa FSD logo",
+    logoAlt: "Mesa Full Self Driving Club logo",
     contributions: [
-      "Leading the enclosure and mounting package for an autonomous kart’s electrical and autonomy hardware, including sealing, connector access, wire routing, inspection, and service access.",
-      "Developing CAD concepts while coordinating geometry, electrical interfaces, sensing needs, troubleshooting access, and assembly requirements across mechanical, electrical, and autonomy subteams.",
-      "Contributing the electronics-packaging subsystem to a team that placed Top 5 nationally among 12 universities at Purdue University’s Autonomous Karting Series.",
+      "Leading the electronics packaging for an autonomous kart, including the enclosure, mounting, sealing, wire routing, and serviceability of the vehicle’s electrical and autonomy hardware.",
+      "The role sits between mechanical, electrical, and autonomy work, requiring coordination across systems to ensure everything fits together and remains easy to build, test, and troubleshoot.",
+      "The project is still actively developing, with the team placing Top 5 nationally among 12 universities at Purdue University’s Autonomous Karting Series in May 2026.",
     ],
     href: "/projects/autonomous-kart-packaging",
   },
   {
     id: "team-spyder",
     date: "2023 — 2024",
-    role: "Mechanical Contributor",
+    role: "Mechanical Designer",
     organization: "FRC 1622 · Team Spyder",
     logo: "/images/experience/team-spyder.png",
     logoAlt: "FRC Team 1622 Team Spyder logo",
     contributions: [
-      "Designed and integrated removable bumper-mounting hardware around structural attachment, fast pit removal, repeated installation, frame interfaces, accessibility, and FRC competition rules.",
-      "Worked in parallel with my FTC season, gaining experience with the scale, build practices, and integration demands of an FRC competition robot.",
-      "Supported STEM outreach and advocacy that led to a Certificate of Recognition from San Diego County Supervisor Joel Anderson for contributions to STEAM Robotics Observance Day.",
-      "Team context: Team Spyder earned regional finalist appearances, the FIRST Impact Award, Judges’ and Imagery awards, an Excellence in Engineering Award, and FIRST Championship participation during the season.",
+      "Designed and integrated removable bumper-mounting hardware for the competition robot.",
+      "Contributed to STEM outreach and advocacy, including work that led to a Certificate of Recognition from San Diego County Supervisor Joel Anderson.",
+      "Supported a season that included regional finalist appearances, judged awards, and FIRST Championship participation in 2024.",
     ],
     href: "/projects/first-robotics",
   },
@@ -70,10 +57,9 @@ const experience = [
     logo: "/images/experience/roboctopi.png",
     logoAlt: "FTC Team 14496 Roboctopi logo",
     contributions: [
-      "Joined Roboctopi intentionally to learn in a more advanced design environment built around CAD-first development, formal reviews, tight tolerances, motion and stress analysis, CNC machining, laser cutting, molding, and additive manufacturing.",
-      "Designed the V1 intake-and-delivery concept, initial claw, and a wiring guide in Fusion 360, then documented and handed the intake forward so another designer could continue its development.",
-      "Contributed mechanical design collaboration, FLL mentorship, HeForSWE advocacy, and major outreach work that helped launch seven FLL teams and expand FIRST access to more than 400 students in Escondido schools.",
-      "Team context: Roboctopi won the San Diego Regional Inspire Award, qualified for the FIRST Championship, earned the Championship Think Award, and set a Centerstage world-record score of 416 during the season.",
+      "Designed and delivered the V1 intake and delivery system, claw/end effector, linear-slide string routing, and wiring guide, with the hardware integrated onto the competition robot.",
+      "Worked through CAD, CDR’s, prototyping, fabrication, and subsystem handoff in a team using CNC machining, laser cutting, FDM printing, silicone molding.",
+      "Contributed to mechanical design and outreach on a team that won the San Diego Regional Inspire Award, qualified for the FIRST Championship, earned the Championship Think Award, and set a world-record score of 416.",
     ],
     href: "/projects/first-robotics",
   },
@@ -85,41 +71,87 @@ const experience = [
     logo: "/images/experience/green-griffins.png",
     logoAlt: "FTC Team 10092 Green Griffins logo",
     contributions: [
-      "Began in FLL in 2014 with block programming, teamwork, presentations, and collaborative problem solving, then moved into FTC mechanical assembly, fabrication, machining, maintenance, and subsystem troubleshooting from 2017–2019.",
-      "Moved into CAD and complete-mechanism design in 2020–2021, then designed nearly all major mechanical systems on the 2021–2022 Tonk robot aside from one endgame mechanism.",
-      "Redesigned Tonk’s bulky linear-slide scoring system around a compact turret with a 60:1 motor, 90-degree gearbox, custom waterjet bracket, sprocket reduction, and printed hub—roughly tripling scoring throughput from 4–6 to 16–18 cycles in comparable play.",
-      "Became Team Lead of the roughly 15-person Green.Griffins team in 2022–2023, coordinating technical and outreach leads, meeting priorities, deadlines, subsystem integration, CAD and fabrication training, and engineering design reviews.",
-      "Helped shift the team from immediately modeling ideas to proof-of-concept prototypes, design matrices, CAD, professional review, build, test, and iteration using cardboard, foam, shop materials, and printed parts.",
-      "Helped lead three major robot iterations—from an approximately 14-second scoring cycle to 8 seconds and then roughly 2 seconds on Mantis—while integrating a belted mecanum drivetrain, three-wheel odometry, compact wiring, battery access, and an iterated four-point claw.",
-      "Team context: the Green.Griffins completed 36 outreach events, contributed 390+ volunteer hours, reached an estimated 2,523+ people, and earned alliance wins and placements across Think, Inspire, Design, and Control awards.",
+      "Progressed from hands-on fabrication and machining into CAD, mechanical design, prototyping, testing, and full robot integration.",
+      "Led a roughly 15-person team across mechanical, programming, electronics, and outreach while coordinating priorities, deadlines, training, design reviews, and system integration.",
+      "Helped build a more structured engineering process around design matrices, rapid prototypes, CAD, CDR’s, testing, and iteration instead of jumping straight into final designs.",
+      "Helped lead 36 outreach events totaling 390+ team volunteer hours and reaching an estimated 2,500+ people through STEM events, technical training, team support, and advocacy.",
     ],
     href: "/projects/first-robotics",
   },
 ];
 
 const toolGroups = [
+  "GD&T",
+  "Tolerance Stack-Ups",
+  "Engineering Drawings",
+  "DFM/DFA",
   "SolidWorks",
   "ANSYS Mechanical",
   "Fusion 360",
-  "GD&T",
+  "Onshape",
+  "Autodesk Inventor",
   "CNC Machining",
+  "Fusion 360 CAM",
   "FDM + SLA",
+  "Fixture Design",
+  "making things go kabloom (for science!)",
   "Python",
-  "Robotics",
+  "Root Cause Analysis",
+  "FEA",
+  "Mechanism Design",
+  "Thermal Analysis",
 ];
 
-function FeaturedProject({ project, lead = false }: { project: (typeof projects)[number]; lead?: boolean }) {
-  const image = project.media.find((item) => item.public);
+const featuredWork = [
+  {
+    slug: "power-device-corporation",
+    title: "Power Device Corporation",
+    subtitle: "Mechanical Engineering Intern",
+    summary: "Worked on aerospace electronics including computing hardware, power supplies, chassis assemblies, and production fixtures, from CAD and thermal analysis through manufacturing and production support.",
+    image: "/images/professional/power-device/full-card-render.png",
+    imageAlt: "Rendered Power Device Corporation aerospace electronics assembly",
+    tags: ["Mechanical Design", "Thermal Analysis", "GD&T", "FEA", "Fixture Design", "CNC Machining", "Python Automation"],
+  },
+  {
+    slug: "first-robotics",
+    title: "FIRST Robotics",
+    summary: "Ten years of hands-on robotics, progressing from fabrication into CAD, mechanism design, system integration, and leadership of a 15-person team.",
+    image: "/images/first/green-robot-featured.jpg",
+    imageAlt: "Green Griffins competition robot",
+    tags: ["Fusion 360", "Onshape", "Autodesk Inventor", "CNC", "FDM / SLA", "silicone molding", "Team Leadership", "Technical Communication", "Cross-Functional Coordination", "Problem Solving"],
+  },
+  {
+    slug: "autonomous-kart-packaging",
+    title: "San Diego Mesa Community College Full Self Driving Club",
+    summary: "Designed and integrated 6 custom electronics mounts and a serviceable electronics enclosure for an autonomous kart, contributing to a Top 5 national finish among 12 universities. With more to come!",
+    image: "/images/kart/autonomous-kart.jpg",
+    imageAlt: "San Diego Mesa autonomous kart",
+    imageClassName: "reference-project-card__image--kart",
+    tags: ["Fusion 360", "FDM Printing", "Electronics Packaging", "System Integration", "Cross-Functional Collaboration"],
+  },
+];
+
+const homepageCoursework = [
+  "Properties of Materials",
+  "Statics",
+  "Python Programming",
+  "Computer Aided Design",
+  "Engineering Physics",
+  "Circuits",
+];
+
+function FeaturedProject({ project, lead = false }: { project: (typeof featuredWork)[number]; lead?: boolean }) {
   return (
     <article className={`reference-project-card${lead ? " reference-project-card--lead" : ""}`}>
       <Link className="reference-project-card__visual" href={`/projects/${project.slug}`} aria-label={`Read ${project.title}`}>
-        {image ? <Image src={image.src} alt={image.alt} fill sizes={lead ? "(max-width: 760px) 100vw, 1100px" : "(max-width: 760px) 100vw, 550px"} /> : null}
+        <Image className={project.imageClassName} src={project.image} alt={project.imageAlt} fill sizes={lead ? "(max-width: 760px) 100vw, 1100px" : "(max-width: 760px) 100vw, 550px"} />
       </Link>
       <div className="reference-project-card__body">
         <h3><Link href={`/projects/${project.slug}`}>{project.title}</Link></h3>
+        {project.subtitle ? <small className="reference-project-card__subtitle">{project.subtitle}</small> : null}
         <p>{project.summary}</p>
         <div className="reference-project-card__skills" aria-label="Skills">
-          {project.tools.slice(0, 5).map((tool) => <span key={tool}>{tool}</span>)}
+          {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
         </div>
         <Link className="reference-button reference-button--secondary" href={`/projects/${project.slug}`}>Read more <span aria-hidden="true">→</span></Link>
       </div>
@@ -132,35 +164,22 @@ export default function Home() {
     <div className="reference-home">
       <section className="reference-hero shell" id="home">
         <div className="reference-hero__copy">
-          <h1>Mechanical design,<br />made <span>real.</span></h1>
-          <p>I’m Chase Norvell—a mechanical engineering student in San Diego. I work across electronics packaging, thermal analysis, manufacturing, and robotics, with a focus on designs that have to be built, assembled, and used.</p>
-          <p className="reference-location"><span aria-hidden="true">⌖</span> San Diego, California, USA</p>
+          <h1>Hi, I’m <span>Chase</span></h1>
+          <p>I’m a mechanical engineering student.<br />Get ready to blow some stuff up (and learn from it!!)</p>
           <div className="reference-actions">
             <Link className="reference-button" href="/resume"><span aria-hidden="true">↓</span> View resume</Link>
             {siteConfig.linkedIn ? <a className="reference-icon-button" href={siteConfig.linkedIn} aria-label="LinkedIn">in</a> : null}
-            {siteConfig.email ? <a className="reference-icon-button" href={`mailto:${siteConfig.email}`} aria-label="Email">@</a> : null}
+            <a className="reference-icon-button" href={`mailto:${homeEmail}`} aria-label="Email">@</a>
           </div>
         </div>
         <figure className="reference-hero__portrait">
-          <Image src="/images/about/chase-norvell.jpg" alt="Chase Norvell" fill priority sizes="(max-width: 760px) 100vw, 42vw" />
+          <Image src="/images/about/chase-norvell-scout.jpg" alt="Chase Norvell outdoors in a Scout uniform" fill priority sizes="(max-width: 760px) 100vw, 42vw" />
         </figure>
       </section>
 
-      <section className="reference-tools" aria-label="Tools and technologies">
-        <p>Tools &amp; Technologies</p>
+      <section className="reference-tools" aria-label="Skills and tools">
+        <p>Skills &amp; Tools</p>
         <DraggableToolRail items={toolGroups} />
-      </section>
-
-      <section className="reference-section shell" id="projects">
-        <header className="reference-section__heading">
-          <p>Projects</p>
-          <h2>Featured Work</h2>
-          <span>Mechanical systems, aerospace hardware, autonomous vehicles, and robots—designed with the full build process in mind.</span>
-        </header>
-        <div className="reference-project-grid">
-          {featuredWork.map((project, index) => <FeaturedProject key={project.slug} project={project} lead={index === 0} />)}
-        </div>
-        <Link className="reference-archive-link" href="/projects">Browse the full archive <span aria-hidden="true">→</span></Link>
       </section>
 
       <section className="reference-section shell" id="experience">
@@ -193,6 +212,18 @@ export default function Home() {
         </ol>
       </section>
 
+      <section className="reference-section shell" id="projects">
+        <header className="reference-section__heading">
+          <p>Projects</p>
+          <h2>Featured Work</h2>
+          <span>Mechanical systems, aerospace hardware, autonomous vehicles, and robots—designed with the full build process in mind.</span>
+        </header>
+        <div className="reference-project-grid">
+          {featuredWork.map((project, index) => <FeaturedProject key={project.slug} project={project} lead={index === 0} />)}
+        </div>
+        <Link className="reference-archive-link" href="/projects">Browse the full archive <span aria-hidden="true">→</span></Link>
+      </section>
+
       <section className="reference-section shell" id="education">
         <header className="reference-section__heading">
           <p>Academic Background</p>
@@ -208,7 +239,7 @@ export default function Home() {
             <span>Mechanical Engineering · {education.date}</span>
             <h3>{education.school}</h3>
             <p>{education.location}</p>
-            <div className="reference-coursework">{education.coursework.map((course) => <span key={course}>{course}</span>)}</div>
+            <div className="reference-coursework">{homepageCoursework.map((course) => <span key={course}>{course}</span>)}</div>
           </article>
         </div>
       </section>
@@ -216,9 +247,9 @@ export default function Home() {
       <section className="reference-contact shell" id="contact">
         <p>Connect</p>
         <h2>Get in Touch</h2>
-        <span>I’m interested in mechanical design, thermal engineering, electronics packaging, manufacturing, aerospace, and robotics opportunities.</span>
+        <span>Got a cool project, some engineering advice, or just wanna talk engineering? Feel free to reach out, I’m always down to chat!</span>
         <div className="reference-actions">
-          {siteConfig.email ? <a className="reference-button" href={`mailto:${siteConfig.email}`}>Email me</a> : null}
+          <a className="reference-button" href={`mailto:${homeEmail}`}>{homeEmail}</a>
           {siteConfig.linkedIn ? <a className="reference-button reference-button--secondary" href={siteConfig.linkedIn}>LinkedIn <span aria-hidden="true">↗</span></a> : null}
         </div>
       </section>

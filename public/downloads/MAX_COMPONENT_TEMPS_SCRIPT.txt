@@ -1,0 +1,210 @@
+import csv
+import sys
+
+
+# SETTINGS
+
+
+analysis = ExtAPI.DataModel.Project.Model.Analyses[0]
+
+# Output CSV file (CHANGE FOR WHERE YOU WANT THE FILE EXPORTED TO)
+OUTPUT_FILE = r"YOUR FILE PATH\NAME OF EXCEL SHEET.csv"
+
+# Clear old max temperature labels before making new ones
+CLEAR_OLD_LABELS = True
+
+
+
+# GET MESH AND RESULTS
+
+
+mesh = analysis.MeshData
+
+reader = analysis.GetResultsData()
+
+# Use the last solved result set
+reader.CurrentResultSet = reader.ResultSetCount
+
+# Get temperature result
+temperature = reader.GetResult("TEMP")
+
+
+
+# GET TEMPERATURE RESULT FROM TREE
+
+
+temperature_result = None
+
+for solution_item in analysis.Solution.Children:
+
+    if solution_item.Name == "Temperature":
+
+        temperature_result = solution_item
+
+        break
+
+
+
+# GET ALL BODIES
+
+
+bodies = DataModel.GetObjectsByType(
+    DataModelObjectCategory.Body
+)
+
+
+
+# LOOP THROUGH EVERY BODY
+
+
+results = []
+
+for body in bodies:
+
+    # Get the mesh nodes associated with the body
+    try:
+
+        geo_body = body.GetGeoBody()
+
+        body_mesh = mesh.MeshRegionById(geo_body.Id)
+
+        node_ids = body_mesh.NodeIds
+
+    except Exception as e:
+
+        print("Could not get mesh for " + body.Name)
+        print(e)
+
+        continue
+
+
+    # Skip bodies with no mesh nodes
+    if len(node_ids) == 0:
+        continue
+
+
+    # Get temperature values for the body's nodes
+    try:
+
+        temp_values = temperature.GetNodeValues(node_ids)
+
+    except Exception as e:
+
+        print("Could not get temperature for " + body.Name)
+        print(e)
+
+        continue
+
+
+    # Skip if no temperature values were returned
+    if len(temp_values) == 0:
+        continue
+
+
+    # Find maximum temperature
+    max_temp = max(temp_values)
+
+
+    # Find the node with the maximum temperature
+    max_node_id = node_ids[0]
+
+    for i in range(len(temp_values)):
+
+        if temp_values[i] == max_temp:
+
+            max_node_id = node_ids[i]
+
+            break
+
+
+    # Save component name, maximum temperature, and node ID
+    results.append({
+        "component": body.Name,
+        "max_temp": max_temp,
+        "node_id": max_node_id
+    })
+
+
+
+# WRITE CSV
+
+
+with open(OUTPUT_FILE, "wb") as f:
+
+    writer = csv.writer(f)
+
+    # Header
+    writer.writerow([
+        "Component",
+        "Maximum Temperature (C)",
+        "Max Temperature Node ID"
+    ])
+
+
+    # Data
+    for result in results:
+
+        writer.writerow([
+            result["component"],
+            result["max_temp"],
+            result["node_id"]
+        ])
+
+
+
+# ADD MAX TEMPERATURE LABELS
+
+
+# Stop script if temperature result was not found
+if not temperature_result:
+
+    print("Could not find Temperature result.")
+
+    sys.exit()
+
+
+try:
+
+    with Transaction():
+
+        # Clear old labels
+        if CLEAR_OLD_LABELS:
+
+            old_labels = Graphics.LabelManager.GetObjectLabels(
+                temperature_result
+            )
+
+            Graphics.LabelManager.DeleteLabels(old_labels)
+
+
+        # Add label to max temperature node for every body
+        for result in results:
+
+            max_node_id = result["node_id"]
+
+            probe_label = Graphics.LabelManager.CreateProbeLabel(
+                temperature_result
+            )
+
+            probe_label.Scoping.Node = max_node_id
+
+
+    # Show temperature result
+    temperature_result.Activate()
+
+    print("Max temperature labels added.")
+
+except Exception as e:
+
+    print("Could not add max temperature labels.")
+    print(e)
+
+
+
+# FINISHED
+
+
+print("Temperature export complete.")
+print("Components exported: " + str(len(results)))
+print("CSV saved to:")
+print(OUTPUT_FILE)
