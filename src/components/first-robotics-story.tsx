@@ -106,7 +106,10 @@ function FirstRoboticsStory() {
               <p className="first-story__micro">Result</p>
               <p>Over comparable periods of play, scoring increased from roughly 4–6 game pieces to 16–18. The larger lesson was how to convert a match failure into a specific mechanical requirement, then prove the correction on the assembled robot.</p>
             </div>
-            <Visual src="/images/first/archive/tonk-turret-detail.jpg" alt="Close view of Tonk's compact turret scoring mechanism" caption="V2 · a smaller geared turret designed around reach, speed, packaging, and drivetrain clearance." />
+            <div className="first-story__story-media">
+              <Visual src="/images/first/archive/tonk-turret-detail.jpg" alt="Close view of Tonk's compact turret scoring mechanism" caption="V2 · a smaller geared turret designed around reach, speed, packaging, and drivetrain clearance." />
+              <Visual src="/images/first/archive/tonk-v2-complete-robot.jpg" alt="Complete Tonk V2 FTC robot with its redesigned turret, intake, and drivetrain" caption="Tonk V2 · the redesigned turret, intake, and drivetrain integrated on the complete robot." />
+            </div>
           </article>
         </div>
       </section>
