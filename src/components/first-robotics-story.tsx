@@ -69,7 +69,7 @@ function FirstRoboticsStory() {
 
       <section className="first-story__section" id="onion">
         <div className="first-story__story-row">
-          <Visual src="/images/first/archive/onion-v1-cad.png" alt="CAD model of the Onion V1 FTC robot" caption="Onion V1 · the first complete shooter layout I carried from a design matrix into CAD." contain />
+          <Visual src="/images/first/archive/onion-competition-robot.png" alt="Onion, the 2020–21 Green Griffins FTC competition robot" caption="Onion · the completed 2020–21 robot with its intake and flywheel shooter integrated." />
           <div className="first-story__copy">
             <h2>My First Real Design — Onion, 2020–21</h2>
             <p><span className="first-story__micro">Context</span>COVID kept most of our early work in CAD, so the shooter had to start as a controlled comparison instead of a finished mechanism. I used a design matrix to narrow the concepts to single- and double-flywheel layouts, then built around the space the robot actually had.</p>
@@ -214,7 +214,7 @@ function FirstRoboticsStory() {
       <section className="first-story__section first-story__takeaway" id="where-it-led">
         <div className="first-story__copy"><h2>Where It Led</h2></div>
         <div className="first-story__destination" aria-label="Progression from FIRST Robotics to aerospace hardware">
-          <Visual src="/images/first/archive/onion-2020.jpg" alt="Early FIRST Robotics CAD-driven robot" caption="FIRST Robotics" />
+          <Visual src="/images/first/archive/onion-competition-robot.png" alt="Onion, the 2020–21 Green Griffins FTC competition robot" caption="FIRST Robotics" />
           <div aria-hidden="true">→</div>
           <Visual src="/images/professional/power-device/pdc-story/hpsc-first-card-handheld.png" alt="HPSC aerospace engineering card during fit checking" caption="Aerospace hardware" />
         </div>
