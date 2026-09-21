@@ -51,7 +51,7 @@ function FirstRoboticsStory() {
           <div><strong>2021</strong><span>Primary Mechanical Designer</span></div><i aria-hidden="true">↓</i>
           <div><strong>2022</strong><span>Team Lead</span></div><i aria-hidden="true">↓</i>
           <div><strong>2023–24</strong><span>FTC + FRC</span></div><i aria-hidden="true">↓</i>
-          <div><strong>Next</strong><span>Mechanical Engineering / Aerospace</span></div>
+          <div><strong>Next</strong><span>Mechanical Engineering</span></div>
         </div>
       </section>
 
@@ -171,9 +171,8 @@ function FirstRoboticsStory() {
             <p>The engineering challenge was making that subsystem fit a more mature system: respecting envelope constraints, defining interfaces, preserving wiring clearance, aligning the handoff geometry, and keeping the parts manufacturable. It taught me how to own a smaller technical scope without losing sight of the complete machine.</p>
           </div>
         </div>
-        <div className="first-story__integration-gallery first-story__integration-gallery--two">
+        <div className="first-story__integration-gallery first-story__integration-gallery--single">
           <Visual src="/images/first/archive/roboctopi-v1-intake.jpg" alt="Fusion 360 view of the Roboctopi V1 claw intake" caption="V1 claw and delivery geometry developed in the shared assembly." contain />
-          <Visual src="/images/first/story/roboctopi-intake-prototype.jpg" alt="Wooden Roboctopi intake prototype with compliant wheels" caption="Prototype hardware used to evaluate geometry, compliance, and manufacturability." />
         </div>
       </section>
 
@@ -185,7 +184,7 @@ function FirstRoboticsStory() {
             <p>The result was a focused exercise in constraints, interface design, fabrication, integration, and serviceability—and a chance to apply the same mechanism-design habits at FRC scale.</p>
           </div>
           <div className="first-story__story-media">
-            <Visual src="/images/first/story/team-spyder-intake-prototype.jpg" alt="Team Spyder FRC intake prototype built from plywood, aluminum extrusion, and compliant wheels" caption="Early FRC intake prototype · testing wheel layout, spacing, and the path into the robot." />
+            <Visual src="/images/first/story/team-spyder-shooter-prototype.jpg" alt="FRC shooter prototype Chase built from plywood, aluminum extrusion, and compliant wheels" caption="FRC shooter prototype · a proof of concept I built to test wheel layout, compression, and ball path." />
             <Visual src="/images/first/story/team-spyder-practice-robot.jpg" alt="Two FRC robots during practice, with Team Spyder's robot on the right" caption="Practice · Team Spyder’s robot is on the right, with its intake and bumper interface visible." />
           </div>
         </div>
