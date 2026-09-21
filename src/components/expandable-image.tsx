@@ -49,7 +49,11 @@ export function ExpandableImage({ src, alt, sizes, priority = false }: Expandabl
       {open
         ? createPortal(
             <div className="image-lightbox" role="dialog" aria-modal="true" aria-label={alt} onClick={() => setOpen(false)}>
-              <button className="image-lightbox__close" type="button" aria-label="Close expanded image" onClick={() => setOpen(false)}>×</button>
+              <button className="image-lightbox__close" type="button" aria-label="Close expanded image" onClick={() => setOpen(false)}>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 6 18 18M18 6 6 18" />
+                </svg>
+              </button>
               <div className="image-lightbox__frame" onClick={(event) => event.stopPropagation()}>
                 <Image src={src} alt={alt} fill sizes="100vw" />
               </div>

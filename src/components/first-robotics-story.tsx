@@ -69,13 +69,13 @@ function FirstRoboticsStory() {
 
       <section className="first-story__section" id="onion">
         <div className="first-story__story-row">
-          <Visual src="/images/first/archive/onion-2020.jpg" alt="Onion FTC robot with its flywheel shooter" caption="Onion · the first major mechanism I carried from CAD and calculation into working hardware." />
+          <Visual src="/images/first/archive/onion-v1-cad.png" alt="CAD model of the Onion V1 FTC robot" caption="Onion V1 · the first complete shooter layout I carried from a design matrix into CAD." contain />
           <div className="first-story__copy">
             <h2>My First Real Design — Onion, 2020–21</h2>
-            <p><span className="first-story__micro">Context</span>Onion needed a shooter that could launch game pieces consistently while fitting the robot’s available geometry. It became my first major CAD mechanism and the point where I moved from helping build other people’s designs to owning a technical problem myself.</p>
-            <p><span className="first-story__micro">My work</span>I developed and compared single- and double-flywheel concepts, built physical versions, and used 3D printing to change the geometry quickly as we learned from testing.</p>
-            <p><span className="first-story__micro">Engineering</span>The work included real shooter testing and a projectile-path calculation around an initial 35-degree launch angle. The notebook work gave the prototypes a starting point, while the hardware showed where the launch geometry and packaging needed to change.</p>
-            <p><span className="first-story__micro">Result</span>The final decision came from using the calculations and tests together, then revising the geometry instead of treating the first CAD concept as the answer. That problem–test–redesign loop became the pattern I used on every robot after it.</p>
+            <p><span className="first-story__micro">Context</span>COVID kept most of our early work in CAD, so the shooter had to start as a controlled comparison instead of a finished mechanism. I used a design matrix to narrow the concepts to single- and double-flywheel layouts, then built around the space the robot actually had.</p>
+            <p><span className="first-story__micro">My work</span>The first front-shooting layout did not carry the ring far enough and used the frame poorly. I went back to the drawing board, changed the path so the robot could intake from the front and shoot out the back, and set the initial launch geometry near 35 degrees.</p>
+            <p><span className="first-story__micro">Engineering</span>Projectile calculations gave the prototype a starting point. Physical shots decided what stayed. I changed wheel spacing, compression, and printed geometry as the test results came in instead of treating the CAD model as proof that the system worked.</p>
+            <p><span className="first-story__micro">Result</span>Onion was the first mechanism where I owned the full loop: compare concepts, model the geometry, build it, measure the miss, and revise the design. It also taught me why simple hardware is valuable: fewer failure points, less weight, and more time to iterate.</p>
           </div>
         </div>
       </section>
@@ -83,26 +83,28 @@ function FirstRoboticsStory() {
       <section className="first-story__section" id="tonk">
         <div className="first-story__copy">
           <h2>Taking Ownership of the Robot — Tonk, 2021–22</h2>
-          <p>By the next season I was designing essentially all of the robot’s mechanical systems aside from the documented exception. Tonk was where mechanism design turned into system ownership: packaging, reach, speed, interference, and center of gravity all mattered at the same time.</p>
+          <p>The next season moved me from one mechanism to the robot as a system. I was responsible for nearly all of the mechanical design, so width, reach, cycle time, barrier clearance, and center of gravity had to be resolved together.</p>
         </div>
         <div className="first-story__tonk-progression">
           <article className="first-story__story-row">
             <div className="first-story__copy">
               <p className="first-story__micro">V1</p>
-              <h3>A full scoring architecture</h3>
-              <p>The first version used a linear-slide architecture with the motors positioned around the available structure. It worked as a mechanism, but the complete robot exposed problems that the isolated design did not.</p>
+              <h3>Big Mickey established the architecture</h3>
+              <p>The V1 drivebase was 12 inches wide so it could fit between the field barriers. We selected mecanum through a design matrix, placed the motors at the center facing outward, and added rollers where the frame could contact the barrier. The intake rode on a linear slide and rotated about 180 degrees so the robot could reach either hub without a full turn.</p>
+              <p>Rubber floppers pulled in one freight at a time, a printed mount carried the intake, and a servo gate held the game piece. The concept worked, but competition exposed the weak points: extrusion caught on the barriers, moving mass was too high, and the complete scoring sequence took too long.</p>
             </div>
-            <Visual src="/images/first/archive/tonk-robot.jpg" alt="Tonk FTC robot with its first scoring architecture" caption="V1 · the robot that made the system-level constraints visible." />
+            <Visual src="/images/first/archive/tonk-v1-robot.png" alt="Big Mickey, the first version of the 2021–22 FTC robot" caption="V1, Big Mickey · the first complete robot made the packaging and center-of-gravity problems visible." contain />
           </article>
           <article className="first-story__story-row first-story__story-row--reverse">
             <div className="first-story__copy">
               <p className="first-story__micro">What failed</p>
-              <h3>Competition made the weaknesses measurable</h3>
-              <p>The mechanism lacked reach, moved too slowly, occupied too much space, interfered with the drivetrain, and carried mass in the wrong places. Those failures changed the redesign priorities: compact packaging, faster motion, cleaner drivetrain clearance, and a lower center of gravity.</p>
+              <h3>Competition made the redesign priorities clear</h3>
+              <p>The first mechanism lacked reach, moved too slowly, occupied too much space, and interfered with the drivetrain. The robot could score, but it did not recover cleanly from barrier contact and carried too much mass away from the chassis.</p>
               <p className="first-story__micro">V2</p>
-              <p>I replaced the first system with a compact rotating turret built around a 60:1 motor, a 90-degree gearbox, a 10-tooth to 48-tooth sprocket reduction, a custom waterjet-cut aluminum bracket, and printed hub and mechanism parts. The architecture put the actuation where it fit and removed the worst interference.</p>
+              <p>I replaced the extrusion structure with waterjet-cut aluminum, redistributed the motors to lower the center of gravity, and removed the intake gate. The new turret kept its motors at the base and drove the rotating assembly through belts, which reduced the mass the mechanism had to move. A force-sensitive resistor confirmed when freight reached the intake.</p>
+              <p>The compact turret used a 60:1 motor, a 90-degree gearbox, a 10-tooth to 48-tooth sprocket reduction, a printed hub, and a ball-bearing turntable. After a printed intake part weakened around its viewing holes, I increased the infill and revised the openings for the next iteration.</p>
               <p className="first-story__micro">Result</p>
-              <p>Over comparable periods of play, scoring increased from roughly 4–6 game pieces to 16–18. More important, the redesign showed me how to turn a competition failure into specific mechanical requirements for the next version.</p>
+              <p>Over comparable periods of play, scoring increased from roughly 4–6 game pieces to 16–18. The larger lesson was how to convert a match failure into a specific mechanical requirement, then prove the correction on the assembled robot.</p>
             </div>
             <Visual src="/images/first/archive/tonk-turret-detail.jpg" alt="Close view of Tonk's compact turret scoring mechanism" caption="V2 · a smaller geared turret designed around reach, speed, packaging, and drivetrain clearance." />
           </article>
@@ -167,12 +169,18 @@ function FirstRoboticsStory() {
           <Visual src="/images/first/story/roboctopi-system-integration.jpg" alt="Roboctopi FTC robot during wiring and subsystem integration" caption="Roboctopi · designing one subsystem inside a mature, specialized robot." />
           <div className="first-story__copy">
             <h2>Designing Within a Larger Engineering Team — Roboctopi, 2023–24</h2>
-            <p>At Roboctopi, I was no longer responsible for huge portions of the robot. I developed the V1 intake and delivery system, V1 scoring claw, early intake iterations, a wiring guide, and integration work in Fusion 360.</p>
-            <p>The engineering challenge was making that subsystem fit a more mature system: respecting envelope constraints, defining interfaces, preserving wiring clearance, aligning the handoff geometry, and keeping the parts manufacturable. It taught me how to own a smaller technical scope without losing sight of the complete machine.</p>
+            <p><span className="first-story__micro">My scope</span>I designed and delivered the V1 intake and delivery system, the claw/end effector, linear-slide string routing, and a wiring guide. I worked through Fusion 360 CAD, design reviews, quick prototypes, fabrication, and subsystem handoff until the hardware could be integrated onto the competition robot.</p>
+            <p><span className="first-story__micro">Integration</span>The subsystem had to meet the robot envelope, transfer a pixel in less than 12 inches, preserve wiring clearance, and line up the intake with the delivery arm. Each interface was checked in the shared assembly before parts were machined, laser cut, printed, or molded.</p>
+            <p><span className="first-story__micro">Team result</span>That work contributed to a season where Roboctopi set a world-record score of 416, won the San Diego Regional Inspire Award, qualified for the FIRST Championship, and earned the Championship Think Award. Those were team results; my responsibility was making my subsystem ready for the rest of the machine.</p>
           </div>
         </div>
         <div className="first-story__integration-gallery first-story__integration-gallery--single">
           <Visual src="/images/first/archive/roboctopi-v1-intake.jpg" alt="Fusion 360 view of the Roboctopi V1 claw intake" caption="V1 claw and delivery geometry developed in the shared assembly." contain />
+        </div>
+        <div className="first-story__metrics" aria-label="Roboctopi season results">
+          <div><strong>416</strong><span>world-record score</span></div>
+          <div><strong>Inspire Award</strong><span>San Diego Regional</span></div>
+          <div><strong>FIRST Championship</strong><span>qualified and competed</span></div>
         </div>
       </section>
 
@@ -181,12 +189,25 @@ function FirstRoboticsStory() {
           <div className="first-story__copy">
             <h2>Scaling Up — FRC Team Spyder, 2023–24</h2>
             <p>On Team Spyder, I focused on removable bumper mounting hardware instead of describing the entire FRC robot as my work. The problem was compact but real: the mount had to connect to a much larger structure, survive repeated installation, remain accessible, fit the frame, meet competition constraints, and avoid slowing down service in the pit.</p>
-            <p>The result was a focused exercise in constraints, interface design, fabrication, integration, and serviceability—and a chance to apply the same mechanism-design habits at FRC scale.</p>
+            <p>I carried the mount through constraint checks, interface design, fabrication, integration, and serviceability testing. That hardware supported a season with regional finalist appearances and a run at the 2024 FIRST Championship. I also contributed to the team’s advocacy work, which received a Certificate of Recognition from Supervisor Joel Anderson.</p>
           </div>
           <div className="first-story__story-media">
             <Visual src="/images/first/story/team-spyder-shooter-prototype.jpg" alt="FRC shooter prototype Chase built from plywood, aluminum extrusion, and compliant wheels" caption="FRC shooter prototype · a proof of concept I built to test wheel layout, compression, and ball path." />
             <Visual src="/images/first/story/team-spyder-practice-robot.jpg" alt="Two FRC robots during practice, with Team Spyder's robot on the right" caption="Practice · Team Spyder’s robot is on the right, with its intake and bumper interface visible." />
           </div>
+        </div>
+      </section>
+
+      <section className="first-story__section" id="system-leadership">
+        <div className="first-story__copy">
+          <h2>System Leadership &amp; Community Impact</h2>
+          <p>My role grew from machining parts and repairing robots into coordinating a roughly 15-person team across mechanical, programming, electronics, and outreach. I set priorities, ran design reviews, trained newer members, tracked deadlines, and kept subsystem decisions tied to the complete robot.</p>
+          <p>I helped make our process more deliberate: define the problem, compare concepts, build the cheapest useful prototype, review the CAD, test the hardware, and record what changed. The same approach shaped our outreach. I helped lead technical training, public demonstrations, team support, and STEM advocacy, while continuing hands-on mentoring with the Golden Griffins and RaD FLL Challenge teams.</p>
+        </div>
+        <div className="first-story__outreach" aria-label="FIRST outreach impact">
+          <div><strong>36</strong><span>outreach events</span></div>
+          <div><strong>390+</strong><span>team volunteer hours</span></div>
+          <div><strong>2,500+</strong><span>people reached</span></div>
         </div>
       </section>
 
@@ -198,7 +219,7 @@ function FirstRoboticsStory() {
           <Visual src="/images/professional/power-device/pdc-story/hpsc-first-card-handheld.png" alt="HPSC aerospace engineering card during fit checking" caption="Aerospace hardware" />
         </div>
         <div className="first-story__copy first-story__closing-copy">
-          <p>FIRST led directly into mechanical engineering and the hardware work I wanted to do next. The same cycle keeps showing up: CAD, calculations, prototypes, manufacturing, testing, failure, and redesign. The systems changed from competition robots to space electronics, but the way I learn from real hardware did not.</p>
+          <p>The same cycle keeps showing up: CAD, calculations, prototypes, manufacturing, testing, failure, and redesign. The systems changed from competition robots to space electronics, but the way I learn from real hardware did not.</p>
           <Link className="reference-button" href="/projects/power-device-corporation">View my work at Power Device Corporation <span aria-hidden="true">→</span></Link>
         </div>
       </section>

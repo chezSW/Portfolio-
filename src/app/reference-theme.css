@@ -715,10 +715,13 @@ a:hover { color: var(--accent-strong); }
   border-radius: 999px;
   background: rgba(8, 9, 10, 0.82);
   color: white;
+  padding: 0;
   font: inherit;
   font-size: 1.7rem;
   cursor: pointer;
 }
+.image-lightbox__close svg { display: block; width: 18px; height: 18px; }
+.image-lightbox__close path { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
 .case-visual--contain img,
 .first-story__visual--contain img { object-fit: contain; }
 .simple-project-lead figcaption,
@@ -969,7 +972,9 @@ a:hover { color: var(--accent-strong); }
 .first-story__metrics > div,
 .first-story__outreach > div { padding: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); }
 .first-story__metrics strong,
-.first-story__outreach strong { color: var(--accent-strong); }
+.first-story__outreach strong { display: block; color: var(--accent-strong); font-size: clamp(1.45rem, 2.5vw, 2.15rem); line-height: 1.05; }
+.first-story__metrics span,
+.first-story__outreach span { display: block; margin-top: 8px; color: var(--muted); font-size: 0.9rem; line-height: 1.45; }
 .first-story__attribution { color: var(--muted); }
 
 /* FIRST Robotics — long-form project story */
