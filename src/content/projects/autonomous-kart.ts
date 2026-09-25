@@ -41,6 +41,14 @@ export const autonomousKart: Project = {
       paragraphs: [
         "The kart needs an electronics package that fits the vehicle, protects critical hardware, supports clean wire routing, and remains accessible during testing. The current public material establishes the vehicle context, not a completed enclosure.",
       ],
+      video: {
+        src: "/videos/mesa-fsd/kart-run-first-10-seconds.mp4",
+        poster: "/images/kart/video/kart-run-poster.jpg",
+        caption: "Mesa FSD kart testing in motion.",
+        label: "Mesa FSD autonomous kart driving during testing",
+        public: true,
+      },
+      layout: "split",
     },
     {
       eyebrow: "02 / Role",
