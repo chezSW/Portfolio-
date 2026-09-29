@@ -1,12 +1,13 @@
 :root {
   --font-body: "Source Sans 3 Variable", "Segoe UI", sans-serif;
-  --font-display: "Source Serif 4 Variable", Georgia, serif;
+  --font-display: "IBM Plex Sans Variable", "Segoe UI", sans-serif;
   --paper: #0d0f10;
   --panel: #15191b;
   --panel-raised: #1b2023;
-  --ink: #f1f0eb;
-  --muted: #a6aaa9;
-  --line: rgba(220, 225, 222, 0.15);
+  --ink: #fbfbf7;
+  --body-copy: #ecefeb;
+  --muted: #c7cbc7;
+  --line: rgba(232, 236, 232, 0.2);
   --soft: #191d1f;
   --accent: #d99a46;
   --accent-strong: #ffc36a;
@@ -23,9 +24,7 @@ html {
 
 body {
   min-width: 320px;
-  background:
-    radial-gradient(circle at 76% 8%, rgba(217, 154, 70, 0.07), transparent 27rem),
-    var(--paper);
+  background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body), "Segoe UI", sans-serif;
   font-size: 16px;
@@ -43,8 +42,9 @@ h1,
 h2,
 h3,
 blockquote {
-  font-family: var(--font-display), Georgia, serif;
-  font-weight: 560;
+  font-family: var(--font-display), "Segoe UI", sans-serif;
+  font-weight: 650;
+  letter-spacing: -0.025em;
   text-wrap: balance;
 }
 
@@ -443,13 +443,16 @@ blockquote {
   height: 22px;
   border: 2px solid var(--accent);
   border-radius: 50%;
-  background: radial-gradient(circle, var(--accent) 0 4px, var(--paper) 4.5px);
-  box-shadow: none;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 4px var(--accent);
   content: "";
   transform: translateX(-50%);
 }
 
-.reference-experience > li:first-child .reference-experience__axis::after { background: radial-gradient(circle, var(--accent) 0 4px, var(--paper) 4.5px); }
+.reference-experience > li:first-child .reference-experience__axis::after {
+  background: var(--paper);
+  box-shadow: inset 0 0 0 4px var(--accent);
+}
 
 .reference-experience article {
   padding: 28px 30px;
@@ -1039,7 +1042,7 @@ blockquote {
   padding-inline: clamp(20px, 4vw, 48px);
   border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
   border-radius: 24px;
-  background: linear-gradient(145deg, rgba(217, 154, 70, 0.1), rgba(255, 255, 255, 0.02) 58%);
+  background: #121516;
 }
 .first-story__glance h2 { margin-top: 0; }
 .first-story__decade {
@@ -1174,7 +1177,7 @@ blockquote {
   padding: clamp(28px, 4vw, 54px);
   border: 1px solid color-mix(in srgb, var(--accent) 44%, var(--line));
   border-radius: 28px;
-  background: linear-gradient(150deg, rgba(217, 154, 70, 0.11), rgba(255, 255, 255, 0.025) 55%);
+  background: #121516;
 }
 .first-story__centerpiece-heading { max-width: 850px; margin-bottom: 38px; }
 .first-story__centerpiece-heading h3 { margin: 8px 0 20px; font-size: clamp(2.35rem, 5vw, 4.7rem); }
@@ -1781,7 +1784,7 @@ body {
 .first-story__centerpiece { border-radius: 6px; }
 .first-story__glance {
   border-radius: 6px;
-  background: linear-gradient(110deg, rgba(217, 154, 70, 0.09), rgba(255, 255, 255, 0.015) 62%);
+  background: #121516;
 }
 .first-story__decade { gap: 0; }
 .first-story__decade > div { border-radius: 0; background: transparent; }
@@ -1866,4 +1869,80 @@ body {
   .reference-experience article > ul { grid-template-columns: 1fr; }
   .reference-contact { text-align: left; }
   .gallery-wall { columns: 2 160px; column-gap: 10px; }
+}
+
+/* Final engineering typography and contrast pass */
+.reference-hero__copy h1 {
+  font-size: clamp(3.45rem, 5.3vw, 5.35rem);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.reference-section__heading h2,
+.reference-contact h2,
+.reference-archive__intro h1,
+.page-intro h1,
+.gallery-page h1 {
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+.simple-project-hero h1,
+.focused-case__hero h1,
+.first-case__hero h1,
+.pdc-simple__hero h1,
+.first-story-page__hero h1 {
+  font-size: clamp(2.65rem, 4.35vw, 4.45rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+.simple-project-section h2,
+.focused-case__section h2,
+.focused-case__closing h2,
+.first-story__chapter h2,
+.pdc-story h2,
+.pdc-simple__section h2,
+.first-story__section h2,
+.reference-experience h3 {
+  font-weight: 640;
+}
+
+.reference-hero__copy > p:not(.reference-location),
+.reference-section__heading > span,
+.reference-contact > span,
+.reference-archive__intro > span,
+.reference-project-card__body > p,
+.reference-experience article > ul li,
+.reference-education article > p,
+.simple-project-section__text > p:not(.simple-label),
+.focused-case__copy > p:not(.case-number),
+.focused-case__hero aside,
+.first-story__copy p,
+.first-story__environment,
+.first-story__centerpiece-heading > p:not(.first-story__eyebrow),
+.first-story__system-grid article > div:last-child > p:not(.first-story__eyebrow),
+.first-story__takeaway > p,
+.pdc-story p,
+.pdc-simple__copy > p,
+.pdc-story__results span,
+.page-intro__copy > p,
+.about-only__copy p {
+  color: var(--body-copy);
+}
+
+.first-story__glance,
+.first-story__centerpiece {
+  background: #121516;
+}
+
+@media (max-width: 760px) {
+  .reference-hero__copy h1 { font-size: clamp(3rem, 13vw, 4.1rem); }
+  .simple-project-hero h1,
+  .focused-case__hero h1,
+  .first-case__hero h1,
+  .pdc-simple__hero h1,
+  .first-story-page__hero h1 { font-size: clamp(2.45rem, 11vw, 3.65rem); }
 }

@@ -1631,9 +1631,7 @@ figcaption {
   justify-content: space-between;
   padding: clamp(24px, 4vw, 48px);
   color: #eee9df;
-  background:
-    linear-gradient(138deg, rgba(255, 255, 255, 0.08), transparent 40%),
-    #292d2f;
+  background: #292d2f;
 }
 
 .project-entry__placeholder::before {
