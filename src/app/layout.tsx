@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import "@fontsource-variable/source-sans-3/wght.css";
+import "@fontsource-variable/source-serif-4/wght.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { siteConfig } from "@/config/site";
