@@ -1946,3 +1946,101 @@ body {
   .pdc-simple__hero h1,
   .first-story-page__hero h1 { font-size: clamp(2.45rem, 11vw, 3.65rem); }
 }
+
+/* Keep responsive rules after the shared desktop styles. */
+.reference-hero > *,
+.reference-experience > li > *,
+.reference-project-card > *,
+.reference-education > *,
+.about-only > *,
+.pdc-simple__hero-grid > *,
+.pdc-story-row > *,
+.first-story-page__hero-grid > *,
+.first-story__story-row > *,
+.focused-case__section > * { min-width: 0; }
+
+main :is(h1, h2, h3),
+.contact-methods strong,
+.reference-contact a { overflow-wrap: anywhere; }
+
+.mobile-nav:not([open]) nav { display: none; }
+.mobile-nav summary,
+.mobile-nav nav a { min-height: 44px; }
+.mobile-nav summary { display: flex; align-items: center; }
+.mobile-nav[open] nav {
+  width: min(280px, calc(100vw - 32px));
+  max-height: calc(100dvh - 88px);
+  overflow-y: auto;
+}
+.mobile-nav summary:focus-visible,
+.mobile-nav nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.image-lightbox {
+  padding: max(72px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+}
+.image-lightbox__close {
+  top: max(16px, env(safe-area-inset-top));
+  right: max(16px, env(safe-area-inset-right));
+}
+
+@media (min-width: 2000px) {
+  :root { --max: 1920px; }
+  .reference-project-card--lead { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); }
+  .reference-hero__portrait { max-height: 800px; }
+}
+
+@media (max-width: 1100px) {
+  .pdc-story-row,
+  .first-story__story-row { grid-template-columns: minmax(0, 1fr); gap: 38px; }
+  .pdc-story-row--reverse > .pdc-simple__copy,
+  .pdc-story-row--reverse > .pdc-story-row__media,
+  .first-story__story-row--reverse > .first-story__copy,
+  .first-story__story-row--reverse > .case-visual { grid-column: 1; grid-row: auto; padding-left: 0; }
+  .pdc-story-row__media,
+  .first-story__story-row > .case-visual,
+  .first-story__story-row > .first-story__story-media { order: -1; }
+  .first-story__decade { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px 16px; overflow: visible; }
+  .first-story__decade i { display: none; }
+  .first-story__decade > div + div { border-left: 0; }
+}
+
+@media (max-width: 900px) {
+  .reference-hero,
+  .pdc-simple__hero-grid,
+  .first-story-page__hero-grid,
+  .about-only,
+  .reference-education { grid-template-columns: minmax(0, 1fr); gap: 38px; }
+  .about-only__portrait { position: relative; top: auto; grid-row: 1; width: min(100%, 520px); }
+  .reference-experience > li { grid-template-columns: minmax(118px, 0.2fr) 24px minmax(0, 0.8fr); gap: 14px; }
+  .reference-project-card--lead { grid-template-columns: minmax(0, 1fr); }
+  .reference-experience article > ul { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 760px) {
+  .reference-experience > li { grid-template-columns: 20px minmax(0, 1fr); gap: 0 12px; }
+  .reference-experience time { grid-column: 2; grid-row: 1; padding: 0 0 12px; }
+  .reference-experience__axis { grid-column: 1; grid-row: 1 / 3; }
+  .reference-experience article { grid-column: 2; grid-row: 2; }
+  .reference-experience__axis::after { top: 41px; }
+  .reference-experience article header { gap: 12px; }
+  .reference-experience article header > div { min-width: 0; }
+  .reference-experience-logos { gap: 10px; margin-bottom: 40px; }
+  .reference-experience-logos a { min-height: 72px; }
+  .reference-contact__links { flex-wrap: wrap; }
+  .contact-methods > * { grid-template-columns: minmax(0, 1fr) auto; gap: 8px 16px; }
+  .contact-methods > * > span { grid-column: 1; }
+  .contact-methods strong { grid-column: 1; grid-row: 2; }
+  .contact-methods i { grid-column: 2; grid-row: 1 / 3; }
+}
+
+@media (max-width: 600px) {
+  .first-story__decade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .reference-hero,
+  .reference-section,
+  .pdc-simple__section,
+  .first-story__section { padding-block: 52px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

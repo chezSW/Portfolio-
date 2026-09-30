@@ -14,6 +14,7 @@ type ExpandableImageProps = {
 export function ExpandableImage({ src, alt, sizes, priority = false }: ExpandableImageProps) {
   const [open, setOpen] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
+  const close = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -21,9 +22,14 @@ export function ExpandableImage({ src, alt, sizes, priority = false }: Expandabl
     const triggerElement = trigger.current;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    close.current?.focus();
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
+      if (event.key === "Tab") {
+        event.preventDefault();
+        close.current?.focus();
+      }
     };
 
     window.addEventListener("keydown", onKeyDown);
@@ -49,7 +55,7 @@ export function ExpandableImage({ src, alt, sizes, priority = false }: Expandabl
       {open
         ? createPortal(
             <div className="image-lightbox" role="dialog" aria-modal="true" aria-label={alt} onClick={() => setOpen(false)}>
-              <button className="image-lightbox__close" type="button" aria-label="Close expanded image" onClick={() => setOpen(false)}>
+              <button ref={close} className="image-lightbox__close" type="button" aria-label="Close expanded image" onClick={() => setOpen(false)}>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M6 6 18 18M18 6 6 18" />
                 </svg>
