@@ -4,7 +4,7 @@ export const firstRobotics: Project = {
   title: "FIRST Robotics",
   slug: "first-robotics",
   subtitle: "Learning engineering by building, testing, and redesigning complete robot systems",
-  summary: "Ten years across FLL, FTC, and FRC—progressing from fabrication into CAD, mechanism ownership, rapid prototyping, system integration, and technical leadership.",
+  summary: "Ten years across FLL, FTC, and FRC, progressing from fabrication into CAD, mechanism ownership, rapid prototyping, system integration, and technical leadership.",
   categories: ["Robotics", "Mechanical Design", "Manufacturing"],
   featured: true,
   public: true,

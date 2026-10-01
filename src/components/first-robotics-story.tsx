@@ -57,7 +57,7 @@ function FirstRoboticsStory() {
 
       <section className="first-story__section" id="the-beginning">
         <div className="first-story__copy">
-          <h2>The Beginning — 2014–2020</h2>
+          <h2>The Beginning - 2014–2020</h2>
           <p>I started in FLL and moved into FTC, where my early work was mainly assembly, fabrication, machining, maintenance, and troubleshooting. Those years taught me how mechanisms were put together and how the robot’s structure, wiring, software, and individual subsystems affected one another. Once I understood how the machines worked, I wanted to start designing the mechanisms myself.</p>
         </div>
         <div className="first-story__early-grid">
@@ -71,7 +71,7 @@ function FirstRoboticsStory() {
         <div className="first-story__story-row">
           <Visual src="/images/first/archive/onion-competition-robot.png" alt="Onion, the 2020–21 Green Griffins FTC competition robot" caption="Onion · the completed 2020–21 robot with its intake and flywheel shooter integrated." />
           <div className="first-story__copy">
-            <h2>My First Real Design — Onion, 2020–21</h2>
+            <h2>My First Real Design - Onion, 2020–21</h2>
             <p><span className="first-story__micro">Context</span>COVID kept most of our early work in CAD, so the shooter had to start as a controlled comparison instead of a finished mechanism. I used a design matrix to narrow the concepts to single- and double-flywheel layouts, then built around the space the robot actually had.</p>
             <p><span className="first-story__micro">My work</span>The first front-shooting layout did not carry the ring far enough and used the frame poorly. I went back to the drawing board, changed the path so the robot could intake from the front and shoot out the back, and set the initial launch geometry near 35 degrees.</p>
             <p><span className="first-story__micro">Engineering</span>Projectile calculations gave the prototype a starting point. Physical shots decided what stayed. I changed wheel spacing, compression, and printed geometry as the test results came in instead of treating the CAD model as proof that the system worked.</p>
@@ -82,7 +82,7 @@ function FirstRoboticsStory() {
 
       <section className="first-story__section" id="tonk">
         <div className="first-story__copy">
-          <h2>Taking Ownership of the Robot — Tonk, 2021–22</h2>
+          <h2>Taking Ownership of the Robot - Tonk, 2021–22</h2>
           <p>The next season moved me from one mechanism to the robot as a system. I was responsible for nearly all of the mechanical design, so width, reach, cycle time, barrier clearance, and center of gravity had to be resolved together.</p>
         </div>
         <div className="first-story__tonk-progression">
@@ -116,7 +116,7 @@ function FirstRoboticsStory() {
 
       <section className="first-story__section" id="powerplay">
         <div className="first-story__copy">
-          <h2>From Designer to Team Lead — PowerPlay, 2022–23</h2>
+          <h2>From Designer to Team Lead - PowerPlay, 2022–23</h2>
           <p>As Team Lead for roughly 15 students, my technical problem changed. I was still designing and integrating hardware, but I also had to make the whole engineering process better: turn the game into requirements, challenge concepts, get prototypes built, coordinate CAD, run reviews, and make sure testing produced decisions the team could act on.</p>
         </div>
 
@@ -125,7 +125,7 @@ function FirstRoboticsStory() {
           <div><span>Oreo</span><strong>~8 sec</strong><p>Refined architecture</p></div><i aria-hidden="true">→</i>
           <div><span>Mantis</span><strong>~2 sec</strong><p>Integrated handoff and automation</p></div>
         </div>
-        <p className="first-story__attribution">These are documented team-level cycle times from robots I helped lead and integrate—not three robots I designed alone.</p>
+        <p className="first-story__attribution">These are documented team-level cycle times from robots I helped lead and integrate, not three robots I designed alone.</p>
 
         <div className="first-story__story-row first-story__story-row--powerplay">
           <Visual src="/images/first/story/powerplay-giraffe-30-hour-robot.png" alt="The PowerPlay Giraffe robot competing with its tall linear slides and rubber-band intake" caption="Giraffe · the actual Robot in 30 Hours build, with its drivetrain, slides, and intake integrated." />
@@ -171,7 +171,7 @@ function FirstRoboticsStory() {
         <div className="first-story__story-row">
           <Visual src="/images/first/story/roboctopi-system-integration.jpg" alt="Roboctopi FTC robot during wiring and subsystem integration" caption="Roboctopi · designing one subsystem inside a mature, specialized robot." />
           <div className="first-story__copy">
-            <h2>Designing Within a Larger Engineering Team — Roboctopi, 2023–24</h2>
+            <h2>Designing Within a Larger Engineering Team - Roboctopi, 2023–24</h2>
             <p><span className="first-story__micro">My scope</span>I designed and delivered the V1 intake and delivery system, the claw/end effector, linear-slide string routing, and a wiring guide. I worked through Fusion 360 CAD, design reviews, quick prototypes, fabrication, and subsystem handoff until the hardware could be integrated onto the competition robot.</p>
             <p><span className="first-story__micro">Integration</span>The subsystem had to meet the robot envelope, transfer a pixel in less than 12 inches, preserve wiring clearance, and line up the intake with the delivery arm. Each interface was checked in the shared assembly before parts were machined, laser cut, printed, or molded.</p>
             <p><span className="first-story__micro">Team result</span>That work contributed to a season where Roboctopi set a world-record score of 416, won the San Diego Regional Inspire Award, qualified for the FIRST Championship, and earned the Championship Think Award. Those were team results; my responsibility was making my subsystem ready for the rest of the machine.</p>
@@ -190,7 +190,7 @@ function FirstRoboticsStory() {
       <section className="first-story__section" id="team-spyder">
         <div className="first-story__story-row first-story__story-row--reverse">
           <div className="first-story__copy">
-            <h2>Scaling Up — FRC Team Spyder, 2023–24</h2>
+            <h2>Scaling Up - FRC Team Spyder, 2023–24</h2>
             <p>On Team Spyder, I focused on removable bumper mounting hardware instead of describing the entire FRC robot as my work. The problem was compact but real: the mount had to connect to a much larger structure, survive repeated installation, remain accessible, fit the frame, meet competition constraints, and avoid slowing down service in the pit.</p>
             <p>I carried the mount through constraint checks, interface design, fabrication, integration, and serviceability testing. That hardware supported a season with regional finalist appearances and a run at the 2024 FIRST Championship. I also contributed to the team’s advocacy work, which received a Certificate of Recognition from Supervisor Joel Anderson.</p>
           </div>

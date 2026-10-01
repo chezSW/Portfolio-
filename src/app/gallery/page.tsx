@@ -42,6 +42,16 @@ const galleryImages = [
   ["/images/gallery/kart-build-session.jpg", "Working beside an electric kart chassis"],
   ["/images/gallery/electric-kart-chassis.jpg", "Electric kart chassis during electronics integration"],
   ["/images/gallery/competition-volunteer.jpg", "Volunteer overlooking a robotics competition field"],
+  ["/images/gallery/workshop-calculations.jpg", "Mechanism calculations written on the workshop whiteboard"],
+  ["/images/gallery/mechanism-motion-sketch.jpg", "Whiteboard sketches comparing mechanism movement and geometry"],
+  ["/images/gallery/lift-assembly-workshop.jpg", "Robot lift assembly during a workshop build session"],
+  ["/images/gallery/robot-assembly-inspection.jpg", "Overhead view of a green FTC robot during assembly inspection"],
+  ["/images/gallery/championship-arena-lights.jpg", "Red arena lighting during the FIRST Championship"],
+  ["/images/gallery/championship-stands.jpg", "Packed stands above the FIRST Championship fields"],
+  ["/images/gallery/machined-part-inspection.jpg", "Small machined part inspected by hand"],
+  ["/images/gallery/ftc-pit-assembly.jpg", "FTC robot and mechanism assembly in the competition pit"],
+  ["/images/gallery/electronics-globe-detail.jpg", "Close view of electronics inside a transparent globe"],
+  ["/images/gallery/swe-outreach-table.jpg", "Group presenting at a Society of Women Engineers outreach table"],
 ] as const;
 
 export default function GalleryPage() {

@@ -220,7 +220,7 @@ export default function Home() {
         <header className="reference-section__heading">
           <p>Projects</p>
           <h2>Featured Work</h2>
-          <span>Mechanical systems, aerospace hardware, autonomous vehicles, and robots—designed with the full build process in mind.</span>
+          <span>Mechanical systems, aerospace hardware, autonomous vehicles, and robots, designed with the full build process in mind.</span>
         </header>
         <div className="reference-project-grid">
           {featuredWork.map((project, index) => <FeaturedProject key={project.slug} project={project} lead={index === 0} />)}

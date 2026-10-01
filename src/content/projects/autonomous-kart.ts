@@ -64,7 +64,7 @@ export const autonomousKart: Project = {
       title: "Making the electronics fit the kart",
       paragraphs: [
         "The electronics bay could not be treated like a box that was added at the end. The boards, fuses, connectors, high-current cables, pass-throughs, and service access all had to fit the available chassis space without turning every test into a teardown.",
-        "I designed and delivered six custom mounts, built the printed support hardware, cut and sealed the enclosure pass-throughs, and integrated the power and signal routing onto the kart. These photos show the hardware during fit checks and installation—not a studio mockup, but the real packaging problem as it came together.",
+        "I designed and delivered six custom mounts, built the printed support hardware, cut and sealed the enclosure pass-throughs, and integrated the power and signal routing onto the kart. These photos show the hardware during fit checks and installation, not a studio mockup, but the real packaging problem as it came together.",
       ],
       media: [
         {

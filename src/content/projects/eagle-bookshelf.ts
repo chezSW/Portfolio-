@@ -1,7 +1,7 @@
 import type { Project } from "./types";
 
 export const eagleBookshelf: Project = {
-  title: "Eagle Scout Service Project — Rolling Library Bookshelf",
+  title: "Eagle Scout Service Project - Rolling Library Bookshelf",
   slug: "rolling-library-bookshelf",
   subtitle: "Eagle Scout service project delivered for public use",
   summary: "Planned and led the construction of a rolling bookshelf for a local library program.",
