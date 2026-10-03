@@ -527,6 +527,13 @@ blockquote {
 .reference-recognition > div { display: flex; justify-content: space-between; gap: 20px; padding-block: 14px; border-top: 1px solid var(--line); }
 .reference-recognition > div:last-child { border-bottom: 1px solid var(--line); }
 .reference-recognition span { color: var(--muted); font-size: 0.8rem; }
+.reference-recognition > .reference-recognition__credential { flex-direction: column; align-items: flex-start; gap: 4px; }
+.reference-recognition__credential > p { margin: 0; color: var(--ink); }
+.reference-recognition__credential > span { font-size: 0.875rem; }
+.reference-recognition__credential > a { margin-top: 10px; color: var(--muted); font-size: 0.875rem; text-underline-offset: 4px; }
+.reference-recognition__credential > a:hover { color: var(--ink); text-decoration: underline; }
+.reference-recognition__credential > a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.reference-recognition__credential > a > span { color: inherit; font-size: inherit; }
 .reference-education article { padding: 34px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
 .reference-education article > span { color: var(--accent-strong); font-size: 0.82rem; }
 .reference-education h3 { margin: 10px 0 0; font-size: clamp(1.8rem, 3.5vw, 2.8rem); letter-spacing: -0.035em; line-height: 1.1; }

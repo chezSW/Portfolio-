@@ -236,6 +236,19 @@ export default function Home() {
         <div className="reference-education">
           <div className="reference-recognition">
             <p>Recognition</p>
+            <div className="reference-recognition__credential">
+              <strong>CSWA Certified</strong>
+              <p>SOLIDWORKS Design Associate</p>
+              <span>Dassault Systèmes · Oct 2026</span>
+              <a
+                href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-YHUE28XLAN"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View SOLIDWORKS Design Associate (CSWA) credential"
+              >
+                View credential <span aria-hidden="true">↗</span>
+              </a>
+            </div>
             <div><strong>{education.distinction}</strong><span>Academic recognition</span></div>
             <div><strong>{education.gpa}</strong><span>Current GPA</span></div>
           </div>
