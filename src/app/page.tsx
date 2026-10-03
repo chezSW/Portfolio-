@@ -228,36 +228,38 @@ export default function Home() {
         <Link className="reference-archive-link" href="/projects">Browse the full archive <span aria-hidden="true">→</span></Link>
       </section>
 
-      <section className="reference-section shell" id="education">
+      <section className="reference-section reference-academic shell" id="education">
         <header className="reference-section__heading">
           <p>Academic Background</p>
           <h2>Education &amp; Honors</h2>
         </header>
         <div className="reference-education">
-          <div className="reference-recognition">
-            <p>Recognition</p>
-            <div className="reference-recognition__credential">
-              <strong>CSWA Certified</strong>
-              <p>SOLIDWORKS Design Associate</p>
-              <span>Dassault Systèmes · Oct 2026</span>
-              <a
-                href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-YHUE28XLAN"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="View SOLIDWORKS Design Associate (CSWA) credential"
-              >
-                View credential <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-            <div><strong>{education.distinction}</strong><span>Academic recognition</span></div>
-            <div><strong>{education.gpa}</strong><span>Current GPA</span></div>
-          </div>
           <article>
             <span>Mechanical Engineering · {education.date}</span>
             <h3>{education.school}</h3>
             <p>{education.location}</p>
             <div className="reference-coursework">{homepageCoursework.map((course) => <span key={course}>{course}</span>)}</div>
           </article>
+          <div className="reference-recognition">
+            <p>Recognition</p>
+            <div>
+              <strong>CSWA Certified</strong>
+              <div className="reference-recognition__details">
+                <p>SOLIDWORKS Design Associate</p>
+                <span>Dassault Systèmes · Oct 2026</span>
+                <a
+                  href="https://cv.virtualtester.com/qr/?b=SLDWRKS&i=C-YHUE28XLAN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View SOLIDWORKS Design Associate (CSWA) credential"
+                >
+                  View credential <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+            <div><strong>{education.distinction}</strong><span>Academic recognition</span></div>
+            <div><strong>{education.gpa}</strong><span>Current GPA</span></div>
+          </div>
         </div>
       </section>
 

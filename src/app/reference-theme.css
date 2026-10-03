@@ -527,13 +527,12 @@ blockquote {
 .reference-recognition > div { display: flex; justify-content: space-between; gap: 20px; padding-block: 14px; border-top: 1px solid var(--line); }
 .reference-recognition > div:last-child { border-bottom: 1px solid var(--line); }
 .reference-recognition span { color: var(--muted); font-size: 0.8rem; }
-.reference-recognition > .reference-recognition__credential { flex-direction: column; align-items: flex-start; gap: 4px; }
-.reference-recognition__credential > p { margin: 0; color: var(--ink); }
-.reference-recognition__credential > span { font-size: 0.875rem; }
-.reference-recognition__credential > a { margin-top: 10px; color: var(--muted); font-size: 0.875rem; text-underline-offset: 4px; }
-.reference-recognition__credential > a:hover { color: var(--ink); text-decoration: underline; }
-.reference-recognition__credential > a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.reference-recognition__credential > a > span { color: inherit; font-size: inherit; }
+.reference-recognition__details { display: grid; gap: 4px; }
+.reference-recognition__details > p { margin: 0; color: var(--ink); font-size: 0.875rem; }
+.reference-recognition__details > a { justify-self: start; margin-top: 6px; color: var(--muted); font-size: 0.875rem; text-underline-offset: 4px; }
+.reference-recognition__details > a:hover { color: var(--ink); text-decoration: underline; }
+.reference-recognition__details > a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.reference-recognition__details > a > span { color: inherit; font-size: inherit; }
 .reference-education article { padding: 34px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
 .reference-education article > span { color: var(--accent-strong); font-size: 0.82rem; }
 .reference-education h3 { margin: 10px 0 0; font-size: clamp(1.8rem, 3.5vw, 2.8rem); letter-spacing: -0.035em; line-height: 1.1; }
@@ -1500,6 +1499,37 @@ blockquote {
   .pdc-simple__gallery--production .pdc-simple__video > div { aspect-ratio: 16 / 10; }
   .code-disclosure__toolbar { align-items: flex-start; flex-direction: column; }
   .code-disclosure pre { max-height: 540px; padding: 18px; font-size: 0.7rem; }
+}
+
+/* Keep academic context and honors together, with one shared row rhythm. */
+.reference-academic > .reference-section__heading {
+  display: block;
+  margin-bottom: 40px;
+}
+.reference-academic > .reference-section__heading > p { margin: 0 0 12px; }
+.reference-academic .reference-education {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(40px, 6vw, 96px);
+}
+.reference-academic .reference-education article { border-top: 0; }
+.reference-academic .reference-education article > span { padding-top: 0; font-size: 0.875rem; }
+.reference-academic .reference-education h3 { margin-top: 14px; font-size: clamp(1.8rem, 2.8vw, 2.65rem); }
+.reference-academic .reference-recognition > p { margin-bottom: 16px; font-size: 0.875rem; letter-spacing: 0.1em; }
+.reference-academic .reference-recognition > div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.44fr) minmax(0, 0.56fr);
+  align-items: baseline;
+  gap: 12px 20px;
+  padding-block: 18px;
+}
+.reference-academic .reference-recognition > div > strong { font-size: 1.05rem; line-height: 1.5; }
+.reference-academic .reference-recognition > div > span { font-size: 0.875rem; }
+@media (max-width: 900px) {
+  .reference-academic .reference-education { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+}
+@media (max-width: 420px) {
+  .reference-academic .reference-recognition > div { grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr); gap: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
