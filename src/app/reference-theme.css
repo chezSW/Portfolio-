@@ -1349,6 +1349,22 @@ blockquote {
   height: auto;
   transition: filter 220ms ease, transform 220ms ease;
 }
+.gallery-wall video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #000;
+}
+.gallery-wall video:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.gallery-wall figcaption {
+  padding: 12px 14px;
+  color: var(--ink);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
 .gallery-wall figure:hover img {
   filter: brightness(1.06);
   transform: scale(1.008);

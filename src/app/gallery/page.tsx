@@ -8,6 +8,31 @@ export const metadata: Metadata = {
   alternates: { canonical: "/gallery" },
 };
 
+type GalleryAddition =
+  | { kind: "image"; src: string; alt: string; width: number; height: number }
+  | { kind: "video"; src: string; poster: string; title: string; width: number; height: number };
+
+const galleryAdditions: GalleryAddition[] = [
+  { kind: "video", src: "/videos/gallery/20240501_185153.mp4", poster: "/images/gallery/20240501_185153-poster.jpg", title: "FIRST - Robot testing outdoors", width: 1280, height: 720 },
+  { kind: "video", src: "/videos/gallery/2024-4-14-8-4-38.mp4", poster: "/images/gallery/2024-4-14-8-4-38-poster.jpg", title: "FIRST - Robot mechanism test", width: 720, height: 1280 },
+  { kind: "image", src: "/images/gallery/pdc-20250722_075736.jpg", alt: "Electronic component held in a black machining fixture", width: 1012, height: 1800 },
+  { kind: "video", src: "/videos/gallery/20250723_084548.mp4", poster: "/images/gallery/20250723_084548-poster.jpg", title: "PDC - Component fixture machining", width: 1280, height: 720 },
+  { kind: "image", src: "/images/gallery/pdc-20250722_114140.jpg", alt: "Broken cutting tool on the CNC machine bed", width: 1012, height: 1800 },
+  { kind: "video", src: "/videos/gallery/20250722_111015.mp4", poster: "/images/gallery/20250722_111015-poster.jpg", title: "PDC - CNC machining setup", width: 1280, height: 720 },
+  { kind: "image", src: "/images/gallery/pdc-20250627_142843.jpg", alt: "Machined plastic fixture inspected by hand", width: 1012, height: 1800 },
+  { kind: "video", src: "/videos/gallery/20250627_134534.mp4", poster: "/images/gallery/20250627_134534-poster.jpg", title: "PDC - Plastic fixture machining", width: 1280, height: 720 },
+  { kind: "image", src: "/images/gallery/pdc-20250625_150530.jpg", alt: "CNC test cuts in plastic stock", width: 1012, height: 1800 },
+  { kind: "video", src: "/videos/gallery/20250714_115640.mp4", poster: "/images/gallery/20250714_115640-poster.jpg", title: "PDC - Drilling fixture in use", width: 1280, height: 720 },
+  { kind: "image", src: "/images/gallery/pdc-20260122_084150.jpg", alt: "Printed electronics carrier with two connector openings held by hand", width: 1012, height: 1800 },
+  { kind: "image", src: "/images/gallery/pdc-20260122_084108.jpg", alt: "Black prototype electronics chassis with sliding carrier trays", width: 1012, height: 1800 },
+  { kind: "image", src: "/images/gallery/pdc-20260806_144307.jpg", alt: "White printed electronics chassis with black carrier trays installed", width: 1012, height: 1800 },
+  { kind: "image", src: "/images/gallery/pdc-20260609_151727.jpg", alt: "Magnetic field measurement beside a circuit board in an aluminum fixture", width: 1012, height: 1800 },
+  { kind: "image", src: "/images/gallery/pdc-20260206_142024.jpg", alt: "Gold electronic components seated in a gray protective carrier tray", width: 1800, height: 1012 },
+  { kind: "image", src: "/images/gallery/pdc-20250813_121653.jpg", alt: "Component profile and height measurements on an inspection screen", width: 1800, height: 1012 },
+  { kind: "image", src: "/images/gallery/pdc-20250813_145407.jpg", alt: "Gold leaded electronic component seated in a black alignment tool", width: 1800, height: 1012 },
+  { kind: "image", src: "/images/gallery/pdc-20250721_150209.jpg", alt: "Chase Norvell engineering intern nameplate at Power Device Corporation", width: 1012, height: 1800 },
+];
+
 const galleryImages = [
   ["/images/gallery/first-championship-crowd.jpg", "FIRST Championship crowd under red and blue lights"],
   ["/images/gallery/roboctopi-team.jpg", "Roboctopi team at the FIRST Championship"],
@@ -59,6 +84,29 @@ export default function GalleryPage() {
     <main className="gallery-page shell">
       <h1>They say pictures speak a thousand words, lets see if thats true!</h1>
       <div className="gallery-wall">
+        {galleryAdditions.map((item) => (
+          <figure key={item.src}>
+            {item.kind === "video" ? (
+              <>
+                <video
+                  controls
+                  playsInline
+                  preload="none"
+                  poster={item.poster}
+                  width={item.width}
+                  height={item.height}
+                  aria-label={item.title}
+                >
+                  <source src={item.src} type="video/mp4" />
+                  <a href={item.src}>Open {item.title}</a>
+                </video>
+                <figcaption>{item.title}</figcaption>
+              </>
+            ) : (
+              <img src={item.src} alt={item.alt} width={item.width} height={item.height} loading="lazy" decoding="async" />
+            )}
+          </figure>
+        ))}
         {galleryImages.map(([src, alt]) => (
           <figure key={src}>
             <img src={src} alt={alt} loading="lazy" decoding="async" />
