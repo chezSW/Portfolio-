@@ -82,12 +82,11 @@ const galleryImages = [
 export default function GalleryPage() {
   return (
     <main className="gallery-page shell">
-      <h1>They say pictures speak a thousand words, lets see if thats true!</h1>
+      <h1>They say pictures (and videos) speak a thousand words, lets see if that&apos;s true!</h1>
       <div className="gallery-wall">
         {galleryAdditions.map((item) => (
           <figure key={item.src}>
             {item.kind === "video" ? (
-              <>
                 <video
                   controls
                   playsInline
@@ -100,8 +99,6 @@ export default function GalleryPage() {
                   <source src={item.src} type="video/mp4" />
                   <a href={item.src}>Open {item.title}</a>
                 </video>
-                <figcaption>{item.title}</figcaption>
-              </>
             ) : (
               <img src={item.src} alt={item.alt} width={item.width} height={item.height} loading="lazy" decoding="async" />
             )}
